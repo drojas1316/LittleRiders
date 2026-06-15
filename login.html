@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Little Riders es una aplicación web creada exclusivamente para que puedas acompañar a tus pequeños en cada ruta, directamente desde tu dispositivo.">
+    <meta name="keywords"
+        content="Transporte Costa Rica, Niños, transporte de niños, busetas de niños, microbus, transporte de estudiantes, estudiantes, escuelas, Little Riders">
+    <meta name="author" content="Little Riders">
+    <title>Little Riders</title>
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+</head>
+
+<body>
+
+    <!-- HEADER - Parte Superior -->
+    <header>
+        <div class="logo">
+            <img src="img/logoPequeno.png" alt="Little Riders">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Seguridad</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <a href="login.html" class="btn-login">
+            <i class="fa-regular fa-user"></i>
+            Iniciar sesión
+        </a>
+
+    </header>
+
+    <main>
+        <div class="card">
+
+            <div class="tabs">
+
+                <button class="tab active" onclick="showLogin()">
+                    Iniciar Sesión
+                </button>
+
+                <button class="tab" onclick="showRegister()">
+                    Registrarse
+                </button>
+
+            </div>
+
+            <!-- LOGIN -->
+
+            <div id="login">
+
+                <h1>Bienvenido</h1>
+
+                <p>Little Riders</p>
+
+                <input type="email" placeholder="Correo electrónico">
+
+                <input type="password" placeholder="Contraseña">
+
+                <button class="btn">
+                    Ingresar
+                </button>
+
+                <span class="link" onclick="showRegister()">
+                    Crear cuenta →
+                </span>
+
+            </div>
+
+            <!-- REGISTRO -->
+
+            <div id="register" style="display:none;">
+
+                <h1>Crear Cuenta</h1>
+
+                <p>Únete a Little Riders</p>
+
+                <input type="text" placeholder="Nombre completo">
+
+                <input type="email" placeholder="Correo electrónico">
+
+                <input type="tel" placeholder="Teléfono">
+
+                <input type="password" placeholder="Contraseña">
+
+                <button class="btn">
+                    Registrarme
+                </button>
+
+                <span class="link" onclick="showLogin()">
+                    Ya tengo cuenta →
+                </span>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER - PIE DE LA PAGINA -->
+    <footer class="footer" id="contacto">
+
+        <div class="footer-content">
+
+            <div class="footer-col footer-brand">
+                <img src="img/logoPequeno.png" alt="Little Riders">
+
+                <p>
+                    Transporte estudiantil seguro, confiable y pensado
+                    para la tranquilidad de las familias.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Seguridad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        +506 8888-8888
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        info@littleriders.com
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Costa Rica
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Síguenos</h3>
+
+                <div class="social-links">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 Little Riders. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
