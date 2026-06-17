@@ -1,0 +1,326 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(242,194,48,.15),
+    transparent 250px),
+
+    radial-gradient(circle at bottom left,
+    rgba(242,194,48,.12),
+    transparent 300px),
+
+    #F8FAFC;
+
+}
+
+/* HEADER */
+
+header{
+
+    position:fixed;
+
+    top:15px;
+    left:20px;
+    right:20px;
+
+    height:85px;
+
+    background:white;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    z-index:999;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.logo img{
+    height:60px;
+}
+
+nav{
+
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+
+    text-decoration:none;
+    color:#334155;
+    font-weight:600;
+}
+
+nav a.activo{
+
+    color:#f2c230;
+}
+
+.perfil{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.perfil img{
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+
+    margin-top:120px;
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    gap:25px;
+
+    padding:20px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.sidebar-menu{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.menu-item{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    color:#334155;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    margin-bottom:10px;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.menu-item:hover{
+
+    background:#FFF8DF;
+}
+
+.menu-item::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:16px;
+
+    width:0;
+
+    height:4px;
+
+    background:#44C8F5;
+
+    border-radius:50px;
+
+    transition:.3s;
+}
+
+.menu-item:hover::after,
+.menu-item.active::after{
+
+    width:70%;
+}
+
+.menu-item.active{
+
+    background:#FFF8DF;
+}
+
+/* HELP */
+
+.help-box{
+
+    background:#EAF4FF;
+
+    border-radius:25px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.help-box img{
+
+    width:100%;
+
+    margin:15px 0;
+}
+
+.help-box button{
+
+    width:100%;
+
+    border:none;
+
+    background:#f2c230;
+
+    color:#111;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.dashboard-content{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:25px;
+}
+
+.top-row{
+
+    display:grid;
+
+    grid-template-columns:2.8fr 1fr;
+
+    gap:25px;
+}
+
+.map-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.card-header h2{
+
+    color:#0F172A;
+}
+
+.card-header p{
+
+    color:#64748B;
+
+    margin-top:5px;
+}
+
+.gps-map{
+
+    margin-top:20px;
+
+    height:650px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.gps-map iframe{
+
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* DERECHA */
+
+.right-panel{
+
+    display:grid;
+
+    grid-template-rows:1fr 1fr;
+
+    gap:25px;
+}
+
+/* TARJETAS */
+
+.empty-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    min-height:250px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.empty-card h3{
+
+    color:#0F172A;
+}
+
+.bottom-row{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr;
+
+    gap:25px;
+}
+
+.large{
+
+    min-height:300px;
+}
