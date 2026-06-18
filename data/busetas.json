@@ -7,9 +7,9 @@
         "capacidad": 25,
         "modelo": 2020,
         "estado": "Disponible",
-        "ruta": "Alajuela - Centro",
-        "calificacion": 4.8,
-        "imagen": "img/busetas/buseta1.png"
+        "ruta": "Alajuela Centro",
+        "calificacion": 4.9,
+        "imagen": "img/buseta1.png"
     },
     {
         "id": 2,
@@ -17,35 +17,35 @@
         "placa": "DEF-456",
         "color": "Amarillo",
         "capacidad": 30,
-        "modelo": 2019,
-        "estado": "En servicio",
-        "ruta": "Heredia - San Rafael",
-        "calificacion": 4.7,
-        "imagen": "img/busetas/buseta1.png"
+        "modelo": 2021,
+        "estado": "Disponible",
+        "ruta": "San Rafael",
+        "calificacion": 4.8,
+        "imagen": "img/buseta2.png"
     },
     {
         "id": 3,
         "nombre": "Buseta 18",
         "placa": "GHI-789",
         "color": "Amarillo",
-        "capacidad": 25,
-        "modelo": 2021,
-        "estado": "Disponible",
-        "ruta": "San José - Escazú",
+        "capacidad": 28,
+        "modelo": 2022,
+        "estado": "Mantenimiento",
+        "ruta": "Heredia Centro",
         "calificacion": 4.6,
-        "imagen": "img/busetas/buseta1.png"
+        "imagen": "img/buseta3.png"
     },
     {
         "id": 4,
         "nombre": "Buseta 21",
         "placa": "JKL-321",
         "color": "Amarillo",
-        "capacidad": 28,
-        "modelo": 2022,
-        "estado": "En mantenimiento",
-        "ruta": "Cartago - Centro",
-        "calificacion": 4.5,
-        "imagen": "img/busetas/buseta1.png"
+        "capacidad": 26,
+        "modelo": 2019,
+        "estado": "Disponible",
+        "ruta": "Atenas",
+        "calificacion": 4.7,
+        "imagen": "img/buseta4.png"
     },
     {
         "id": 5,
@@ -55,8 +55,68 @@
         "capacidad": 32,
         "modelo": 2023,
         "estado": "Disponible",
-        "ruta": "Alajuela - Atenas",
+        "ruta": "Grecia",
         "calificacion": 4.9,
-        "imagen": "img/busetas/buseta1.png"
+        "imagen": "img/buseta5.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Buseta 27",
+        "placa": "PQR-987",
+        "color": "Amarillo",
+        "capacidad": 24,
+        "modelo": 2020,
+        "estado": "Disponible",
+        "ruta": "San Pedro de Poás",
+        "calificacion": 4.5,
+        "imagen": "img/buseta6.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Buseta 30",
+        "placa": "STU-147",
+        "color": "Amarillo",
+        "capacidad": 29,
+        "modelo": 2022,
+        "estado": "Disponible",
+        "ruta": "Desamparados de Alajuela",
+        "calificacion": 4.8,
+        "imagen": "img/buseta7.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Buseta 33",
+        "placa": "VWX-258",
+        "color": "Amarillo",
+        "capacidad": 27,
+        "modelo": 2021,
+        "estado": "Disponible",
+        "ruta": "La Guácima",
+        "calificacion": 4.7,
+        "imagen": "img/buseta8.png"
+    },
+    {
+        "id": 9,
+        "nombre": "Buseta 36",
+        "placa": "YZA-369",
+        "color": "Amarillo",
+        "capacidad": 31,
+        "modelo": 2023,
+        "estado": "Disponible",
+        "ruta": "Turrúcares",
+        "calificacion": 4.9,
+        "imagen": "img/buseta9.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Buseta 39",
+        "placa": "BCD-741",
+        "color": "Amarillo",
+        "capacidad": 25,
+        "modelo": 2020,
+        "estado": "Disponible",
+        "ruta": "Coyol",
+        "calificacion": 4.6,
+        "imagen": "img/buseta10.png"
     }
 ]

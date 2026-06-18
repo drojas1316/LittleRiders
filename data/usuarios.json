@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "nombre": "Administrador Little Riders",
+        "correo": "admin@littleriders.com",
+        "password": "admin123",
+        "rol": "admin",
+        "estado": "activo"
+    },
+    {
+        "id": 2,
+        "nombre": "María González",
+        "correo": "maria@gmail.com",
+        "password": "padre123",
+        "rol": "padre",
+        "estado": "activo"
+    },
+    {
+        "id": 3,
+        "nombre": "Pedro Ramírez",
+        "correo": "pedro@gmail.com",
+        "password": "padre123",
+        "rol": "padre",
+        "estado": "activo"
+    },
+    {
+        "id": 4,
+        "nombre": "Ana Torres",
+        "correo": "ana@gmail.com",
+        "password": "padre123",
+        "rol": "padre",
+        "estado": "activo"
+    },
+    {
+        "id": 5,
+        "nombre": "Luis Fernández",
+        "correo": "luis@gmail.com",
+        "password": "padre123",
+        "rol": "padre",
+        "estado": "activo"
+    }
+]

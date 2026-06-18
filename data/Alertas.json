@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "usuarioId": 2,
+        "titulo": "Buseta en camino",
+        "mensaje": "La buseta de Sofía ya inició el recorrido.",
+        "tipo": "ruta",
+        "prioridad": "normal",
+        "fecha": "2026-06-18 06:00",
+        "leida": false
+    },
+    {
+        "id": 2,
+        "usuarioId": 2,
+        "titulo": "Pago pendiente",
+        "mensaje": "Tiene un pago pendiente correspondiente al mes de junio.",
+        "tipo": "pago",
+        "prioridad": "alta",
+        "fecha": "2026-06-18 07:00",
+        "leida": false
+    },
+    {
+        "id": 3,
+        "usuarioId": 3,
+        "titulo": "Pago en revisión",
+        "mensaje": "Su comprobante de pago está siendo revisado por administración.",
+        "tipo": "pago",
+        "prioridad": "normal",
+        "fecha": "2026-06-18 07:20",
+        "leida": false
+    },
+    {
+        "id": 4,
+        "usuarioId": 4,
+        "titulo": "Mensaje enviado",
+        "mensaje": "Su solicitud de cambio de dirección fue recibida.",
+        "tipo": "mensaje",
+        "prioridad": "normal",
+        "fecha": "2026-06-18 11:30",
+        "leida": true
+    },
+    {
+        "id": 5,
+        "usuarioId": 5,
+        "titulo": "Pago vencido",
+        "mensaje": "Tiene un pago vencido. Por favor comuníquese con administración.",
+        "tipo": "pago",
+        "prioridad": "alta",
+        "fecha": "2026-06-18 08:00",
+        "leida": false
+    },
+    {
+        "id": 6,
+        "usuarioId": 1,
+        "titulo": "Nuevo mensaje",
+        "mensaje": "María González envió una consulta sobre el horario.",
+        "tipo": "mensaje",
+        "prioridad": "normal",
+        "fecha": "2026-06-18 08:31",
+        "leida": false
+    },
+    {
+        "id": 7,
+        "usuarioId": 1,
+        "titulo": "Pago vencido detectado",
+        "mensaje": "Luis Fernández tiene un pago vencido del mes de junio.",
+        "tipo": "pago",
+        "prioridad": "alta",
+        "fecha": "2026-06-18 08:05",
+        "leida": false
+    }
+]

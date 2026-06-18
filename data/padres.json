@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "usuarioId": 2,
+        "nombre": "María González",
+        "cedula": "1-1111-1111",
+        "telefono": "+506 8888-1111",
+        "correo": "maria@gmail.com",
+        "direccion": "Alajuela Centro, Costa Rica",
+        "estado": "activo"
+    },
+    {
+        "id": 2,
+        "usuarioId": 3,
+        "nombre": "Pedro Ramírez",
+        "cedula": "2-2222-2222",
+        "telefono": "+506 8888-2222",
+        "correo": "pedro@gmail.com",
+        "direccion": "San Rafael de Alajuela, Costa Rica",
+        "estado": "activo"
+    },
+    {
+        "id": 3,
+        "usuarioId": 4,
+        "nombre": "Ana Torres",
+        "cedula": "3-3333-3333",
+        "telefono": "+506 8888-3333",
+        "correo": "ana@gmail.com",
+        "direccion": "Grecia, Alajuela, Costa Rica",
+        "estado": "activo"
+    },
+    {
+        "id": 4,
+        "usuarioId": 5,
+        "nombre": "Luis Fernández",
+        "cedula": "4-4444-4444",
+        "telefono": "+506 8888-4444",
+        "correo": "luis@gmail.com",
+        "direccion": "Atenas, Alajuela, Costa Rica",
+        "estado": "activo"
+    }
+]

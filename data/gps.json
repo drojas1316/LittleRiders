@@ -1,0 +1,167 @@
+[
+    {
+        "id": 1,
+        "busetaId": 1,
+        "rutaId": 1,
+        "lat": 10.0162,
+        "lng": -84.2116,
+        "velocidad": 35,
+        "estado": "en movimiento",
+        "ultimaActualizacion": "2026-06-18 06:15",
+        "indiceActual": 0,
+        "recorrido": [
+            {
+                "lat": 10.0162,
+                "lng": -84.2116
+            },
+            {
+                "lat": 10.0165,
+                "lng": -84.2120
+            },
+            {
+                "lat": 10.0168,
+                "lng": -84.2131
+            },
+            {
+                "lat": 10.0174,
+                "lng": -84.2138
+            },
+            {
+                "lat": 10.0181,
+                "lng": -84.2145
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "busetaId": 2,
+        "rutaId": 2,
+        "lat": 10.0674,
+        "lng": -84.4705,
+        "velocidad": 30,
+        "estado": "detenida",
+        "ultimaActualizacion": "2026-06-18 06:20",
+        "indiceActual": 0,
+        "recorrido": [
+            {
+                "lat": 10.0674,
+                "lng": -84.4705
+            },
+            {
+                "lat": 10.0630,
+                "lng": -84.4620
+            },
+            {
+                "lat": 10.0598,
+                "lng": -84.4550
+            },
+            {
+                "lat": 10.0550,
+                "lng": -84.4450
+            },
+            {
+                "lat": 10.0500,
+                "lng": -84.4350
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "busetaId": 5,
+        "rutaId": 3,
+        "lat": 10.0731,
+        "lng": -84.3115,
+        "velocidad": 28,
+        "estado": "en movimiento",
+        "ultimaActualizacion": "2026-06-18 06:25",
+        "indiceActual": 0,
+        "recorrido": [
+            {
+                "lat": 10.0731,
+                "lng": -84.3115
+            },
+            {
+                "lat": 10.0710,
+                "lng": -84.3080
+            },
+            {
+                "lat": 10.0695,
+                "lng": -84.3040
+            },
+            {
+                "lat": 10.0660,
+                "lng": -84.3000
+            },
+            {
+                "lat": 10.0625,
+                "lng": -84.2965
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "busetaId": 4,
+        "rutaId": 4,
+        "lat": 9.9794,
+        "lng": -84.3788,
+        "velocidad": 32,
+        "estado": "en movimiento",
+        "ultimaActualizacion": "2026-06-18 06:18",
+        "indiceActual": 0,
+        "recorrido": [
+            {
+                "lat": 9.9794,
+                "lng": -84.3788
+            },
+            {
+                "lat": 9.9820,
+                "lng": -84.3750
+            },
+            {
+                "lat": 9.9850,
+                "lng": -84.3710
+            },
+            {
+                "lat": 9.9880,
+                "lng": -84.3680
+            },
+            {
+                "lat": 9.9915,
+                "lng": -84.3655
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "busetaId": 8,
+        "rutaId": 5,
+        "lat": 9.9650,
+        "lng": -84.2590,
+        "velocidad": 25,
+        "estado": "detenida",
+        "ultimaActualizacion": "2026-06-18 06:22",
+        "indiceActual": 0,
+        "recorrido": [
+            {
+                "lat": 9.9650,
+                "lng": -84.2590
+            },
+            {
+                "lat": 9.9620,
+                "lng": -84.2550
+            },
+            {
+                "lat": 9.9600,
+                "lng": -84.2500
+            },
+            {
+                "lat": 9.9570,
+                "lng": -84.2450
+            },
+            {
+                "lat": 9.9545,
+                "lng": -84.2405
+            }
+        ]
+    }
+]

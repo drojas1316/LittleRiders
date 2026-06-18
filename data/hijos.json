@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "padreId": 1,
+        "nombre": "Sofía González",
+        "edad": 9,
+        "grado": "Cuarto",
+        "institucion": "Escuela Central de Alajuela",
+        "rutaId": 1,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-1111"
+    },
+    {
+        "id": 2,
+        "padreId": 1,
+        "nombre": "Mateo González",
+        "edad": 7,
+        "grado": "Segundo",
+        "institucion": "Escuela Central de Alajuela",
+        "rutaId": 1,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-1111"
+    },
+    {
+        "id": 3,
+        "padreId": 2,
+        "nombre": "Valeria Ramírez",
+        "edad": 10,
+        "grado": "Quinto",
+        "institucion": "Colegio Infantil Alajuela",
+        "rutaId": 2,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-2222"
+    },
+    {
+        "id": 4,
+        "padreId": 2,
+        "nombre": "Daniel Ramírez",
+        "edad": 8,
+        "grado": "Tercero",
+        "institucion": "Colegio Infantil Alajuela",
+        "rutaId": 2,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-2222"
+    },
+    {
+        "id": 5,
+        "padreId": 3,
+        "nombre": "Camila Torres",
+        "edad": 11,
+        "grado": "Sexto",
+        "institucion": "Escuela Nueva Esperanza",
+        "rutaId": 3,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-3333"
+    },
+    {
+        "id": 6,
+        "padreId": 3,
+        "nombre": "Sebastián Torres",
+        "edad": 6,
+        "grado": "Primero",
+        "institucion": "Escuela Nueva Esperanza",
+        "rutaId": 3,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-3333"
+    },
+    {
+        "id": 7,
+        "padreId": 4,
+        "nombre": "Lucía Fernández",
+        "edad": 9,
+        "grado": "Cuarto",
+        "institucion": "Centro Educativo Atenas",
+        "rutaId": 4,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-4444"
+    },
+    {
+        "id": 8,
+        "padreId": 4,
+        "nombre": "Tomás Fernández",
+        "edad": 12,
+        "grado": "Sétimo",
+        "institucion": "Centro Educativo Atenas",
+        "rutaId": 4,
+        "estado": "activo",
+        "contactoEmergencia": "+506 8888-4444"
+    }
+]

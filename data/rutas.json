@@ -1,0 +1,172 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ruta Alajuela Centro",
+        "descripcion": "Ruta escolar hacia Escuela Central de Alajuela",
+        "conductorId": 1,
+        "busetaId": 1,
+        "horaSalida": "06:00",
+        "horaLlegada": "07:00",
+        "horaRegreso": "14:30",
+        "estado": "activa",
+        "paradas": [
+            {
+                "id": 1,
+                "nombre": "Residencial Los Pinos",
+                "hora": "06:10",
+                "lat": 10.0162,
+                "lng": -84.2116
+            },
+            {
+                "id": 2,
+                "nombre": "Parque Central de Alajuela",
+                "hora": "06:30",
+                "lat": 10.0168,
+                "lng": -84.2131
+            },
+            {
+                "id": 3,
+                "nombre": "Escuela Central de Alajuela",
+                "hora": "06:55",
+                "lat": 10.0181,
+                "lng": -84.2145
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Ruta San Rafael",
+        "descripcion": "Ruta escolar hacia Colegio Infantil Alajuela",
+        "conductorId": 2,
+        "busetaId": 2,
+        "horaSalida": "06:15",
+        "horaLlegada": "07:10",
+        "horaRegreso": "15:00",
+        "estado": "activa",
+        "paradas": [
+            {
+                "id": 1,
+                "nombre": "San Rafael Centro",
+                "hora": "06:20",
+                "lat": 10.0674,
+                "lng": -84.4705
+            },
+            {
+                "id": 2,
+                "nombre": "Urbanización El Roble",
+                "hora": "06:40",
+                "lat": 10.0598,
+                "lng": -84.4550
+            },
+            {
+                "id": 3,
+                "nombre": "Colegio Infantil Alajuela",
+                "hora": "07:05",
+                "lat": 10.0500,
+                "lng": -84.4350
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Ruta Grecia",
+        "descripcion": "Ruta escolar hacia Escuela Nueva Esperanza",
+        "conductorId": 5,
+        "busetaId": 5,
+        "horaSalida": "06:05",
+        "horaLlegada": "07:05",
+        "horaRegreso": "14:45",
+        "estado": "activa",
+        "paradas": [
+            {
+                "id": 1,
+                "nombre": "Grecia Centro",
+                "hora": "06:10",
+                "lat": 10.0731,
+                "lng": -84.3115
+            },
+            {
+                "id": 2,
+                "nombre": "Barrio Latino",
+                "hora": "06:30",
+                "lat": 10.0695,
+                "lng": -84.3040
+            },
+            {
+                "id": 3,
+                "nombre": "Escuela Nueva Esperanza",
+                "hora": "07:00",
+                "lat": 10.0625,
+                "lng": -84.2965
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Ruta Atenas",
+        "descripcion": "Ruta escolar hacia Centro Educativo Atenas",
+        "conductorId": 4,
+        "busetaId": 4,
+        "horaSalida": "06:00",
+        "horaLlegada": "07:15",
+        "horaRegreso": "15:10",
+        "estado": "activa",
+        "paradas": [
+            {
+                "id": 1,
+                "nombre": "Atenas Centro",
+                "hora": "06:10",
+                "lat": 9.9794,
+                "lng": -84.3788
+            },
+            {
+                "id": 2,
+                "nombre": "Barrio Mercedes",
+                "hora": "06:35",
+                "lat": 9.9850,
+                "lng": -84.3710
+            },
+            {
+                "id": 3,
+                "nombre": "Centro Educativo Atenas",
+                "hora": "07:10",
+                "lat": 9.9915,
+                "lng": -84.3655
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Ruta La Guácima",
+        "descripcion": "Ruta escolar hacia zona oeste de Alajuela",
+        "conductorId": 8,
+        "busetaId": 8,
+        "horaSalida": "06:20",
+        "horaLlegada": "07:20",
+        "horaRegreso": "15:00",
+        "estado": "activa",
+        "paradas": [
+            {
+                "id": 1,
+                "nombre": "La Guácima Centro",
+                "hora": "06:25",
+                "lat": 9.9650,
+                "lng": -84.2590
+            },
+            {
+                "id": 2,
+                "nombre": "Hacienda Los Reyes",
+                "hora": "06:45",
+                "lat": 9.9600,
+                "lng": -84.2500
+            },
+            {
+                "id": 3,
+                "nombre": "Escuela La Guácima",
+                "hora": "07:15",
+                "lat": 9.9545,
+                "lng": -84.2405
+            }
+        ]
+    }
+]

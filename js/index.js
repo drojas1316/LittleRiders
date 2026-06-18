@@ -38,22 +38,19 @@ const btnNext = document.getElementById("btnNext");
 
 let intervaloBusetas;
 
+/* Funciona con localStorage */
 if (vehiclesTrack) {
-    cargarBusetas();
+    document.addEventListener("baseDatosLista", function() {
+        cargarBusetas();
+    });
 }
 
+/* Funciona con localStorage */
 function cargarBusetas() {
-    fetch("data/busetas.json")
-        .then(function(respuesta) {
-            return respuesta.json();
-        })
-        .then(function(busetas) {
-            mostrarBusetas(busetas);
-            activarCarruselBusetas();
-        })
-        .catch(function(error) {
-            console.log("Error al cargar las busetas:", error);
-        });
+    const busetas = obtenerDatos(DB_KEYS.busetas); /* consulta a localStorage */
+
+    mostrarBusetas(busetas);
+    activarCarruselBusetas();
 }
 
 function mostrarBusetas(busetas) {
@@ -98,7 +95,17 @@ function mostrarBusetas(busetas) {
     });
 }
 
+let carruselBusetasActivo = false;
+
+
 function activarCarruselBusetas() {
+
+    if (carruselBusetasActivo) {
+        return;
+    }
+
+    carruselBusetasActivo = true;
+    
     const desplazamiento = 360;
 
     btnNext.addEventListener("click", function() {
@@ -146,32 +153,37 @@ const btnDriverNext = document.getElementById("btnDriverNext");
 
 let intervaloConductores;
 
+/* Funciona con localStorage */
 if (driversTrack) {
-    cargarConductores();
+    document.addEventListener("baseDatosLista", function() {  /* consulta a localStorage */
+        cargarConductores();
+    });
 }
 
+/* Funciona con localStorage */
 function cargarConductores() {
-    fetch("data/conductores.json")
-        .then(function(respuesta) {
-            return respuesta.json();
-        })
-        .then(function(conductores) {
-            mostrarConductores(conductores);
-            activarCarruselConductores();
-        })
-        .catch(function(error) {
-            console.log("Error al cargar los conductores:", error);
-        });
+    const conductores = obtenerDatos(DB_KEYS.conductores);  /* consulta a localStorage */
+    const busetas = obtenerDatos(DB_KEYS.busetas);
+
+    mostrarConductores(conductores, busetas);
+    activarCarruselConductores();
 }
 
-function mostrarConductores(conductores) {
+function mostrarConductores(conductores, busetas) {
     driversTrack.innerHTML = "";
 
     conductores.forEach(function(conductor) {
 
+        const buseta = busetas.find(function(item) {
+            return item.id === conductor.busetaId;
+        });
+
         const estadoClase = conductor.estado.toLowerCase().includes("ruta")
             ? "ruta"
             : "";
+
+        const nombreBuseta = buseta ? buseta.nombre : "Sin asignar";
+        const placaBuseta = buseta ? buseta.placa : "N/A";
 
         driversTrack.innerHTML += `
             <div class="driver-card">
@@ -197,8 +209,8 @@ function mostrarConductores(conductores) {
                     <p><strong>Experiencia:</strong> ${conductor.experiencia} años</p>
                     <p><strong>Licencia:</strong> ${conductor.licencia}</p>
                     <p><strong>Teléfono:</strong> ${conductor.telefono}</p>
-                    <p><strong>Buseta:</strong> ${conductor.busetaAsignada}</p>
-                    <p><strong>Placa:</strong> ${conductor.placaAsignada}</p>
+                    <p><strong>Buseta:</strong> ${nombreBuseta}</p>
+                    <p><strong>Placa:</strong> ${placaBuseta}</p>
                 </div>
 
                 <div class="driver-bottom">
@@ -207,7 +219,7 @@ function mostrarConductores(conductores) {
                     </span>
 
                     <span class="driver-bus">
-                        ${conductor.busetaAsignada}
+                        ${nombreBuseta}
                     </span>
                 </div>
 
@@ -216,7 +228,15 @@ function mostrarConductores(conductores) {
     });
 }
 
+let carruselConductoresActivo = false;
+
 function activarCarruselConductores() {
+    if (carruselConductoresActivo) {
+        return;
+    }
+
+    carruselConductoresActivo = true;
+    
     const desplazamiento = 370;
 
     if (btnDriverNext) {
