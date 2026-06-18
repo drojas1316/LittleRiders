@@ -23,13 +23,11 @@
         </div>
 
         <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Seguridad</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <a href="#" class="active">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Busetas</a>
+            <a href="#">Conductores</a>
+            <a href="#">Contacto</a>
         </nav>
 
         <div class="perfil">
@@ -38,6 +36,9 @@
 
             <img src="https://i.pravatar.cc/50" alt="Usuario">
 
+            <a href="#" class="logout-btn" title="Cerrar sesión">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
         </div>
 
     </header>
@@ -85,28 +86,12 @@
                 </a>
 
                 <a class="menu-item">
-                    <i class="fa-solid fa-star"></i>
-                    Reseñas
-                </a>
-
-                <a class="menu-item">
                     <i class="fa-solid fa-gear"></i>
                     Configuración
                 </a>
 
             </div>
 
-            <div class="help-box">
-
-                <h3>¿Necesitas ayuda?</h3>
-
-                <p>
-                    Nuestro equipo está disponible para ayudarte.
-                </p>
-
-                <button>Contáctanos</button>
-
-            </div>
 
         </aside>
 
@@ -174,6 +159,78 @@
         </section>
 
     </main>
+    <footer class="footer" id="contacto">
+
+        <div class="footer-content">
+
+            <div class="footer-col footer-brand">
+                <img src="img/logoPequeno.png" alt="Little Riders">
+
+                <p>
+                    Transporte estudiantil seguro, confiable y pensado
+                    para la tranquilidad de las familias.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Seguridad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        +506 8888-8888
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        info@littleriders.com
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Costa Rica
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Síguenos</h3>
+
+                <div class="social-links">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 Little Riders. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
     <script src="js/principal.js"></script>
 </body>
+
 </html>
