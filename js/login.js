@@ -36,3 +36,47 @@ function showRegister(){
     tabs[1].classList.add("active");
     tabs[0].classList.remove("active");
 }
+
+
+
+/* =======================================
+HEADER ANIMADO AL CARGAR Y AL HACER SCROLL
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const header = document.querySelector("header");
+
+    if (!header) {
+        return;
+    }
+
+    let ultimaPosicionScroll = window.scrollY;
+
+    setTimeout(function() {
+        header.classList.add("header-visible");
+    }, 200);
+
+    window.addEventListener("scroll", function() {
+
+        const posicionActual = window.scrollY;
+
+        if (posicionActual <= 80) {
+            header.classList.remove("header-hidden");
+            header.classList.add("header-visible");
+            ultimaPosicionScroll = posicionActual;
+            return;
+        }
+
+        if (posicionActual > ultimaPosicionScroll) {
+            header.classList.remove("header-visible");
+            header.classList.add("header-hidden");
+        } else {
+            header.classList.remove("header-hidden");
+            header.classList.add("header-visible");
+        }
+
+        ultimaPosicionScroll = posicionActual;
+    });
+
+});
