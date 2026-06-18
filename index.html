@@ -11,7 +11,7 @@
         content="Transporte Costa Rica, Niños, transporte de niños, busetas de niños, microbus, transporte de estudiantes, estudiantes, escuelas, Little Riders">
     <meta name="author" content="Little Riders">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styleIndex.css">
     <title>Little Riders | Inicio</title>
 </head>
@@ -27,9 +27,9 @@
         <nav>
             <ul>
                 <li><a href="#" class="activo">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Seguridad</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#seg">Seguridad</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -61,7 +61,7 @@
                     <a href="#" class="btn-primary">
                         Solicitar servicio
                     </a>
-                    <a href="#contacto" class="btn-secondary">
+                    <a href="#formulario-contacto" class="btn-secondary">
                         Contáctanos
                     </a>
                 </div>
@@ -82,9 +82,8 @@
                         Seguimiento en tiempo real
                     </span>
                 </div>
-            </div> 
+            </div>
         </section>
-
 
 
         <!-- BENEFICIOS - COMO FUNCIONA -->
@@ -150,6 +149,433 @@
             </div>
 
         </section>
+
+
+        <!-- SOBRE NOSOTROS -->
+        <section class="about-section" id="nosotros">
+
+            <div class="about-container">
+
+                <div class="about-top">
+
+                    <div class="about-text">
+                        <span class="section-tag">Sobre nosotros</span>
+
+                        <h2>
+                            Cuidamos cada viaje
+                            <span>como si fuera nuestro.</span>
+                        </h2>
+
+                        <p>
+                            En Little Riders nos dedicamos al transporte escolar
+                            con compromiso, seguridad y amor por lo que hacemos.
+                            Nuestro objetivo es brindar tranquilidad a las familias
+                            y una experiencia segura para cada estudiante.
+                        </p>
+
+                        <p>
+                            Utilizamos comunicación constante, rutas organizadas
+                            y seguimiento responsable para mantener informados
+                            a los padres durante cada recorrido.
+                        </p>
+                    </div>
+
+                    <div class="about-image">
+                        <img src="img/sobreNosotros.png" alt="Estudiantes abordando el bus escolar">
+                    </div>
+
+                </div>
+
+                <div class="about-cards">
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-shield-heart"></i>
+
+                        <div>
+                            <h3>Nuestra misión</h3>
+                            <p>
+                                Brindar transporte escolar seguro, puntual
+                                y confiable para cada familia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-route"></i>
+
+                        <div>
+                            <h3>Nuestra visión</h3>
+                            <p>
+                                Ser una opción reconocida por su seguridad,
+                                confianza y trato responsable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+
+                        <div>
+                            <h3>Nuestros valores</h3>
+                            <p>
+                                Seguridad, responsabilidad, puntualidad,
+                                respeto y compromiso.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICIOS / BUSETAS -->
+        <section class="vehicles-section" id="servicios">
+
+            <div class="vehicles-container">
+
+                <div class="vehicles-header">
+                    <div>
+                        <span class="section-tag">Nuestros servicios</span>
+
+                        <h2>Nuestras busetas</h2>
+
+                        <p>
+                            Contamos con unidades modernas, seguras y preparadas
+                            para brindar un servicio confiable.
+                        </p>
+                    </div>
+
+                    <div class="vehicles-controls">
+                        <button class="vehicle-btn" id="btnPrev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <button class="vehicle-btn" id="btnNext">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="vehicles-wrapper">
+
+                    <div class="vehicles-track" id="vehiclesTrack">
+                        <!-- Las busetas se cargan con JS -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONDUCTORES -->
+        <section class="drivers-section" id="conductores">
+
+            <div class="drivers-container">
+
+                <div class="drivers-header">
+                    <div>
+                        <span class="section-tag">Equipo responsable</span>
+
+                        <h2>Nuestros conductores</h2>
+
+                        <p>
+                            Personal verificado, capacitado y comprometido con
+                            la seguridad de cada estudiante durante el recorrido.
+                        </p>
+                    </div>
+
+                    <div class="drivers-controls">
+                        <button class="driver-btn" id="btnDriverPrev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <button class="driver-btn" id="btnDriverNext">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="drivers-wrapper">
+
+                    <div class="drivers-track" id="driversTrack">
+                        <!-- Los conductores se cargan con JS -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- SEGURIDAD / AYUDA -->
+        <section class="support-section" id="seg">
+
+            <div class="support-container">
+
+                <div class="security-box">
+
+                    <div class="security-content">
+                        <h2>
+                            Seguridad, confianza y tranquilidad
+                            <span>para tu familia.</span>
+                        </h2>
+
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Conductores verificados
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Monitoreo en tiempo real
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-bell"></i>
+                                Alertas instantáneas
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-comments"></i>
+                                Atención personalizada
+                            </li>
+                        </ul>
+
+                        <a href="login.html" class="btn-security">
+                            Conocenos más..
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="help-box">
+
+                    <h3>Centro de ayuda</h3>
+
+                    <a href="#formulario-contacto" class="help-item">
+                        <div class="help-icon blue">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+
+                        <div>
+                            <h4>Preguntas frecuentes</h4>
+                            <p>Resuelve tus dudas.</p>
+                        </div>
+                    </a>
+
+                    <a href="#formulario-contacto" class="help-item">
+                        <div class="help-icon green">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <div>
+                            <h4>Guías y tutoriales</h4>
+                            <p>Aprende sobre el servicio.</p>
+                        </div>
+                    </a>
+
+                    <a href="#formulario-contacto" class="help-item">
+                        <div class="help-icon red">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <h4>Contáctanos</h4>
+                            <p>Estamos para ayudarte.</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section class="contact-section" id="formulario-contacto">
+
+            <div class="contact-container">
+
+                <div class="contact-info">
+
+                    <span class="contact-tag">Contáctanos</span>
+
+                    <h2>
+                        ¿Listo para viajar
+                        <span>con tranquilidad?</span>
+                    </h2>
+
+                    <p>
+                        Escríbenos y te ayudaremos a conocer nuestras rutas,
+                        horarios y disponibilidad para el transporte estudiantil.
+                    </p>
+
+                    <div class="contact-details">
+
+                        <div class="contact-detail">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+506 8888-8888</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Correo</h4>
+                                <p>info@littleriders.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>Costa Rica</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <form class="contact-form" id="contactForm">
+
+                    <h3>Envíanos un mensaje</h3>
+
+                    <div class="form-group">
+                        <input type="text" id="nombre" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="correo" placeholder="Tu correo electrónico" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" id="telefono" placeholder="Tu número de teléfono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-form">
+                        Enviar mensaje
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- TESTIMONIOS -->
+        <section class="testimonials-section">
+
+            <div class="testimonials-container">
+
+                <span class="section-tag">Testimonios</span>
+
+                <h2>Lo que dicen nuestros padres</h2>
+
+                <p class="testimonials-description">
+                    La confianza de las familias es nuestra mayor motivación.
+                </p>
+
+                <div class="testimonials-cards">
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">M</div>
+
+                            <div>
+                                <h3>María González</h3>
+                                <span>Madre de familia</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Excelente servicio. Ahora puedo estar tranquila sabiendo
+                            que mi hijo viaja seguro todos los días.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">P</div>
+
+                            <div>
+                                <h3>Pedro Ramírez</h3>
+                                <span>Padre de familia</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Muy buena comunicación. Siempre nos informan sobre la ruta
+                            y el recorrido de los estudiantes.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">A</div>
+
+                            <div>
+                                <h3>Ana Torres</h3>
+                                <span>Madre de familia</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            El trato es muy responsable y amable. Se nota el compromiso
+                            con la seguridad de los niños.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
 
     </main>
 
@@ -224,6 +650,7 @@
         </div>
     </footer>
 
+    <script src="js/index.js"></script>
 </body>
 
 </html>

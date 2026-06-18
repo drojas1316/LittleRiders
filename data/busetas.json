@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "nombre": "Buseta 12",
+        "placa": "ABC-123",
+        "color": "Amarillo",
+        "capacidad": 25,
+        "modelo": 2020,
+        "estado": "Disponible",
+        "ruta": "Alajuela - Centro",
+        "calificacion": 4.8,
+        "imagen": "img/busetas/buseta1.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Buseta 15",
+        "placa": "DEF-456",
+        "color": "Amarillo",
+        "capacidad": 30,
+        "modelo": 2019,
+        "estado": "En servicio",
+        "ruta": "Heredia - San Rafael",
+        "calificacion": 4.7,
+        "imagen": "img/busetas/buseta1.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Buseta 18",
+        "placa": "GHI-789",
+        "color": "Amarillo",
+        "capacidad": 25,
+        "modelo": 2021,
+        "estado": "Disponible",
+        "ruta": "San José - Escazú",
+        "calificacion": 4.6,
+        "imagen": "img/busetas/buseta1.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Buseta 21",
+        "placa": "JKL-321",
+        "color": "Amarillo",
+        "capacidad": 28,
+        "modelo": 2022,
+        "estado": "En mantenimiento",
+        "ruta": "Cartago - Centro",
+        "calificacion": 4.5,
+        "imagen": "img/busetas/buseta1.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Buseta 24",
+        "placa": "MNO-654",
+        "color": "Amarillo",
+        "capacidad": 32,
+        "modelo": 2023,
+        "estado": "Disponible",
+        "ruta": "Alajuela - Atenas",
+        "calificacion": 4.9,
+        "imagen": "img/busetas/buseta1.png"
+    }
+]

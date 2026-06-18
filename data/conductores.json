@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Carlos Méndez",
+        "experiencia": 8,
+        "licencia": "B3",
+        "telefono": "+506 8888-1111",
+        "estado": "Disponible",
+        "busetaAsignada": "Buseta 12",
+        "placaAsignada": "ABC-123",
+        "calificacion": 4.9,
+        "imagen": "img/conductores/fotoPerfil.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Laura Jiménez",
+        "experiencia": 6,
+        "licencia": "B3",
+        "telefono": "+506 8888-2222",
+        "estado": "En ruta",
+        "busetaAsignada": "Buseta 15",
+        "placaAsignada": "DEF-456",
+        "calificacion": 4.8,
+        "imagen": "img/conductores/fotoPerfil.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Andrés Rojas",
+        "experiencia": 10,
+        "licencia": "B3",
+        "telefono": "+506 8888-3333",
+        "estado": "Disponible",
+        "busetaAsignada": "Buseta 18",
+        "placaAsignada": "GHI-789",
+        "calificacion": 4.7,
+        "imagen": "img/conductores/fotoPerfil.png"
+    },
+    {
+        "id": 4,
+        "nombre": "María Vargas",
+        "experiencia": 5,
+        "licencia": "B3",
+        "telefono": "+506 8888-4444",
+        "estado": "En ruta",
+        "busetaAsignada": "Buseta 24",
+        "placaAsignada": "MNO-654",
+        "calificacion": 4.9,
+        "imagen": "img/conductores/fotoPerfil.png"
+    }
+]
