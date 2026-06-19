@@ -85,41 +85,141 @@ document.addEventListener("DOMContentLoaded", function() {
 LOGIN
 ========================================= */
 
-document.getElementById("loginForm").addEventListener("submit", function(e) {
+document.getElementById("loginForm").addEventListener("submit", function(e){
 
     e.preventDefault();
 
     const identificacion =
-        document.getElementById("loginIdentificacion").value;
+        document.getElementById("loginIdentificacion");
 
     const password =
-        document.getElementById("loginPassword").value;
+        document.getElementById("loginPassword");
 
-    if (identificacion.length !== 9) {
+    if(identificacion.value.length !== 9){
 
-        alert("La identificación debe tener 9 dígitos");
+        alert("La identificación debe tener exactamente 9 dígitos");
+        identificacion.focus();
+        return;
+    }
+
+    if(password.value.length < 6){
+
+        alert("La contraseña debe tener mínimo 6 caracteres");
+        password.focus();
         return;
     }
 
     window.location.href = "principal.html";
+
 });
 
 /* =======================================
 REGISTRO
 ========================================= */
 
-document.getElementById("registerForm").addEventListener("submit", function(e) {
+document.getElementById("registerForm").addEventListener("submit", function(e){
 
     e.preventDefault();
 
+    const nombre =
+        document.getElementById("nombre");
+
     const identificacion =
-        document.getElementById("identificacion").value;
+        document.getElementById("identificacion");
 
-    if (identificacion.length !== 9) {
+    const correo =
+        document.getElementById("correo");
 
-        alert("La identificación debe tener 9 dígitos");
+    const telefono =
+        document.getElementById("telefono");
+
+    const direccion =
+        document.getElementById("direccion");
+
+    const password =
+        document.getElementById("password");
+
+    if(nombre.value.trim().length < 3){
+
+        alert("Ingrese un nombre válido");
+        nombre.focus();
+        return;
+    }
+
+    if(identificacion.value.length !== 9){
+
+        alert("La identificación debe tener exactamente 9 dígitos");
+        identificacion.focus();
+        return;
+    }
+
+    if(!correo.checkValidity()){
+
+        alert("Ingrese un correo válido");
+        correo.focus();
+        return;
+    }
+
+    if(telefono.value.length < 8){
+
+        alert("El teléfono debe tener 8 dígitos");
+        telefono.focus();
+        return;
+    }
+
+    if(direccion.value.trim() === ""){
+
+        alert("Ingrese una dirección");
+        direccion.focus();
+        return;
+    }
+
+    if(password.value.length < 6){
+
+        alert("La contraseña debe tener mínimo 6 caracteres");
+        password.focus();
         return;
     }
 
     window.location.href = "principal.html";
+
 });
+
+/* =======================================
+SOLO NUMEROS
+========================================= */
+
+["identificacion", "loginIdentificacion", "telefono"].forEach(id => {
+
+    document.getElementById(id).addEventListener("input", function() {
+
+        this.value = this.value.replace(/\D/g, "");
+
+    });
+
+});
+
+/* =======================================
+CONTRASEÑA
+========================================= */
+
+function togglePassword(inputId, icon){
+
+    const input = document.getElementById(inputId);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+
+    }else{
+
+        input.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+

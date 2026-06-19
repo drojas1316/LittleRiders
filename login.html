@@ -67,11 +67,15 @@
 
                 <form id="loginForm">
 
-                    <input type="number" id="loginIdentificacion" maxlength="9" placeholder="Identificación" required
-                        pattern="[0-9]{9}">
+                    <input type="text" id="loginIdentificacion" maxlength="9" pattern="[0-9]{9}"
+                        placeholder="Identificacion" required>
 
-                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                    <div class="password-container">
+                        <input type="password" id="loginPassword" placeholder="Contraseña" required minlenght="6">
 
+                        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('loginPassword', this)">
+                        </i>
+                    </div>
                     <button type="submit" class="btn">
                         Ingresar
                     </button>
@@ -95,17 +99,21 @@
 
                     <input type="text" id="nombre" placeholder="Nombre completo" required>
 
-                    <input type="number" id="identificacion" maxlength="9" placeholder="Identificación" required
-                        pattern="[0-9]{9}">
+                    <input type="text" id="identificacion" maxlength="9" pattern="[0-9]{9}" inputmode="numeric"
+                        placeholder="Identificación" required>
 
                     <input type="email" id="correo" placeholder="Correo electrónico" required>
 
-                    <input type="tel" id="telefono" placeholder="Teléfono" required>
+                    <input type="tel" id="telefono" placeholder="Teléfono" maxlength="8" required>
 
                     <input type="text" id="direccion" placeholder="Dirección" required>
 
-                    <input type="password" id="password" placeholder="Contraseña" required minlength="6">
+                    <div class="password-container">
+                        <input type="password" id="password" placeholder="Contraseña" required minlength="6">
 
+                        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('password', this)">
+                        </i>
+                    </div>
                     <button class="btn">
                         Registrarme
                     </button>

@@ -177,6 +177,42 @@ input:focus{
     box-shadow:0 0 0 4px rgba(245,158,11,.15);
 }
 
+.password-container{
+
+    position:relative;
+
+    width:100%;
+
+    margin-bottom:12px;
+}
+
+.password-container input{
+
+    margin-bottom:0;
+    padding-right:45px;
+}
+
+.toggle-password{
+
+    position:absolute;
+
+    right:15px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#64748B;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.toggle-password:hover{
+
+    color:#f2c230;
+}
+
 /* =========================
 BOTON
 ========================= */
@@ -245,3 +281,4 @@ REGISTRO
 
     background:#f0fdf4;
 }
+
