@@ -41,7 +41,7 @@ header {
 }
 
 .logo img {
-    height: 60px;
+    height: 80px;
 }
 
 /* =========================================
@@ -195,6 +195,25 @@ CERRAR SESIÓN
 
     box-shadow: 0 8px 20px rgba(242, 194, 48, .35);
 }
+
+
+/* =========================================
+DASHBOARD
+========================================= */
+
+.dashboard {
+    margin-top: 120px;
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 25px;
+
+    padding: 20px;
+}
+
+
 
 /* =========================================
 SIDEBAR
