@@ -10,7 +10,7 @@
         "estado": "Activo",
         "busetaId": 1,
         "calificacion": 4.9,
-        "imagen": "img/conductor1.png"
+        "imagen": "img/conductores/fotoPerfil.png"
     },
     {
         "id": 2,
@@ -23,7 +23,7 @@
         "estado": "Activo",
         "busetaId": 2,
         "calificacion": 4.8,
-        "imagen": "img/conductor2.png"
+        "imagen": "img/conductores/FotoPerfilM1.png"
     },
     {
         "id": 3,
@@ -36,7 +36,7 @@
         "estado": "Activo",
         "busetaId": 3,
         "calificacion": 4.7,
-        "imagen": "img/conductor3.png"
+        "imagen": "img/conductores/FotoPerfilH2.png"
     },
     {
         "id": 4,
@@ -49,7 +49,7 @@
         "estado": "Activo",
         "busetaId": 4,
         "calificacion": 4.8,
-        "imagen": "img/conductor4.png"
+        "imagen": "img/conductores/FotoPerfilM2.png"
     },
     {
         "id": 5,
@@ -62,7 +62,7 @@
         "estado": "Activo",
         "busetaId": 5,
         "calificacion": 4.9,
-        "imagen": "img/conductor5.png"
+        "imagen": "img/conductores/FotoPerfilH3.png"
     },
     {
         "id": 6,
@@ -75,7 +75,7 @@
         "estado": "Activo",
         "busetaId": 6,
         "calificacion": 4.6,
-        "imagen": "img/conductor6.png"
+        "imagen": "iimg/conductores/FotoPerfilM3.png"
     },
     {
         "id": 7,
@@ -88,7 +88,7 @@
         "estado": "Activo",
         "busetaId": 7,
         "calificacion": 4.8,
-        "imagen": "img/conductor7.png"
+        "imagen": "img/conductores/FotoPerfilH4.png"
     },
     {
         "id": 8,
@@ -101,7 +101,7 @@
         "estado": "Activo",
         "busetaId": 8,
         "calificacion": 4.5,
-        "imagen": "img/conductor8.png"
+        "imagen": "img/conductores/FotoPerfilM4.png"
     },
     {
         "id": 9,
@@ -114,7 +114,7 @@
         "estado": "Activo",
         "busetaId": 9,
         "calificacion": 4.9,
-        "imagen": "img/conductor9.png"
+        "imagen": "img/conductores/FotoPerfilH5.png"
     },
     {
         "id": 10,
@@ -127,6 +127,6 @@
         "estado": "Activo",
         "busetaId": 10,
         "calificacion": 4.7,
-        "imagen": "img/conductor10.png"
+        "imagen": "img/conductores/FotoPerfilM5.png"
     }
 ]

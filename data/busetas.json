@@ -9,7 +9,7 @@
         "estado": "Disponible",
         "ruta": "Alajuela Centro",
         "calificacion": 4.9,
-        "imagen": "img/buseta1.png"
+        "imagen": "img/busetas/buseta1.png"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "estado": "Disponible",
         "ruta": "San Rafael",
         "calificacion": 4.8,
-        "imagen": "img/buseta2.png"
+        "imagen": "img/busetas/buseta2.png"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "estado": "Mantenimiento",
         "ruta": "Heredia Centro",
         "calificacion": 4.6,
-        "imagen": "img/buseta3.png"
+        "imagen": "img/busetas/buseta3.png"
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "estado": "Disponible",
         "ruta": "Atenas",
         "calificacion": 4.7,
-        "imagen": "img/buseta4.png"
+        "imagen": "img/busetas/buseta4.png"
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "estado": "Disponible",
         "ruta": "Grecia",
         "calificacion": 4.9,
-        "imagen": "img/buseta5.png"
+        "imagen": "img/busetas/buseta5.png"
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "estado": "Disponible",
         "ruta": "San Pedro de Poás",
         "calificacion": 4.5,
-        "imagen": "img/buseta6.png"
+        "imagen": "img/busetas/buseta6.png"
     },
     {
         "id": 7,
@@ -81,7 +81,7 @@
         "estado": "Disponible",
         "ruta": "Desamparados de Alajuela",
         "calificacion": 4.8,
-        "imagen": "img/buseta7.png"
+        "imagen": "img/busetas/buseta7.png"
     },
     {
         "id": 8,
@@ -93,7 +93,7 @@
         "estado": "Disponible",
         "ruta": "La Guácima",
         "calificacion": 4.7,
-        "imagen": "img/buseta8.png"
+        "imagen": "img/busetas/buseta8.png"
     },
     {
         "id": 9,
@@ -105,7 +105,7 @@
         "estado": "Disponible",
         "ruta": "Turrúcares",
         "calificacion": 4.9,
-        "imagen": "img/buseta9.png"
+        "imagen": "img/busetas/buseta9.png"
     },
     {
         "id": 10,
@@ -117,6 +117,6 @@
         "estado": "Disponible",
         "ruta": "Coyol",
         "calificacion": 4.6,
-        "imagen": "img/buseta10.png"
+        "imagen": "img/busetas/buseta10.png"
     }
 ]
