@@ -1,0 +1,526 @@
+/* =========================================
+RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* =========================================
+HEADER
+========================================= */
+
+header {
+
+    position: fixed;
+
+    top: 15px;
+    left: 20px;
+    right: 20px;
+
+    height: 90px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    display: grid;
+
+    grid-template-columns: 220px 1fr 150px;
+
+    align-items: center;
+
+    padding: 0 35px;
+
+    z-index: 1000;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.logo img {
+    height: 60px;
+}
+
+/* =========================================
+MENU SUPERIOR
+========================================= */
+
+nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 40px;
+}
+
+nav a {
+    position: relative;
+
+    text-decoration: none;
+
+    color: #334155;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #D97706;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: 0;
+    height: 3px;
+
+    background: #F2C230;
+
+    border-radius: 50px;
+
+    transform: translateX(-50%);
+
+    transition: .3s;
+}
+
+nav a:hover::after,
+nav a.activo::after {
+    width: 100%;
+}
+
+nav a.activo {
+    color: #D97706;
+}
+
+/* =========================================
+PERFIL
+========================================= */
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil i {
+    font-size: 1.2rem;
+    color: #334155;
+}
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+/* =========================================
+NOTIFICACIONES
+========================================= */
+
+.notification-btn {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #FFF8E8;
+
+    color: #D97706;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.notification-btn:hover {
+
+    background: #F2C230;
+
+    color: #111827;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(242, 194, 48, .35);
+}
+
+/* =========================================
+CERRAR SESIÓN
+========================================= */
+
+.logout-btn {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #FFF8E8;
+
+    color: #D97706;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.logout-btn:hover {
+
+    background: #F2C230;
+
+    color: #111827;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(242, 194, 48, .35);
+}
+
+/* =========================================
+SIDEBAR
+========================================= */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-menu {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+}
+
+/* =========================================
+ITEMS MENU
+========================================= */
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 16px 18px;
+
+    margin-bottom: 8px;
+
+    text-decoration: none;
+
+    color: #334155;
+
+    font-weight: 500;
+
+    border-radius: 16px;
+
+    position: relative;
+
+    transition: .3s;
+}
+
+.menu-item:hover {
+
+    background: #FFF8E8;
+
+    transform: translateX(5px);
+
+    color: #D97706;
+}
+
+.menu-item.active {
+
+    background: #F2C230;
+
+    color: #111827;
+
+    font-weight: 700;
+}
+
+.menu-item::after {
+    display: none;
+}
+
+
+.menu-item i {
+    font-size: 1rem;
+}
+
+/* =========================================
+TARJETA DE SEGURIDAD
+========================================= */
+
+.security-card {
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+}
+
+.security-card h2 {
+
+    color: #F2C230;
+
+    margin-bottom: 30px;
+
+    font-size: 2rem;
+}
+
+.security-item {
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+    font-size: 1.05rem;
+}
+
+.security-item:last-child {
+    margin-bottom: 0;
+}
+
+.security-item i {
+
+    width: 28px;
+
+    color: #F2C230;
+
+    font-size: 1.3rem;
+}
+
+/* =======================================
+FOOTER
+========================================= */
+
+.footer {
+    background: #111;
+    color: white;
+
+    padding: 80px 8% 25px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+    top: -80px;
+    right: -80px;
+
+    width: 220px;
+    height: 220px;
+
+    background: rgba(242, 194, 48, 0.18);
+
+    border-radius: 50%;
+}
+
+.footer::after {
+    content: "";
+
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+
+    width: 260px;
+    height: 260px;
+
+    background: rgba(242, 194, 48, 0.10);
+
+    border-radius: 50%;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+
+    gap: 45px;
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+
+    margin-bottom: 25px;
+
+    color: #f2c230;
+}
+
+.footer-brand img {
+    height: 90px;
+
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: #ddd;
+
+    line-height: 1.7;
+
+    max-width: 330px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 15px;
+
+    color: #ddd;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-col ul li i {
+    color: #f2c230;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+
+    color: #ddd;
+
+    transition: color .3s ease, padding-left .3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #f2c230;
+
+    padding-left: 8px;
+}
+
+/* 
+LINKS E ICONOS DE REDES SOCIALES
+*/
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #f2c230;
+
+    color: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-size: 1.2rem;
+
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-6px);
+
+    background: #ffd447;
+
+    box-shadow: 0 12px 25px rgba(242, 194, 48, .35);
+}
+
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 60px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, .12);
+
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #aaa;
+
+    font-size: .95rem;
+}
+
+/* 
+PARA QUE SEA RESPONSIVO
+*/
+
+@media (max-width: 1000px) {
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding: 70px 6% 25px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand img {
+        height: 75px;
+    }
+
+    .footer-col h3 {
+        margin-bottom: 18px;
+    }
+
+}

@@ -231,3 +231,17 @@ REGISTRO
 #register{
     display:none;
 }
+
+.input-error{
+
+    border:2px solid #ef4444 !important;
+
+    background:#fef2f2;
+}
+
+.input-success{
+
+    border:2px solid #22c55e !important;
+
+    background:#f0fdf4;
+}

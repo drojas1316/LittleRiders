@@ -12,7 +12,7 @@
     <title>Little Riders</title>
     <link rel="stylesheet" href="css/styleLogin.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -65,14 +65,18 @@
 
                 <p>Little Riders</p>
 
-                <input type="email" placeholder="Correo electrónico">
+                <form id="loginForm">
 
-                <input type="password" placeholder="Contraseña">
+                    <input type="number" id="loginIdentificacion" maxlength="9" placeholder="Identificación" required
+                        pattern="[0-9]{9}">
 
-                <button class="btn">
-                    Ingresar
-                </button>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
 
+                    <button type="submit" class="btn">
+                        Ingresar
+                    </button>
+
+                </form>
                 <span class="link" onclick="showRegister()">
                     Crear cuenta →
                 </span>
@@ -87,17 +91,26 @@
 
                 <p>Únete a Little Riders</p>
 
-                <input type="text" placeholder="Nombre completo">
+                <form id="registerForm">
 
-                <input type="email" placeholder="Correo electrónico">
+                    <input type="text" id="nombre" placeholder="Nombre completo" required>
 
-                <input type="tel" placeholder="Teléfono">
+                    <input type="number" id="identificacion" maxlength="9" placeholder="Identificación" required
+                        pattern="[0-9]{9}">
 
-                <input type="password" placeholder="Contraseña">
+                    <input type="email" id="correo" placeholder="Correo electrónico" required>
 
-                <button class="btn">
-                    Registrarme
-                </button>
+                    <input type="tel" id="telefono" placeholder="Teléfono" required>
+
+                    <input type="text" id="direccion" placeholder="Dirección" required>
+
+                    <input type="password" id="password" placeholder="Contraseña" required minlength="6">
+
+                    <button class="btn">
+                        Registrarme
+                    </button>
+
+                </form>
 
                 <span class="link" onclick="showLogin()">
                     Ya tengo cuenta →

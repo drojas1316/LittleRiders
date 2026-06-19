@@ -80,3 +80,46 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+/* =======================================
+LOGIN
+========================================= */
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const identificacion =
+        document.getElementById("loginIdentificacion").value;
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    if (identificacion.length !== 9) {
+
+        alert("La identificación debe tener 9 dígitos");
+        return;
+    }
+
+    window.location.href = "principal.html";
+});
+
+/* =======================================
+REGISTRO
+========================================= */
+
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const identificacion =
+        document.getElementById("identificacion").value;
+
+    if (identificacion.length !== 9) {
+
+        alert("La identificación debe tener 9 dígitos");
+        return;
+    }
+
+    window.location.href = "principal.html";
+});
