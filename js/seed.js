@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 async function inicializarBaseDatos() {
+    //solo para probar, en producción se debe cargar una sola vez y luego comentar esta función
+    const MODO_DESARROLLO = false; // Cambia a false para producción y evitar recargas innecesarias
+
     const yaInicializado = localStorage.getItem(DB_KEYS.inicializado);
 
-    if (yaInicializado === "true") {
+    if (yaInicializado === "true" && !MODO_DESARROLLO) {
         console.log("Little Riders: base de datos ya inicializada.");
 
         document.dispatchEvent(new Event("baseDatosLista"));

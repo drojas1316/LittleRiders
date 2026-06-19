@@ -3,7 +3,7 @@ const register = document.getElementById("register");
 const indicator = document.getElementById("indicator");
 const tabs = document.querySelectorAll(".tab");
 
-function showLogin(){
+function showLogin() {
     // 1. Desliza el indicador amarillo a la izquierda
     indicator.style.transform = "translateX(0%)";
 
@@ -20,7 +20,7 @@ function showLogin(){
     tabs[1].classList.remove("active");
 }
 
-function showRegister(){
+function showRegister() {
     // 1. Desliza el indicador amarillo a la derecha
     indicator.style.transform = "translateX(100%)";
 
@@ -43,7 +43,7 @@ function showRegister(){
 HEADER ANIMADO AL CARGAR Y AL HACER SCROLL
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const header = document.querySelector("header");
 
@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let ultimaPosicionScroll = window.scrollY;
 
-    setTimeout(function() {
+    setTimeout(function () {
         header.classList.add("header-visible");
     }, 200);
 
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", function () {
 
         const posicionActual = window.scrollY;
 
@@ -82,106 +82,157 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* =======================================
-LOGIN
+LOGIN - VALIDACIONES Y ENVÍO
 ========================================= */
 
-document.getElementById("loginForm").addEventListener("submit", function(e){
+document.getElementById("loginForm").addEventListener("submit", function (e) {
 
     e.preventDefault();
 
-    const identificacion =
-        document.getElementById("loginIdentificacion");
+    const cedula = document.getElementById("loginIdentificacion");
+    const password = document.getElementById("loginPassword");
 
-    const password =
-        document.getElementById("loginPassword");
-
-    if(identificacion.value.length !== 9){
-
-        alert("La identificación debe tener exactamente 9 dígitos");
-        identificacion.focus();
+    if (cedula.value.length !== 9) {
+        mostrarMensaje(
+            "Cédula inválida",
+            "La cédula debe tener exactamente 9 dígitos.",
+            "warning"
+        );
+        cedula.focus();
         return;
     }
 
-    if(password.value.length < 6){
-
-        alert("La contraseña debe tener mínimo 6 caracteres");
+    if (password.value.length < 6) {
+        mostrarMensaje(
+            "Contraseña inválida",
+            "La contraseña debe tener mínimo 6 caracteres.",
+            "warning"
+        );
         password.focus();
         return;
     }
 
-    window.location.href = "principal.html";
+    const resultado = iniciarSesion(cedula.value.trim(), password.value.trim());
+
+    if (!resultado.ok) {
+        mostrarMensaje(
+            "No se pudo iniciar sesión",
+            resultado.mensaje,
+            "error"
+        );
+        return;
+    }
+
+    if (resultado.usuario.rol === "admin") {
+        window.location.href = "admin.html";
+    } else if (resultado.usuario.rol === "padre") {
+        window.location.href = "principal.html";
+    }
 
 });
 
 /* =======================================
-REGISTRO
+REGISTRO - VALIDACIONES Y ENVÍO
 ========================================= */
 
-document.getElementById("registerForm").addEventListener("submit", function(e){
+document.getElementById("registerForm").addEventListener("submit", function (e) {
 
     e.preventDefault();
 
-    const nombre =
-        document.getElementById("nombre");
+    const nombre = document.getElementById("nombre");
+    const identificacion = document.getElementById("identificacion");
+    const correo = document.getElementById("correo");
+    const telefono = document.getElementById("telefono");
+    const direccion = document.getElementById("direccion");
+    const password = document.getElementById("password");
 
-    const identificacion =
-        document.getElementById("identificacion");
-
-    const correo =
-        document.getElementById("correo");
-
-    const telefono =
-        document.getElementById("telefono");
-
-    const direccion =
-        document.getElementById("direccion");
-
-    const password =
-        document.getElementById("password");
-
-    if(nombre.value.trim().length < 3){
-
-        alert("Ingrese un nombre válido");
+    if (nombre.value.trim().length < 3) {
+        mostrarMensaje(
+            "Nombre inválido",
+            "El nombre debe tener al menos 3 caracteres.",
+            "warning"
+        );
         nombre.focus();
         return;
     }
 
-    if(identificacion.value.length !== 9){
-
-        alert("La identificación debe tener exactamente 9 dígitos");
+    if (identificacion.value.length !== 9) {
+        mostrarMensaje(
+            "Cédula inválida",
+            "La cédula debe tener exactamente 9 dígitos.",
+            "warning"
+        );
         identificacion.focus();
         return;
     }
 
-    if(!correo.checkValidity()){
-
-        alert("Ingrese un correo válido");
+    if (!correo.checkValidity()) {
+        mostrarMensaje(
+            "Correo inválido",
+            "Ingrese un correo válido.",
+            "warning"
+        );
         correo.focus();
         return;
     }
 
-    if(telefono.value.length < 8){
-
-        alert("El teléfono debe tener 8 dígitos");
+    if (telefono.value.length !== 8) {
+        mostrarMensaje(
+            "Teléfono inválido",
+            "El teléfono debe tener 8 dígitos.",
+            "warning"
+        );
         telefono.focus();
         return;
     }
 
-    if(direccion.value.trim() === ""){
-
-        alert("Ingrese una dirección");
+    if (direccion.value.trim() === "") {
+        mostrarMensaje(
+            "Dirección inválida",
+            "Ingrese una dirección.",
+            "warning"
+        );
         direccion.focus();
         return;
     }
 
-    if(password.value.length < 6){
-
-        alert("La contraseña debe tener mínimo 6 caracteres");
+    if (password.value.length < 6) {
+        mostrarMensaje(
+            "Contraseña inválida",
+            "La contraseña debe tener mínimo 6 caracteres.",
+            "warning"
+        );
         password.focus();
         return;
     }
 
-    window.location.href = "principal.html";
+    const resultado = registrarPadre({
+        nombre: nombre.value.trim(),
+        cedula: identificacion.value.trim(),
+        correo: correo.value.trim(),
+        telefono: telefono.value.trim(),
+        direccion: direccion.value.trim(),
+        password: password.value.trim()
+    });
+
+    if (!resultado.ok) {
+        mostrarMensaje(
+            "No se pudo registrar",
+            resultado.mensaje,
+            "error"
+        );
+        return;
+    }
+
+    mostrarMensaje(
+        "Cuenta creada",
+        "Su cuenta fue creada correctamente. Ahora puede iniciar sesión.",
+        "success"
+    );
+
+    document.getElementById("registerForm").reset();
+
+    showLogin();
 
 });
 
@@ -191,7 +242,7 @@ SOLO NUMEROS
 
 ["identificacion", "loginIdentificacion", "telefono"].forEach(id => {
 
-    document.getElementById(id).addEventListener("input", function() {
+    document.getElementById(id).addEventListener("input", function () {
 
         this.value = this.value.replace(/\D/g, "");
 
@@ -203,18 +254,18 @@ SOLO NUMEROS
 CONTRASEÑA
 ========================================= */
 
-function togglePassword(inputId, icon){
+function togglePassword(inputId, icon) {
 
     const input = document.getElementById(inputId);
 
-    if(input.type === "password"){
+    if (input.type === "password") {
 
         input.type = "text";
 
         icon.classList.remove("fa-eye");
         icon.classList.add("fa-eye-slash");
 
-    }else{
+    } else {
 
         input.type = "password";
 
@@ -223,3 +274,63 @@ function togglePassword(inputId, icon){
     }
 }
 
+
+/* =======================================
+NOTIFICACIÓN PERSONALIZADA
+========================================= */
+
+let notificationTimeout;
+
+function mostrarMensaje(titulo, mensaje, tipo = "info") {
+    const notification = document.getElementById("notification");
+    const notificationTitle = document.getElementById("notificationTitle");
+    const notificationMessage = document.getElementById("notificationMessage");
+    const icon = notification.querySelector(".notification-icon i");
+
+    if (!notification) {
+        return;
+    }
+
+    notification.className = "notification";
+
+    notification.classList.add(tipo);
+
+    notificationTitle.textContent = titulo;
+    notificationMessage.textContent = mensaje;
+
+    icon.className = obtenerIconoMensaje(tipo);
+
+    notification.classList.add("show");
+
+    clearTimeout(notificationTimeout);
+
+    notificationTimeout = setTimeout(function () {
+        cerrarMensaje();
+    }, 4000);
+}
+
+function cerrarMensaje() {
+    const notification = document.getElementById("notification");
+
+    if (!notification) {
+        return;
+    }
+
+    notification.classList.remove("show");
+}
+
+function obtenerIconoMensaje(tipo) {
+    if (tipo === "success") {
+        return "fa-solid fa-circle-check";
+    }
+
+    if (tipo === "error") {
+        return "fa-solid fa-circle-xmark";
+    }
+
+    if (tipo === "warning") {
+        return "fa-solid fa-triangle-exclamation";
+    }
+
+    return "fa-solid fa-circle-info";
+}

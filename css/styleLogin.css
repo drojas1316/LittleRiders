@@ -282,3 +282,132 @@ REGISTRO
     background:#f0fdf4;
 }
 
+
+/* =======================================
+NOTIFICACIÓN PERSONALIZADA
+========================================= */
+
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+
+    width: 390px;
+    max-width: calc(100% - 40px);
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 20px 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+
+    border-left: 6px solid #f2c230;
+
+    z-index: 9999;
+
+    transform: translateX(120%);
+    opacity: 0;
+
+    transition: transform .45s ease, opacity .45s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(242, 194, 48, 0.18);
+    color: #f2c230;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.35rem;
+
+    flex-shrink: 0;
+}
+
+.notification-text {
+    flex: 1;
+}
+
+.notification-text h4 {
+    font-size: 1rem;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.notification-text p {
+    font-size: .9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.notification-close {
+    border: none;
+    background: transparent;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition: color .3s ease, transform .3s ease;
+}
+
+.notification-close:hover {
+    color: #111;
+    transform: scale(1.1);
+}
+
+/* Tipos de mensaje */
+
+.notification.error {
+    border-left-color: #e74c3c;
+}
+
+.notification.error .notification-icon {
+    background: rgba(231, 76, 60, 0.12);
+    color: #e74c3c;
+}
+
+.notification.success {
+    border-left-color: #7aa83b;
+}
+
+.notification.success .notification-icon {
+    background: rgba(122, 168, 59, 0.15);
+    color: #7aa83b;
+}
+
+.notification.warning {
+    border-left-color: #f2c230;
+}
+
+.notification.warning .notification-icon {
+    background: rgba(242, 194, 48, 0.18);
+    color: #f2c230;
+}
+
+.notification.info {
+    border-left-color: #3498db;
+}
+
+.notification.info .notification-icon {
+    background: rgba(52, 152, 219, 0.13);
+    color: #3498db;
+}
