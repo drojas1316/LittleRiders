@@ -18,22 +18,6 @@ body {
         #F8FAFC;
 }
 
-/* =========================================
-DASHBOARD - SE PUEDE BORRAR ESTE.
-========================================= */
-
-.dashboard {
-    margin-top: 120px;
-
-    display: grid;
-
-    grid-template-columns: 280px 1fr;
-
-    gap: 25px;
-
-    padding: 20px;
-}
-
 
 /* =========================================
 CONTENIDO
@@ -160,5 +144,56 @@ FILA INFERIOR
 
 .large {
     min-height: 300px;
+}
+
+/* =========================================
+TARJETA DE SEGURIDAD
+========================================= */
+
+.security-card {
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+}
+
+.security-card h2 {
+
+    color: #F2C230;
+
+    margin-bottom: 30px;
+
+    font-size: 2rem;
+}
+
+.security-item {
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+    font-size: 1.05rem;
+}
+
+.security-item:last-child {
+    margin-bottom: 0;
+}
+
+.security-item i {
+
+    width: 28px;
+
+    color: #F2C230;
+
+    font-size: 1.3rem;
 }
 

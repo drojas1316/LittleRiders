@@ -161,40 +161,6 @@ NOTIFICACIONES
     box-shadow: 0 8px 20px rgba(242, 194, 48, .35);
 }
 
-/* =========================================
-CERRAR SESIÓN
-========================================= */
-
-.logout-btn {
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    background: #FFF8E8;
-
-    color: #D97706;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-
-    transition: .3s;
-}
-
-.logout-btn:hover {
-
-    background: #F2C230;
-
-    color: #111827;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 20px rgba(242, 194, 48, .35);
-}
 
 
 /* =========================================
@@ -289,55 +255,12 @@ ITEMS MENU
     font-size: 1rem;
 }
 
-/* =========================================
-TARJETA DE SEGURIDAD
-========================================= */
+.menu-divider {
+    height: 1px;
 
-.security-card {
+    background: #E2E8F0;
 
-    background: #ffffff;
-
-    color: #111827;
-
-    border-radius: 25px;
-
-    padding: 30px;
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
-}
-
-.security-card h2 {
-
-    color: #F2C230;
-
-    margin-bottom: 30px;
-
-    font-size: 2rem;
-}
-
-.security-item {
-
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 22px;
-
-    font-size: 1.05rem;
-}
-
-.security-item:last-child {
-    margin-bottom: 0;
-}
-
-.security-item i {
-
-    width: 28px;
-
-    color: #F2C230;
-
-    font-size: 1.3rem;
+    margin: 18px 0;
 }
 
 /* =======================================
