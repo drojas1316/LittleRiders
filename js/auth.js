@@ -22,6 +22,7 @@ function guardarSesion(usuario) {
         cedula: usuario.cedula,
         correo: usuario.correo,
         rol: usuario.rol,
+        foto: usuario.foto,
         fechaInicio: new Date().toISOString()
     };
 
@@ -32,10 +33,10 @@ function guardarSesion(usuario) {
 function iniciarSesion(cedula, password) {
     const usuarios = obtenerDatos(DB_KEYS.usuarios);
 
-    const usuarioEncontrado = usuarios.find(function(usuario) {
+    const usuarioEncontrado = usuarios.find(function (usuario) {
         return usuario.cedula === cedula &&
-               usuario.password === password &&
-               usuario.estado === "activo";
+            usuario.password === password &&
+            usuario.estado === "activo";
     });
 
     if (!usuarioEncontrado) {
@@ -64,7 +65,7 @@ function iniciarSesion(cedula, password) {
 function registrarPadre(datosPadre) {
     const usuarios = obtenerDatos(DB_KEYS.usuarios);
 
-    const existeCedula = usuarios.some(function(usuario) {
+    const existeCedula = usuarios.some(function (usuario) {
         return usuario.cedula === datosPadre.cedula;
     });
 
@@ -75,7 +76,7 @@ function registrarPadre(datosPadre) {
         };
     }
 
-    const existeCorreo = usuarios.some(function(usuario) {
+    const existeCorreo = usuarios.some(function (usuario) {
         return usuario.correo.toLowerCase() === datosPadre.correo.toLowerCase();
     });
 
@@ -92,7 +93,8 @@ function registrarPadre(datosPadre) {
         correo: datosPadre.correo,
         password: datosPadre.password,
         rol: "padre",
-        estado: "activo"
+        estado: "activo",
+        foto: datosPadre.foto || "img/usuarios/fotoPerfil1.png"
     });
 
     const nuevoPadre = agregarDato(DB_KEYS.padres, {

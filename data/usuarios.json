@@ -6,7 +6,8 @@
         "correo": "admin@littleriders.com",
         "password": "admin123",
         "rol": "admin",
-        "estado": "activo"
+        "estado": "activo",
+        "foto": "img/usuarios/fotoPerfil1.png"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "correo": "maria@gmail.com",
         "password": "padre123",
         "rol": "padre",
-        "estado": "activo"
+        "estado": "activo",
+        "foto": "img/usuarios/fotoPerfilM1.png"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "correo": "pedro@gmail.com",
         "password": "padre123",
         "rol": "padre",
-        "estado": "activo"
+        "estado": "activo",
+        "foto": "img/usuarios/fotoPerfilH1.png"
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "correo": "ana@gmail.com",
         "password": "padre123",
         "rol": "padre",
-        "estado": "activo"
+        "estado": "activo",
+        "foto": "img/usuarios/fotoPerfil1.png"
     },
     {
         "id": 5,
@@ -42,6 +46,7 @@
         "correo": "luis@gmail.com",
         "password": "padre123",
         "rol": "padre",
-        "estado": "activo"
+        "estado": "activo",
+        "foto": "img/usuarios/fotoPerfil1.png"
     }
 ]
