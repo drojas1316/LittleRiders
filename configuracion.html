@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Configuracion</title>
     <link rel="stylesheet" href="css/styleMenu.css">
-    <link rel="stylesheet" href="css/stylePrincipal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -43,7 +43,7 @@
 
                 <div class="user-info">
                     <h4 id="nombreUsuarioHeader">Usuario</h4>
-                    <small id="rolUsuarioHeader">Padre de familia</small>
+                    <small id="correoUsuarioHeader">correo@gmail.com</small>
                 </div>
 
                 <i class="fa-solid fa-chevron-down arrow-profile"></i>
@@ -180,10 +180,35 @@
 
                 <div class="datos-cuenta">
 
-                    <p><strong>Nombre completo</strong> <span id="cuentaNombre"></span></p>
-                    <p><strong>Cédula</strong> <span id="cuentaCedula"></span></p>
-                    <p><strong>Correo electrónico</strong> <span id="cuentaCorreo"></span></p>
-                    <p><strong>Rol</strong> <span id="cuentaRol"></span></p>
+                    <p>
+                        <strong>Nombre completo</strong>
+                        <span id="cuentaNombre"></span>
+                    </p>
+
+                    <p>
+                        <strong>Cédula</strong>
+                        <span id="cuentaCedula"></span>
+                    </p>
+
+                    <p>
+                        <strong>Correo electrónico</strong>
+                        <span id="cuentaCorreo"></span>
+                    </p>
+
+                    <p>
+                        <strong>Teléfono</strong>
+                        <span id="cuentaTelefono"></span>
+                    </p>
+
+                    <p>
+                        <strong>Dirección</strong>
+                        <span id="cuentaDireccion"></span>
+                    </p>
+
+                    <p>
+                        <strong>Rol</strong>
+                        <span id="cuentaRol"></span>
+                    </p>
 
                 </div>
 
@@ -196,6 +221,68 @@
                 </button>
 
                 <button class="btn-salir" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL ELIMINAR CUENTA -->
+    <div class="modal-confirmacion" id="modalEliminarCuenta">
+
+        <div class="confirmacion-content">
+
+            <div class="confirmacion-icono eliminar">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <h2>¿Eliminar cuenta?</h2>
+
+            <p>
+                Tu cuenta será desactivada y perderás acceso al sistema.
+            </p>
+
+            <div class="confirmacion-botones">
+
+                <button class="btn-cancelar" id="btnCancelarEliminar">
+                    Cancelar
+                </button>
+
+                <button class="btn-confirmar" id="btnConfirmarEliminar">
+                    Sí, eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL CERRAR SESIÓN -->
+    <div class="modal-confirmacion" id="modalCerrarSesion">
+
+        <div class="confirmacion-content">
+
+            <div class="confirmacion-icono cerrar">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+
+            <h2>¿Cerrar sesión?</h2>
+
+            <p>
+                Tendrás que iniciar sesión nuevamente para acceder al sistema.
+            </p>
+
+            <div class="confirmacion-botones">
+
+                <button class="btn-cancelar" id="btnCancelarCerrarSesion">
+                    Cancelar
+                </button>
+
+                <button class="btn-confirmar-sesion" id="btnConfirmarCerrarSesion">
                     Cerrar sesión
                 </button>
 

@@ -114,34 +114,7 @@ PERFIL Y MODAL
     gap:18px;
 }
 
-.notification-btn{
-    position:relative;
-    width:52px;
-    height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:18px;
-    background:#FFF8E8;
-    color:#D97706;
-    text-decoration:none;
-}
 
-.notification-badge{
-    position:absolute;
-    top:-6px;
-    right:-6px;
-    width:22px;
-    height:22px;
-    border-radius:50%;
-    background:#ef4444;
-    color:white;
-    font-size:12px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
 
 .user-profile{
     min-width:280px;
@@ -195,7 +168,7 @@ PERFIL Y MODAL
     padding:15px;
     box-shadow:0 18px 40px rgba(15,23,42,.15);
     display:none;
-    z-index:3000;
+    z-index:5000;
 }
 
 .profile-menu.active{
@@ -243,11 +216,11 @@ PERFIL Y MODAL
 
 .modal-content{
     position:relative;
-    width:680px;
-    max-width:90%;
+    width:850px;
+    max-width:95%;
     background:white;
     border-radius:25px;
-    padding:35px;
+    padding:40px;
     box-shadow:0 20px 45px rgba(0,0,0,.18);
 }
 
@@ -330,6 +303,108 @@ PERFIL Y MODAL
     border:none;
     background:#F2C230;
     color:#111827;
+}
+
+/* =========================================
+CERRAR
+========================================= */
+.modal-confirmacion{
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,.50);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-confirmacion.active{
+    display: flex;
+}
+
+.confirmacion-content{
+    width: 430px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 25px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+}
+
+.confirmacion-icono{
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.confirmacion-icono.eliminar{
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.confirmacion-icono.cerrar{
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.confirmacion-content h2{
+    margin-bottom: 12px;
+    color: #0F172A;
+}
+
+.confirmacion-content p{
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.confirmacion-botones{
+    display: flex;
+    gap: 15px;
+}
+
+.btn-cancelar,
+.btn-confirmar,
+.btn-confirmar-sesion{
+    flex: 1;
+    border: none;
+    border-radius: 14px;
+    padding: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-cancelar{
+    background: #F1F5F9;
+    color: #334155;
+}
+
+.btn-cancelar:hover{
+    background: #E2E8F0;
+}
+
+.btn-confirmar{
+    background: #DC2626;
+    color: white;
+}
+
+.btn-confirmar:hover{
+    background: #B91C1C;
+}
+
+.btn-confirmar-sesion{
+    background: #F59E0B;
+    color: white;
+}
+
+.btn-confirmar-sesion:hover{
+    background: #D97706;
 }
 
 /* =========================================
@@ -468,6 +543,58 @@ ITEMS MENU
 
     margin: 18px 0;
 }
+
+/* =========================================
+TARJETA DE SEGURIDAD
+========================================= */
+
+.security-card {
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+}
+
+.security-card h2 {
+
+    color: #F2C230;
+
+    margin-bottom: 30px;
+
+    font-size: 2rem;
+}
+
+.security-item {
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+    font-size: 1.05rem;
+}
+
+.security-item:last-child {
+    margin-bottom: 0;
+}
+
+.security-item i {
+
+    width: 28px;
+
+    color: #F2C230;
+
+    font-size: 1.3rem;
+}
+
 
 /* =======================================
 FOOTER
