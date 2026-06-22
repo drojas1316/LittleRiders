@@ -10,8 +10,9 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Busetas</title>
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/stylePrincipal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
 </head>
 
 <body>
@@ -36,11 +37,32 @@
                 <i class="fa-regular fa-bell"></i>
             </a>
 
-            <img src="https://i.pravatar.cc/50" alt="Usuario">
+            <div class="user-profile" id="btnPerfil">
 
-            <a href="index.html" class="logout-btn" title="Cerrar sesión">
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
+                <img id="fotoPerfilHeader" src="img/usuarios/fotoPerfil1.png" alt="Usuario">
+
+                <div class="user-info">
+                    <h4 id="nombreUsuarioHeader">Usuario</h4>
+                    <small id="rolUsuarioHeader">Padre de familia</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down arrow-profile"></i>
+            </div>
+
+            <div class="profile-menu" id="profileMenu">
+
+                <button id="btnMiCuenta">
+                    <i class="fa-solid fa-user"></i>
+                    Mi cuenta
+                </button>
+
+                <a href="pagos.html">
+
+                    <i class="fa-solid fa-credit-card"></i>
+                    Pagos
+                </a>
+            </div>
+
         </div>
 
     </header>
@@ -56,7 +78,7 @@
                     Inicio
                 </a>
 
-                <a href="hijos.html"  class="menu-item">
+                <a href="hijos.html" class="menu-item">
                     <i class="fa-solid fa-children"></i>
                     Mis Hijos
                 </a>
@@ -91,6 +113,14 @@
                     Configuración
                 </a>
 
+                <div class="menu-divider"></div>
+
+
+                <a href="index.html" class="menu-item">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </a>
+
             </div>
 
             <div class="security-card">
@@ -123,6 +153,57 @@
         </aside>
 
     </main>
+
+    <div class="modal-cuenta" id="modalCuenta">
+
+        <div class="modal-content">
+
+            <button class="cerrar-modal" id="cerrarModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Mi cuenta</h2>
+
+            <div class="cuenta-layout">
+
+                <div class="cuenta-foto">
+
+                    <img id="fotoPerfilModal" src="img/usuarios/fotoPerfil1.png" alt="Foto de perfil">
+
+                    <label for="inputFoto" class="btn-cambiar-foto">
+                        Cambiar foto
+                    </label>
+
+                    <input type="file" id="inputFoto" accept="image/*" hidden>
+
+                </div>
+
+                <div class="datos-cuenta">
+
+                    <p><strong>Nombre completo</strong> <span id="cuentaNombre"></span></p>
+                    <p><strong>Cédula</strong> <span id="cuentaCedula"></span></p>
+                    <p><strong>Correo electrónico</strong> <span id="cuentaCorreo"></span></p>
+                    <p><strong>Rol</strong> <span id="cuentaRol"></span></p>
+
+                </div>
+
+            </div>
+
+            <div class="acciones-cuenta">
+
+                <button class="btn-eliminar" id="btnEliminarCuenta">
+                    Eliminar cuenta
+                </button>
+
+                <button class="btn-salir" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <footer class="footer" id="contacto">
 
@@ -194,6 +275,10 @@
         </div>
     </footer>
 
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/principal.js"></script>
 
 </body>
+
 </html>
