@@ -163,6 +163,8 @@ function activarModalCuenta() {
     const btnCancelarCerrarSesion = document.getElementById("btnCancelarCerrarSesion");
     const btnConfirmarCerrarSesion = document.getElementById("btnConfirmarCerrarSesion");
 
+    const btnCerrarSesionSidebar = document.getElementById("btnCerrarSesionSidebar");
+
     if (btnMiCuenta && modalCuenta) {
 
         btnMiCuenta.addEventListener("click", function () {
@@ -186,6 +188,17 @@ function activarModalCuenta() {
     }
 
     /* CERRAR SESIÓN */
+
+    if (btnCerrarSesionSidebar && modalCerrarSesion) {
+
+        btnCerrarSesionSidebar.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            modalCerrarSesion.classList.add("active");
+
+        });
+    }
 
     if (btnCerrarSesion && modalCerrarSesion) {
 

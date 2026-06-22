@@ -118,7 +118,7 @@ function registrarPadre(datosPadre) {
 /* Cerrar sesión */
 function cerrarSesion() {
     localStorage.removeItem(DB_KEYS.sesion);
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 /* Proteger páginas privadas */
