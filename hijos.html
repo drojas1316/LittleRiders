@@ -11,6 +11,7 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Mis Hijos</title>
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/styleHijos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -140,6 +141,27 @@
 
 
         </aside>
+
+        <section class="dashboard-content">
+
+            <div class="children-header">
+                <div>
+                    <h1>Mis hijos</h1>
+                    <p>Consulta la información de tus hijos registrados y su ruta asignada.</p>
+                </div>
+
+                <button class="btn-add-child" id="btnAgregarHijo">
+                    <i class="fa-solid fa-plus"></i>
+                    Agregar hijo
+                </button>
+            </div>
+
+            <div class="children-list" id="childrenList">
+                <!-- Aquí se cargan los hijos con JS -->
+            </div>
+
+        </section>
+
 
     </main>
 
@@ -281,6 +303,78 @@
 
     </div>
 
+
+    <!-- MODAL AGREGAR / EDITAR HIJO -->
+    <div class="modal-hijo" id="modalHijo">
+
+        <div class="modal-hijo-content">
+
+            <button class="cerrar-modal" id="cerrarModalHijo">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2 id="tituloModalHijo">Agregar hijo</h2>
+            <p class="modal-hijo-subtitle">
+                Completa los datos del estudiante para asociarlo a una ruta.
+            </p>
+
+            <form id="formHijo">
+
+                <div class="hijo-form-layout">
+
+                    <div class="hijo-foto-box">
+
+                        <img id="previewFotoHijo" src="img/usuarios/fotoPerfil1.png" alt="Foto del hijo">
+
+                        <label for="fotoHijoInput" class="btn-foto-hijo">
+                            <i class="fa-solid fa-camera"></i>
+                            Cambiar foto
+                        </label>
+
+                        <input type="file" id="fotoHijoInput" accept="image/*" hidden>
+
+                    </div>
+
+                    <div class="hijo-fields">
+
+                        <input type="text" id="hijoNombre" placeholder="Nombre completo" required>
+
+                        <div class="form-row">
+                            <input type="number" id="hijoEdad" placeholder="Edad" min="1" max="18" required>
+
+                            <input type="text" id="hijoGrado" placeholder="Grado" required>
+                        </div>
+
+                        <input type="text" id="hijoInstitucion" placeholder="Institución" required>
+
+                        <input type="tel" id="hijoContacto" placeholder="Contacto de emergencia" maxlength="8" required>
+
+                        <select id="hijoRuta" required>
+                            <option value="">Seleccionar ruta</option>
+                        </select>
+
+                        <select id="hijoEstadoEntrega" required>
+                            <option value="En la buseta">En la buseta</option>
+                            <option value="En la escuela">En la escuela</option>
+                            <option value="En casa">En casa</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-guardar-hijo">
+                    Guardar hijo
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="notificaciones" class="notificaciones"></div>
+
     <footer class="footer" id="contacto">
 
         <div class="footer-content">
@@ -352,8 +446,10 @@
     </footer>
 
     <script src="js/storage.js"></script>
+    <script src="js/seed.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/principal.js"></script>
+    <script src="js/hijos.js"></script>
 
 </body>
 

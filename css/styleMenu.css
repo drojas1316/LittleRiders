@@ -458,6 +458,8 @@ DASHBOARD
     gap: 25px;
 
     padding: 20px;
+
+    align-items: flex-start;
 }
 
 

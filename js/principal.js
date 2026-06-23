@@ -1,3 +1,10 @@
+/* =======================================
+PRINCIPAL - LITTLE RIDERS
+Este archivo controla funciones generales del dashboard:
+menú lateral, perfil del usuario, modal de cuenta,
+cerrar sesión, eliminar cuenta y cambiar foto de perfil.
+========================================= */
+
 const menuItems = document.querySelectorAll(".menu-item");
 
 menuItems.forEach(item => {
