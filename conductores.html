@@ -11,6 +11,7 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Conductores</title>
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/styleConductores.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -139,6 +140,23 @@
 
 
         </aside>
+
+        <!-- CONTENIDO DE LOS CONDUCTORES -->
+        <section class="dashboard-content conductores-content">
+
+            <div class="conductores-header">
+                <div>
+                    <h1>Conductores</h1>
+                    <p>Consulta la información de los conductores asignados al transporte escolar.</p>
+                </div>
+            </div>
+
+            <div id="conductoresList" class="conductores-grid">
+                <!-- Aquí se cargan los conductores con JavaScript -->
+            </div>
+
+        </section>
+
 
     </main>
 
@@ -351,8 +369,10 @@
     </footer>
 
     <script src="js/storage.js"></script>
+    <script src="js/seed.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/principal.js"></script>
+    <script src="js/conductores.js"></script>
 
 </body>
 
