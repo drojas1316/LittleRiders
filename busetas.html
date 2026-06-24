@@ -11,6 +11,8 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Busetas</title>
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/styleBuseta.css">
+    <link rel="stylesheet" href="css/styleNotificaciones.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -140,6 +142,22 @@
 
 
         </aside>
+
+        <section class="dashboard-content busetas-content">
+
+            <div class="busetas-header">
+                <div>
+                    <h1>Busetas disponibles</h1>
+                    <p>Consulta la información de las busetas asignadas al servicio escolar.</p>
+                </div>
+            </div>
+
+            <div id="busetasList" class="busetas-grid">
+                <!-- Aquí se cargan las busetas con JavaScript -->
+            </div>
+
+        </section>
+
 
     </main>
 
@@ -281,6 +299,38 @@
 
     </div>
 
+
+    <!-- MODAL ASIGNAR BUSETA A NIÑO -->
+    <div id="modalAsignarBuseta" class="modal-asignar-buseta">
+
+        <div class="modal-asignar-content">
+
+            <button id="cerrarModalAsignar" class="cerrar-modal-asignar" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Asignar buseta</h2>
+            <p>Selecciona el hijo al que deseas asignar esta buseta.</p>
+
+            <form id="formAsignarBuseta">
+
+                <select id="selectHijoAsignar" required>
+                    <option value="">Seleccionar hijo</option>
+                </select>
+
+                <button type="submit" class="btn-confirmar-asignacion">
+                    <i class="fa-solid fa-check"></i>
+                    Asignar buseta
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
     <footer class="footer" id="contacto">
 
         <div class="footer-content">
@@ -352,8 +402,11 @@
     </footer>
 
     <script src="js/storage.js"></script>
+    <script src="js/seed.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/principal.js"></script>
+    <script src="js/notificaciones.js"></script>
+    <script src="js/busetas.js"></script>
 
 </body>
 

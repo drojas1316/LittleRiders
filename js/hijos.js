@@ -497,54 +497,6 @@ function soloNumeros(texto) {
     return patron.test(texto);
 }
 
-
-/*
-Muestra una notificación bonita en pantalla.
-
-tipo puede ser:
-- success
-- error
-- warning
-*/
-function mostrarNotificacion(mensaje, tipo) {
-    const contenedor = document.getElementById("notificaciones");
-
-    if (!contenedor) {
-        alert(mensaje);
-        return;
-    }
-
-    const notificacion = document.createElement("div");
-
-    notificacion.classList.add("notificacion", tipo);
-
-    let icono = "fa-circle-info";
-
-    if (tipo === "success") {
-        icono = "fa-circle-check";
-    }
-
-    if (tipo === "error") {
-        icono = "fa-circle-xmark";
-    }
-
-    if (tipo === "warning") {
-        icono = "fa-triangle-exclamation";
-    }
-
-    notificacion.innerHTML = `
-        <i class="fa-solid ${icono}"></i>
-        <span>${mensaje}</span>
-    `;
-
-    contenedor.appendChild(notificacion);
-
-    setTimeout(function () {
-        notificacion.remove();
-    }, 3500);
-}
-
-
 /* 
 Activa todos los botones de editar.
 Se llama después de crear las tarjetas porque los botones
