@@ -30,9 +30,9 @@ BUSETAS
 
 .busetas-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(260px, 340px));
+    grid-template-columns: repeat(4, minmax(260px, 340px));
     gap: 24px;
-    justify-content: start; /* o center */
+    justify-content: center; /* o center */
 }
 
 .buseta-card {

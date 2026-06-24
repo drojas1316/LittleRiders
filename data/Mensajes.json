@@ -1,52 +1,72 @@
 [
     {
         "id": 1,
-        "emisorId": 2,
-        "receptorId": 1,
-        "asunto": "Consulta sobre horario",
-        "mensaje": "Hola, quisiera confirmar la hora de regreso de la ruta de Sofía.",
-        "fecha": "2026-06-18 08:30",
-        "leido": false,
-        "tipo": "consulta"
+        "emisorTipo": "admin",
+        "emisorId": 1,
+        "receptorTipo": "padre",
+        "receptorId": 2,
+        "mensaje": "Hola María, cualquier consulta sobre horarios, pagos o rutas puedes escribirnos por aquí.",
+        "fecha": "2026-06-18 07:00",
+        "leido": true
     },
     {
         "id": 2,
-        "emisorId": 1,
-        "receptorId": 2,
-        "asunto": "Respuesta sobre horario",
-        "mensaje": "Hola María, la hora de regreso es a las 2:30 p.m.",
-        "fecha": "2026-06-18 09:00",
-        "leido": true,
-        "tipo": "respuesta"
+        "emisorTipo": "padre",
+        "emisorId": 2,
+        "receptorTipo": "admin",
+        "receptorId": 1,
+        "mensaje": "Hola, quisiera confirmar la hora de regreso de la ruta de Sofía.",
+        "fecha": "2026-06-18 08:30",
+        "leido": true
     },
     {
         "id": 3,
-        "emisorId": 3,
-        "receptorId": 1,
-        "asunto": "Consulta sobre pago",
-        "mensaje": "Hola, quisiera confirmar si puedo realizar el pago por SINPE.",
-        "fecha": "2026-06-18 10:15",
-        "leido": false,
-        "tipo": "consulta"
+        "emisorTipo": "admin",
+        "emisorId": 1,
+        "receptorTipo": "padre",
+        "receptorId": 2,
+        "mensaje": "Hola María, la hora de regreso es a las 2:30 p.m.",
+        "fecha": "2026-06-18 09:00",
+        "leido": true
     },
     {
         "id": 4,
-        "emisorId": 1,
-        "receptorId": 3,
-        "asunto": "Pago por SINPE",
-        "mensaje": "Hola Pedro, sí puede realizar el pago por SINPE y adjuntar el comprobante.",
-        "fecha": "2026-06-18 10:40",
-        "leido": false,
-        "tipo": "respuesta"
+        "emisorTipo": "padre",
+        "emisorId": 2,
+        "receptorTipo": "admin",
+        "receptorId": 1,
+        "mensaje": "Perfecto, muchas gracias.",
+        "fecha": "2026-06-18 09:05",
+        "leido": true
     },
     {
         "id": 5,
-        "emisorId": 4,
+        "emisorTipo": "padre",
+        "emisorId": 3,
+        "receptorTipo": "admin",
         "receptorId": 1,
-        "asunto": "Cambio de dirección",
+        "mensaje": "Hola, quisiera confirmar si puedo realizar el pago por SINPE.",
+        "fecha": "2026-06-18 10:15",
+        "leido": false
+    },
+    {
+        "id": 6,
+        "emisorTipo": "admin",
+        "emisorId": 1,
+        "receptorTipo": "padre",
+        "receptorId": 3,
+        "mensaje": "Hola Pedro, sí puede realizar el pago por SINPE y adjuntar el comprobante.",
+        "fecha": "2026-06-18 10:40",
+        "leido": false
+    },
+    {
+        "id": 7,
+        "emisorTipo": "padre",
+        "emisorId": 4,
+        "receptorTipo": "admin",
+        "receptorId": 1,
         "mensaje": "Buenas, necesito actualizar la dirección de recogida de mis hijos.",
         "fecha": "2026-06-18 11:25",
-        "leido": false,
-        "tipo": "consulta"
+        "leido": false
     }
 ]

@@ -7,7 +7,7 @@
         "password": "admin123",
         "rol": "admin",
         "estado": "activo",
-        "foto": "img/usuarios/fotoPerfil1.png"
+        "foto": "img/fotoAdmin.png"
     },
     {
         "id": 2,

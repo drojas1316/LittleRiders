@@ -11,6 +11,7 @@
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Alertas</title>
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/styleAlertas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -138,8 +139,54 @@
 
             </div>
 
-
         </aside>
+
+        <section class="dashboard-content alertas-content">
+
+            <div class="alertas-header">
+                <div>
+                    <h1>Centro de alertas</h1>
+                    <p>Todas las notificaciones importantes en un solo lugar.</p>
+                </div>
+            </div>
+
+            <div class="alertas-filtros">
+                <button class="alerta-filtro active" data-filtro="todas">
+                    <i class="fa-solid fa-list"></i>
+                    Todas
+                </button>
+
+                <button class="alerta-filtro" data-filtro="llegada">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Llegada
+                </button>
+
+                <button class="alerta-filtro" data-filtro="demora">
+                    <i class="fa-solid fa-clock"></i>
+                    Demora
+                </button>
+
+                <button class="alerta-filtro" data-filtro="incidente">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Incidente
+                </button>
+
+                <button class="alerta-filtro" data-filtro="comunicado">
+                    <i class="fa-solid fa-message"></i>
+                    Comunicado
+                </button>
+
+                <button class="alerta-filtro" data-filtro="no-leidas">
+                    <i class="fa-solid fa-bell"></i>
+                    No leídas
+                </button>
+            </div>
+
+            <div id="alertasList" class="alertas-list">
+                <!-- Las alertas se cargan con JavaScript -->
+            </div>
+
+        </section>
 
     </main>
 
@@ -352,8 +399,10 @@
     </footer>
 
     <script src="js/storage.js"></script>
+    <script src="js/seed.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/principal.js"></script>
+    <script src="js/alertas.js"></script>
 
 </body>
 

@@ -10,9 +10,10 @@
         content="Transporte Costa Rica, Niños, transporte de niños, busetas de niños, microbus, transporte de estudiantes, estudiantes, escuelas, Little Riders">
     <meta name="author" content="Little Riders">
     <title>LittleRiders | Mensajes</title>
-    <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/styleMenu.css">        
+    <link rel="stylesheet" href="css/styleMensajes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    
 </head>
 
 <body>
@@ -138,8 +139,56 @@
 
             </div>
 
-
         </aside>
+
+        <section class="dashboard-content mensajes-content">
+
+            <div class="mensajes-layout">
+
+                <aside class="conversaciones-panel">
+
+                    <div class="mensajes-header">
+                        <h1>Mensajes</h1>
+                        <p>Comunícate directamente con administración.</p>
+                    </div>
+
+                    <div id="conversacionesList" class="conversaciones-list">
+                        <!-- Conversaciones cargadas con JS -->
+                    </div>
+
+                </aside>
+
+                <section class="chat-panel">
+
+                    <div id="chatHeader" class="chat-header">
+                        <div class="chat-contacto">
+                            <div class="chat-avatar">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+
+                            <div>
+                                <h2>Administración</h2>
+                                <p>Soporte Little Riders</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="chatMensajes" class="chat-mensajes">
+                        <!-- Mensajes cargados con JavaScript -->
+                    </div>
+
+                    <form id="formMensaje" class="chat-form">
+                        <input type="text" id="inputMensaje" placeholder="Escribe un mensaje..." autocomplete="off">
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                </section>
+
+            </div>
+
+        </section>
 
     </main>
 
@@ -352,8 +401,10 @@
     </footer>
 
     <script src="js/storage.js"></script>
+    <script src="js/seed.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/principal.js"></script>
+    <script src="js/mensajes.js"></script>
 
 </body>
 
