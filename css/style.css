@@ -305,9 +305,104 @@ LINKS E ICONOS DE REDES SOCIALES
     font-size: .95rem;
 }
 
-/* 
-PARA QUE SEA RESPONSIVO
-*/ 
+/* =======================================
+RESPONSIVE 
+========================================= */
+
+@media (max-width: 900px){
+
+    header{
+        width:95%;
+        padding:12px 22px;
+        border-radius:22px;
+    }
+
+    .logo img{
+        height:75px;
+    }
+
+    nav ul{
+        gap:25px;
+    }
+
+    nav a{
+        font-size:.95rem;
+    }
+
+    .btn-login{
+        padding:12px 20px;
+        font-size:.9rem;
+    }
+}
+
+@media (max-width: 700px){
+
+    header{
+        position:fixed;
+        top:10px;
+
+        width:94%;
+
+        flex-direction:column;
+        gap:15px;
+
+        padding:18px;
+
+        transform:translateX(-50%) translateY(-30px);
+    }
+
+    header.header-visible{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    header.header-hidden{
+        transform:translateX(-50%) translateY(-130%);
+    }
+
+    .logo img{
+        height:65px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+    }
+
+    nav a{
+        font-size:.9rem;
+    }
+
+    .btn-login{
+        padding:10px 18px;
+        border-radius:12px;
+    }
+}
+
+@media (max-width: 480px){
+
+    header{
+        width:96%;
+        padding:15px;
+    }
+
+    .logo img{
+        height:55px;
+    }
+
+    nav ul{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:.82rem;
+    }
+
+    .btn-login{
+        font-size:.85rem;
+        padding:9px 15px;
+    }
+}
 
 @media (max-width: 1000px) {
 

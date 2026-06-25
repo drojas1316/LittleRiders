@@ -472,91 +472,95 @@ MODAL HIJO
     box-shadow: 0 12px 25px rgba(242, 194, 48, .35);
 }
 
-@media (max-width: 700px) {
-    .hijo-form-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
 /* =========================================
-NOTIFICACIONES
+RESPONSIVE - MIS HIJOS
 ========================================= */
 
-.notificaciones {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    z-index: 9000;
+@media (max-width: 1200px) {
 
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.notificacion {
-    min-width: 280px;
-    max-width: 360px;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    background: white;
-
-    padding: 16px 18px;
-
-    border-radius: 18px;
-
-    box-shadow: 0 16px 35px rgba(15, 23, 42, .16);
-
-    animation: aparecerNotificacion .35s ease;
-
-    font-weight: 700;
-    color: #111827;
-}
-
-.notificacion i {
-    font-size: 1.3rem;
-}
-
-.notificacion.success {
-    border-left: 6px solid #7AA83B;
-}
-
-.notificacion.success i {
-    color: #7AA83B;
-}
-
-.notificacion.error {
-    border-left: 6px solid #EF4444;
-}
-
-.notificacion.error i {
-    color: #EF4444;
-}
-
-.notificacion.warning {
-    border-left: 6px solid #F2C230;
-}
-
-.notificacion.warning i {
-    color: #D97706;
-}
-
-@keyframes aparecerNotificacion {
-    from {
-        opacity: 0;
-        transform: translateX(35px);
+    .child-row {
+        grid-template-columns: 1fr;
     }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    .child-transport-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .dashboard-content {
+        padding: 30px;
+    }
+
+    .children-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .child-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .child-status {
+        justify-content: flex-start;
+    }
+
+    .child-actions {
+        align-items: flex-start;
+    }
+
+    .modal-hijo-content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-content {
+        padding: 24px 18px;
+        border-radius: 22px;
+    }
+
+    .children-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .btn-add-child {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .child-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .child-status {
+        justify-content: center;
+    }
+
+    .child-actions {
+        width: 100%;
+        align-items: center;
+    }
+
+    .child-transport-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-hijo-content {
+        padding: 25px 20px;
+    }
+
+    .modal-hijo-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hijo-foto-box img {
+        width: 110px;
+        height: 110px;
     }
 }

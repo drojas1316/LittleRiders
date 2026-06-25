@@ -207,37 +207,91 @@ CONDUCTORES
     margin-top: 14px;
 }
 
+/* =========================================
+RESPONSIVE
+========================================= */
 
-
-/* Responsive */
 @media (max-width: 1300px) {
+
     .conductores-grid {
         grid-template-columns: repeat(3, minmax(230px, 300px));
     }
 }
 
 @media (max-width: 1000px) {
+
+    .conductores-content {
+        padding: 30px;
+    }
+
     .conductores-grid {
         grid-template-columns: repeat(2, minmax(230px, 300px));
+    }
+
+    .conductores-header h1 {
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 700px) {
+
     .conductores-content {
         padding: 25px 20px;
-    }
-
-    .conductores-grid {
-        grid-template-columns: 1fr;
     }
 
     .conductores-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+    }
+
+    .conductores-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .conductores-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .conductor-card {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .conductores-content {
+        padding: 20px 15px;
     }
 
     .conductor-card {
         max-width: 100%;
+    }
+
+    .conductor-img {
+        height: 190px;
+    }
+
+    .conductor-info {
+        padding: 18px;
+    }
+
+    .conductor-top {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .conductor-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .conductor-dato {
+        font-size: .9rem;
+    }
+
+    .conductor-asignacion {
+        padding: 14px;
     }
 }
 

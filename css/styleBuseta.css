@@ -289,24 +289,92 @@ MODAL ASIGNAR BUSetA
     box-shadow: none;
 }
 
-/* Responsive */
+/* =========================================
+RESPONSIVE
+========================================= */
+
 @media (max-width: 1100px) {
+
+    .busetas-content {
+        padding: 30px;
+    }
+
     .busetas-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(260px, 340px));
+        justify-content: center;
+    }
+
+    .busetas-header h1 {
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 700px) {
+
     .busetas-content {
         padding: 25px 20px;
-    }
-
-    .busetas-grid {
-        grid-template-columns: 1fr;
     }
 
     .busetas-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+    }
+
+    .busetas-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .busetas-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .buseta-card {
+        max-width: 360px;
+    }
+
+    .modal-asignar-content {
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .busetas-content {
+        padding: 20px 15px;
+    }
+
+    .buseta-card {
+        max-width: 100%;
+    }
+
+    .buseta-img {
+        height: 170px;
+    }
+
+    .buseta-info {
+        padding: 18px;
+    }
+
+    .buseta-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .buseta-dato {
+        font-size: .9rem;
+    }
+
+    .btn-asignar-buseta {
+        font-size: .9rem;
+        padding: 12px;
+    }
+
+    .modal-asignar-content {
+        padding: 22px 18px;
+    }
+
+    .modal-asignar-content h2 {
+        font-size: 1.5rem;
     }
 }

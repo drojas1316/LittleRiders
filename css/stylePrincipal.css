@@ -145,3 +145,57 @@ FILA INFERIOR
 .large {
     min-height: 300px;
 }
+
+/* =========================================
+RESPONSIVE DASHBOARD PRINCIPAL
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .top-row {
+        grid-template-columns: 1fr;
+    }
+
+    .right-panel {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .bottom-row {
+        grid-template-columns: 1fr;
+    }
+
+    .gps-map {
+        height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-content {
+        gap: 18px;
+    }
+
+    .map-card,
+    .empty-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .right-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .gps-map {
+        height: 360px;
+        border-radius: 18px;
+    }
+
+    .empty-card {
+        min-height: 180px;
+    }
+
+    .large {
+        min-height: 220px;
+    }
+}

@@ -411,3 +411,115 @@ NOTIFICACIÓN PERSONALIZADA
     background: rgba(52, 152, 219, 0.13);
     color: #3498db;
 }
+
+/* =======================================
+RESPONSIVE LOGIN
+========================================= */
+
+@media (max-width: 768px){
+
+    main{
+        padding-top:160px;
+        padding-bottom:70px;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .card{
+        max-width:380px;
+        padding:32px 28px;
+        border-radius:26px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    p{
+        font-size:.95rem;
+    }
+
+    .tabs{
+        margin-bottom:30px;
+    }
+
+    .tab{
+        padding:13px;
+        font-size:14px;
+    }
+
+    .notification{
+        top:20px;
+        right:20px;
+        width:340px;
+    }
+}
+
+@media (max-width: 480px){
+
+    main{
+        padding-top:145px;
+        padding-bottom:60px;
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    body::before{
+        width:260px;
+        height:260px;
+        right:-150px;
+    }
+
+    body::after{
+        width:280px;
+        height:280px;
+        left:-160px;
+    }
+
+    .card{
+        max-width:100%;
+        padding:28px 22px;
+        border-radius:24px;
+    }
+
+    h1{
+        font-size:25px;
+    }
+
+    input,
+    .btn{
+        height:48px;
+    }
+
+    .tab{
+        font-size:13px;
+        padding:12px 8px;
+    }
+
+    .link{
+        margin-top:20px;
+    }
+
+    .notification{
+        top:15px;
+        right:15px;
+        left:15px;
+        width:auto;
+        max-width:none;
+        padding:16px;
+    }
+
+    .notification-icon{
+        width:42px;
+        height:42px;
+        font-size:1.1rem;
+    }
+
+    .notification-text h4{
+        font-size:.95rem;
+    }
+
+    .notification-text p{
+        font-size:.82rem;
+    }
+}

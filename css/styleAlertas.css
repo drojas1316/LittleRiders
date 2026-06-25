@@ -180,22 +180,6 @@ ALERTAS
     margin-bottom: 18px;
 }
 
-.alerta-icono.llegada {
-    background: #27AE60;
-}
-
-.alerta-icono.demora {
-    background: #F5A623;
-}
-
-.alerta-icono.incidente {
-    background: #E63946;
-}
-
-.alerta-icono.comunicado {
-    background: #3498DB;
-}
-
 .alerta-card.no-leida {
     border-left: 6px solid #F2C230;
 }
@@ -254,8 +238,12 @@ ALERTAS
     color: #64748B;
 }
 
-/* Responsive */
+/* =========================================
+ALERTAS RESPONSIVE
+========================================= */
+
 @media (max-width: 900px) {
+
     .alerta-card {
         grid-template-columns: 58px 1fr;
     }
@@ -268,6 +256,7 @@ ALERTAS
 }
 
 @media (max-width: 600px) {
+
     .alertas-content {
         padding: 28px 20px;
     }
@@ -295,5 +284,29 @@ ALERTAS
         grid-column: auto;
         justify-items: center;
         text-align: center;
+    }
+
+    .alerta-title-row {
+        justify-content: center;
+    }
+
+    .alerta-icono {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .alerta-info h3 {
+        font-size: 1rem;
+    }
+
+    .alerta-info p {
+        font-size: .9rem;
+    }
+
+    .alerta-hijo,
+    .alerta-prioridad,
+    .alerta-ruta {
+        font-size: .75rem;
     }
 }

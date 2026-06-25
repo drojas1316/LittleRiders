@@ -1404,3 +1404,204 @@ CONTACTO
     background: #ffd447;
     box-shadow: 0 12px 25px rgba(242,194,48,.35);
 }
+
+/* =======================================
+RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+
+    .hero-content h1{
+        font-size:3.8rem;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-top{
+        grid-template-columns:1fr;
+    }
+
+    .about-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+
+    .support-container{
+        grid-template-columns:1fr;
+    }
+
+    .testimonials-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:992px){
+
+    header{
+        padding:15px 25px;
+    }
+
+    nav ul{
+        gap:20px;
+    }
+
+    .hero{
+        padding:150px 6% 70px;
+        text-align:center;
+    }
+
+    .hero-content{
+        max-width:100%;
+    }
+
+    .hero-content p{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-info{
+        justify-content:center;
+    }
+
+    .vehicles-header,
+    .drivers-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .about-cards{
+        grid-template-columns:1fr;
+    }
+
+    .testimonials-cards{
+        grid-template-columns:1fr;
+    }
+
+    .footer-content{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:768px){
+
+    header{
+        width:95%;
+        padding:15px 20px;
+    }
+
+    .logo img{
+        height:70px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .btn-login{
+        padding:10px 18px;
+    }
+
+    .hero{
+        padding:140px 5% 60px;
+        min-height:auto;
+    }
+
+    .hero-content h1{
+        font-size:2.8rem;
+    }
+
+    .hero-content p{
+        font-size:1.05rem;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .vehicles-header h2,
+    .drivers-header h2,
+    .about-text h2,
+    .contact-info h2,
+    .testimonials-container h2{
+        font-size:2.2rem;
+    }
+
+    .about-image{
+        height:280px;
+    }
+
+    .contact-form{
+        padding:30px 22px;
+    }
+
+    .security-box{
+        padding:35px 25px;
+    }
+
+    .help-box{
+        padding:30px 22px;
+    }
+
+    .footer-content{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .social-links{
+        justify-content:center;
+    }
+}
+
+@media (max-width:576px){
+
+    .hero-content h1{
+        font-size:2.2rem;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-info{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .vehicle-card,
+    .driver-card{
+        min-width:280px;
+    }
+
+    .contact-info h2{
+        font-size:1.9rem;
+    }
+
+    .about-text h2{
+        font-size:2rem;
+    }
+
+    .security-content h2{
+        font-size:2rem;
+    }
+
+    .contact-form{
+        padding:25px 18px;
+    }
+}
