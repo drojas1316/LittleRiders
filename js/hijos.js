@@ -236,6 +236,7 @@ function configurarModalHijo() {
     const btnAgregarHijo = document.getElementById("btnAgregarHijo");
     const modalHijo = document.getElementById("modalHijo");
     const cerrarModalHijo = document.getElementById("cerrarModalHijo");
+    const btnEliminarHijo = document.getElementById("btnEliminarHijo");
     const formHijo = document.getElementById("formHijo");
     const fotoInput = document.getElementById("fotoHijoInput");
 
@@ -258,6 +259,12 @@ function configurarModalHijo() {
             if (e.target === modalHijo) {
                 cerrarModalAgregarEditarHijo();
             }
+        });
+    }
+
+    if (btnEliminarHijo) {
+        btnEliminarHijo.addEventListener("click", function () {
+            eliminarHijoActual();
         });
     }
 
@@ -332,6 +339,12 @@ function abrirModalAgregarHijo() {
     document.getElementById("formHijo").reset();
     document.getElementById("previewFotoHijo").src = "img/usuarios/fotoPerfil1.png";
 
+    const btnEliminarHijo = document.getElementById("btnEliminarHijo");
+
+    if (btnEliminarHijo) {
+        btnEliminarHijo.style.display = "none";
+    }
+
     document.getElementById("modalHijo").classList.add("active");
 }
 
@@ -360,6 +373,12 @@ function abrirModalEditarHijo(hijoId) {
     document.getElementById("hijoRuta").value = hijo.rutaId;
     document.getElementById("hijoEstadoEntrega").value = hijo.estadoEntrega || "En la buseta";
     document.getElementById("previewFotoHijo").src = fotoHijoSeleccionada;
+
+    const btnEliminarHijo = document.getElementById("btnEliminarHijo");
+
+    if (btnEliminarHijo) {
+        btnEliminarHijo.style.display = "flex";
+    }
 
     document.getElementById("modalHijo").classList.add("active");
 }
@@ -478,6 +497,53 @@ function guardarHijoDesdeFormulario() {
     cargarHijosPadre();
 }
 
+
+/*
+Elimina lógicamente el hijo actual.
+No lo borra del localStorage, solo cambia su estado a inactivo.
+*/
+function eliminarHijoActual() {
+    if (!hijoEditandoId) {
+        mostrarNotificacion("No hay un hijo seleccionado para eliminar.", "warning");
+        return;
+    }
+
+    const hijo = obtenerPorId(DB_KEYS.hijos, hijoEditandoId);
+
+    if (!hijo) {
+        mostrarNotificacion("No se encontró el hijo seleccionado.", "error");
+        return;
+    }
+
+    Swal.fire({
+        title: "¿Eliminar hijo?",
+        text: `Esta acción quitará a ${hijo.nombre} de tu lista de hijos.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#EF4444",
+        cancelButtonColor: "#64748B",
+        reverseButtons: true
+    }).then(function (resultado) {
+        if (!resultado.isConfirmed) {
+            return;
+        }
+
+        const hijoEliminado = {
+            ...hijo,
+            estado: "inactivo"
+        };
+
+        actualizarDato(DB_KEYS.hijos, hijoEditandoId, hijoEliminado);
+
+        mostrarNotificacion("Hijo eliminado correctamente.", "success");
+
+        cerrarModalAgregarEditarHijo();
+
+        cargarHijosPadre();
+    });
+}
 
 /*
 Valida que un texto tenga solo letras y espacios.

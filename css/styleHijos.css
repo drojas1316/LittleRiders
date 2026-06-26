@@ -472,6 +472,49 @@ MODAL HIJO
     box-shadow: 0 12px 25px rgba(242, 194, 48, .35);
 }
 
+
+.btn-eliminar-hijo {
+    width: 100%;
+
+    border: none;
+    cursor: pointer;
+
+    margin-top: 12px;
+
+    background: rgba(239, 68, 68, .10);
+    color: #EF4444;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    font-weight: 800;
+    font-size: 1rem;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    transition: .3s;
+}
+
+.btn-eliminar-hijo:hover {
+    background: #EF4444;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(239, 68, 68, .28);
+}
+
+/* =========================================
+SWEETALERT ENCIMA DE MODALES
+========================================= */
+
+.swal2-container {
+    z-index: 10000 !important;
+}
+
+
 /* =========================================
 RESPONSIVE - MIS HIJOS
 ========================================= */
