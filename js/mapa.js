@@ -140,10 +140,6 @@ function crearMapa() {
         zoomControl: true
     }).setView(inicio, 16);
 
-    setTimeout(function () {
-        mapa.invalidateSize();
-    }, 300);
-
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
         maxZoom: 19,
         attribution: "© OpenStreetMap © CARTO"
@@ -170,10 +166,14 @@ function crearMapa() {
     crearMarcadoresParadas();
 
     const iconoBuseta = L.divIcon({
-        html: '<div class="buseta-marker"><i class="fa-solid fa-bus"></i></div>',
-        className: "",
-        iconSize: [58, 58],
-        iconAnchor: [29, 29]
+        html: `
+            <div class="buseta-marker">
+                <i class="fa-solid fa-bus-simple"></i>
+            </div>
+        `,
+        className: "icono-buseta",
+        iconSize: [60, 60],
+        iconAnchor: [30, 30]
     });
 
     marcadorBuseta = L.marker(inicio, {
@@ -181,8 +181,12 @@ function crearMapa() {
     }).addTo(mapa);
 
     mapa.fitBounds(lineaRuta.getBounds(), {
-        padding: [70, 70]
+        padding: [90, 90]
     });
+
+    setTimeout(function () {
+        mapa.invalidateSize();
+    }, 300);
 
     document.getElementById("btnCentrarMapa").onclick = function () {
         mapa.panTo(marcadorBuseta.getLatLng(), {
@@ -198,27 +202,52 @@ function crearMarcadoresParadas() {
         const esDestino = index === rutaActual.paradas.length - 1;
 
         const html = esDestino
-            ? '<div class="destino-marker"><i class="fa-solid fa-school"></i></div>'
+            ? `
+                <div class="destino-marker">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+            `
             : `
-                <div class="parada-marker">
-                    <div class="parada-numero">${parada.id}</div>
-                    <div class="parada-card">
-                        ${parada.nombre}
-                        <small>${parada.hora}</small>
-                    </div>
+                <div class="parada-numero">
+                    ${index + 1}
                 </div>
             `;
 
         const icono = L.divIcon({
             html: html,
-            className: "",
-            iconSize: esDestino ? [60, 60] : [210, 60],
-            iconAnchor: esDestino ? [30, 30] : [18, 30]
+            className: "marker-limpio",
+            iconSize: esDestino ? [72, 72] : [44, 44],
+            iconAnchor: esDestino ? [36, 36] : [22, 22]
         });
 
-        L.marker([parada.lat, parada.lng], {
+        let lat = parada.lat;
+        let lng = parada.lng;
+
+        if (!esDestino && index === 0) {
+            lat += 0.00022;
+            lng -= 0.00008;
+        }
+
+        if (!esDestino && index === 1) {
+            lat -= 0.00008;
+            lng += 0.00003;
+        }
+
+        const marker = L.marker([lat, lng], {
             icon: icono
         }).addTo(mapa);
+
+        if (!esDestino) {
+            marker.bindTooltip(
+                `<strong>${parada.nombre}</strong><br>${parada.hora}`,
+                {
+                    direction: "top",
+                    offset: [0, -18],
+                    opacity: 1,
+                    className: "tooltip-parada"
+                }
+            );
+        }
     });
 }
 

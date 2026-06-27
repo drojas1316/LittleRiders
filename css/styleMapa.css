@@ -1,77 +1,91 @@
 .mapa-content {
     background: #fff;
-    border-radius: 28px;
-    padding: 28px;
-    box-shadow: 0 15px 35px rgba(0,0,0,.05);
+    border-radius: 24px;
+    padding: 18px;
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .06);
 }
 
 .mapa-top {
     display: grid;
-    grid-template-columns: 330px 1fr 370px;
-    gap: 24px;
+    grid-template-columns: 230px 1fr 240px;
+    gap: 14px;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
 }
 
-.hijos-selector-card,
-.estado-card {
-    background: #fff;
-    border-radius: 24px;
-    padding: 22px;
-    box-shadow: 0 12px 30px rgba(15,23,42,.08);
+.hijos-selector-card {
+    background: linear-gradient(135deg, #ffffff, #FFF8E8);
+    border: 1px solid rgba(242, 194, 48, .35);
+    border-radius: 22px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .07);
 }
 
 .hijos-selector-card p {
-    color: #64748B;
-    font-weight: 800;
-    margin-bottom: 12px;
+    color: #D97706;
+    font-weight: 900;
+    font-size: .9rem;
+    margin-bottom: 10px;
 }
 
 .hijos-selector-card select {
     width: 100%;
     border: 1px solid #E2E8F0;
-    background: #F8FAFC;
-    padding: 14px;
+    background: white;
+    padding: 13px 16px;
     border-radius: 15px;
-    font-weight: 800;
+    font-weight: 900;
     color: #0F172A;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, .05);
+}
+
+.hijos-selector-card select:focus {
+    border-color: #F2C230;
+    box-shadow: 0 0 0 4px rgba(242, 194, 48, .18);
 }
 
 .mapa-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     background: #FFF8E8;
     color: #D97706;
-    padding: 10px 18px;
+    padding: 7px 13px;
     border-radius: 999px;
+    font-size: .8rem;
     font-weight: 900;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 
 .ruta-title-card h1 {
     color: #0F172A;
-    font-size: 2.6rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    line-height: 1.1;
+    margin-bottom: 5px;
 }
 
 .ruta-title-card p {
     color: #64748B;
-    font-size: 1.1rem;
+    font-size: .9rem;
 }
 
 .estado-card {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
 }
 
 .estado-icon {
-    width: 62px;
-    height: 62px;
+    width: 44px;
+    height: 44px;
     background: #F2C230;
     color: white;
-    border-radius: 50%;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,21 +93,25 @@
 
 .estado-card h3 {
     color: #0F172A;
-    font-size: 1.2rem;
+    font-size: .95rem;
 }
 
 .estado-card p {
     color: #64748B;
-    margin-top: 5px;
+    margin-top: 3px;
+    font-size: .82rem;
 }
 
 .mapa-wrapper {
     position: relative;
-    height: 560px;
-    border-radius: 28px;
+    width: 100%;
+    max-width: 920px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 20px;
     overflow: hidden;
-    border: 4px solid #FFF8E8;
-    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    border: 3px solid #FFF8E8;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
 }
 
 #mapaLeaflet {
@@ -103,57 +121,61 @@
 
 .btn-centrar {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 14px;
+    right: 14px;
     z-index: 500;
     border: none;
     background: white;
     color: #111827;
-    padding: 14px 18px;
-    border-radius: 16px;
+    padding: 10px 14px;
+    border-radius: 13px;
+    font-size: .85rem;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
 }
 
 .mapa-bottom {
-    margin-top: 28px;
+    max-width: 920px;
+    margin: 16px auto 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
+    gap: 12px;
 }
 
 .info-card {
     background: white;
     border: 1px solid #EEF2F7;
-    border-radius: 24px;
-    padding: 22px;
+    border-radius: 18px;
+    padding: 12px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    gap: 10px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .05);
 }
 
 .info-card span {
     color: #64748B;
+    font-size: .72rem;
     font-weight: 700;
 }
 
 .info-card h3 {
     color: #0F172A;
-    margin: 6px 0;
+    margin: 3px 0;
+    font-size: .82rem;
 }
 
 .info-card p {
     color: #64748B;
-    font-size: .9rem;
+    font-size: .72rem;
 }
 
 .info-icon,
 .info-img {
-    width: 58px;
-    height: 58px;
-    border-radius: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +185,7 @@
 .info-img img {
     width: 100%;
     height: 100%;
-    border-radius: 18px;
+    border-radius: 13px;
     object-fit: cover;
 }
 
@@ -188,12 +210,14 @@
 }
 
 .mapa-aviso {
-    margin-top: 20px;
+    max-width: 920px;
+    margin: 14px auto 0;
     background: #FFF8E8;
     color: #64748B;
-    border: 1px solid rgba(242,194,48,.35);
-    padding: 16px 20px;
-    border-radius: 18px;
+    border: 1px solid rgba(242, 194, 48, .35);
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: .82rem;
     font-weight: 700;
 }
 
@@ -202,20 +226,28 @@
     margin-right: 8px;
 }
 
-/* ICONOS DEL MAPA */
-
 .buseta-marker {
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 60px;
     background: #F2C230;
-    border: 5px solid white;
-    border-radius: 18px;
+    border: 5px solid #fff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .25);
+}
+
+.buseta-marker i {
+    font-size: 28px;
     color: #111827;
-    font-size: 1.8rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,.28);
+    line-height: 1;
+}
+
+.icono-buseta,
+.leaflet-div-icon {
+    background: transparent !important;
+    border: none !important;
 }
 
 .parada-marker {
@@ -225,47 +257,95 @@
 }
 
 .parada-numero {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     background: #F59E0B;
     color: white;
     border: 4px solid white;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    font-size: 20px;
     font-weight: 900;
-    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+    line-height: 1;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+}
+
+.marker-limpio,
+.icono-buseta,
+.leaflet-div-icon {
+    background: transparent !important;
+    border: none !important;
 }
 
 .parada-card {
     background: white;
-    padding: 10px 14px;
+    padding: 9px 13px;
     border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.15);
-    color: #111827;
+    min-width: 150px;
+    max-width: 170px;
+    box-shadow: 0 10px 22px rgba(15,23,42,.16);
+    font-size: 13px;
     font-weight: 800;
-    min-width: 145px;
+    color: #0F172A;
 }
 
 .parada-card small {
     display: block;
-    color: #64748B;
     margin-top: 5px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.parada-marker.izquierda {
+    flex-direction: row-reverse;
+}
+
+.parada-marker.izquierda .parada-card {
+    text-align: right;
 }
 
 .destino-marker {
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     background: #7C3AED;
-    color: white;
-    border: 5px solid white;
+    border: 5px solid #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,.25);
-    font-size: 1.5rem;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .25);
+}
+
+.destino-marker i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 1;
+}
+
+.tooltip-parada {
+    background: white !important;
+    color: #0F172A !important;
+    border: none !important;
+    border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 12px 28px rgba(15,23,42,.18);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.tooltip-parada strong {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.leaflet-tooltip-top::before {
+    border-top-color: white !important;
 }
 
 .leaflet-control-container,
@@ -273,12 +353,15 @@
 .leaflet-bottom {
     z-index: 1;
 }
-
 header {
     z-index: 9999;
 }
 
 @media (max-width: 1200px) {
+    .mapa-content {
+        max-width: 92%;
+    }
+
     .mapa-top {
         grid-template-columns: 1fr;
     }
@@ -290,15 +373,16 @@ header {
 
 @media (max-width: 700px) {
     .mapa-content {
-        padding: 20px;
+        padding: 14px;
+        max-width: 95%;
     }
 
     .ruta-title-card h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .mapa-wrapper {
-        height: 420px;
+        height: 320px;
     }
 
     .mapa-bottom {
