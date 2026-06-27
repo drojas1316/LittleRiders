@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function inicializarBaseDatos() {
     //solo para probar, en producción se debe cargar una sola vez y luego comentar esta función
-    const MODO_DESARROLLO = false; // Cambia a false para producción y evitar recargas innecesarias
+    const MODO_DESARROLLO = true; // Cambia a false para producción y evitar recargas innecesarias
 
     const yaInicializado = localStorage.getItem(DB_KEYS.inicializado);
 
