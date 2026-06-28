@@ -41,33 +41,77 @@ function cargarHijosDelUsuario() {
         return item.usuarioId === usuario.id;
     });
 
-    const select = document.getElementById("selectHijoMapa");
+    const contenedorSelect = document.getElementById("customSelectHijo");
+    const btnSelect = document.getElementById("btnSelectHijo");
+    const textoSeleccionado = document.getElementById("textoHijoSeleccionado");
+    const opcionesHijos = document.getElementById("opcionesHijos");
 
-    select.innerHTML = "";
+    opcionesHijos.innerHTML = "";
 
     const hijosUsuario = hijos.filter(function (hijo) {
         return hijo.padreId === padre.id && hijo.estado === "activo";
     });
 
-    hijosUsuario.forEach(function (hijo) {
-        const option = document.createElement("option");
+    hijosUsuario.forEach(function (hijo, index) {
+        const boton = document.createElement("button");
 
-        option.value = hijo.id;
-        option.textContent = hijo.nombre;
+        boton.type = "button";
+        boton.classList.add("custom-option-hijo");
+        boton.dataset.id = hijo.id;
 
-        select.appendChild(option);
+        boton.innerHTML = `
+            <span class="custom-option-avatar">
+                <i class="fa-solid fa-child"></i>
+            </span>
+
+            <span>${hijo.nombre}</span>
+
+            <i class="fa-solid fa-check custom-option-check"></i>
+        `;
+
+        boton.addEventListener("click", function () {
+            seleccionarHijoDropdown(hijo.id, hijo.nombre);
+        });
+
+        opcionesHijos.appendChild(boton);
+
+        if (index === 0) {
+            seleccionarHijoDropdown(hijo.id, hijo.nombre);
+        }
     });
 
-    if (hijosUsuario.length > 0) {
-        cargarRutaPorHijo(hijosUsuario[0].id);
-    }
+    btnSelect.addEventListener("click", function () {
+        contenedorSelect.classList.toggle("active");
+    });
 
-    select.addEventListener("change", function () {
-        cargarRutaPorHijo(Number(this.value));
+    document.addEventListener("click", function (e) {
+        if (!contenedorSelect.contains(e.target)) {
+            contenedorSelect.classList.remove("active");
+        }
     });
 }
 
-function cargarRutaPorHijo(hijoId) {
+function seleccionarHijoDropdown(hijoId, nombreHijo) {
+    const contenedorSelect = document.getElementById("customSelectHijo");
+    const textoSeleccionado = document.getElementById("textoHijoSeleccionado");
+    const opciones = document.querySelectorAll(".custom-option-hijo");
+
+    textoSeleccionado.textContent = nombreHijo;
+
+    opciones.forEach(function (opcion) {
+        opcion.classList.remove("active");
+
+        if (Number(opcion.dataset.id) === Number(hijoId)) {
+            opcion.classList.add("active");
+        }
+    });
+
+    contenedorSelect.classList.remove("active");
+
+    cargarRutaPorHijo(Number(hijoId));
+}
+
+async function cargarRutaPorHijo(hijoId) {
     hijoActual = hijos.find(function (hijo) {
         return hijo.id === Number(hijoId);
     });
@@ -93,7 +137,7 @@ function cargarRutaPorHijo(hijoId) {
     indiceActual = gpsActual.indiceActual || 0;
 
     cargarInformacionRuta();
-    crearMapa();
+    await crearMapa();
 
     if (intervaloMovimiento) {
         clearInterval(intervaloMovimiento);
@@ -189,10 +233,12 @@ function obtenerRecorridoActual() {
     return gpsActual.recorrido;
 }
 
-function crearMapa() {
+async function crearMapa() {
     if (mapa) {
         mapa.remove();
     }
+
+    await generarRecorridoPorCalles();
 
     const recorridoOriginal = gpsActual.recorrido.map(function (punto) {
         return [punto.lat, punto.lng];
@@ -205,21 +251,34 @@ function crearMapa() {
     const inicio = recorrido[indiceActual];
 
     mapa = L.map("mapaLeaflet", {
-        zoomControl: true
+        zoomControl: false
     }).setView(inicio, 16);
+
+    L.control.zoom({
+        position: "bottomright"
+    }).addTo(mapa);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
         maxZoom: 19,
         attribution: "© OpenStreetMap © CARTO"
     }).addTo(mapa);
 
-    lineaRuta = L.polyline(recorridoOriginal, {
-        color: "#F59E0B",
-        weight: 7,
+    L.polyline(recorrido, {
+        color: "white",
+        weight: 13,
         opacity: .95,
         lineCap: "round",
         lineJoin: "round"
     }).addTo(mapa);
+
+    lineaRuta = L.polyline(recorrido, {
+        color: "#F59E0B",
+        weight: 7,
+        opacity: .98,
+        lineCap: "round",
+        lineJoin: "round"
+    }).addTo(mapa);
+
 
     const recorridoInicial = recorrido.slice(0, indiceActual + 1);
 
@@ -266,6 +325,7 @@ function crearMapa() {
 function crearMarcadoresParadas() {
     rutaActual.paradas.forEach(function (parada, index) {
         const esDestino = index === rutaActual.paradas.length - 1;
+        const numero = index + 1;
 
         const html = esDestino
             ? `
@@ -275,7 +335,7 @@ function crearMarcadoresParadas() {
             `
             : `
                 <div class="parada-numero">
-                    ${index + 1}
+                    ${numero}
                 </div>
             `;
 
@@ -286,34 +346,34 @@ function crearMarcadoresParadas() {
             iconAnchor: esDestino ? [36, 36] : [22, 22]
         });
 
-        let lat = parada.lat;
-        let lng = parada.lng;
-
-        if (!esDestino && index === 0) {
-            lat += 0.00022;
-            lng -= 0.00008;
-        }
-
-        if (!esDestino && index === 1) {
-            lat -= 0.00008;
-            lng += 0.00003;
-        }
-
-        const marker = L.marker([lat, lng], {
+        const marker = L.marker([parada.lat, parada.lng], {
             icon: icono
         }).addTo(mapa);
 
-        if (!esDestino) {
-            marker.bindTooltip(
-                `<strong>${parada.nombre}</strong><br>${parada.hora}`,
-                {
-                    direction: "top",
-                    offset: [0, -18],
-                    opacity: 1,
-                    className: "tooltip-parada"
-                }
-            );
-        }
+        const textoEstado = esDestino
+            ? "Llegada estimada"
+            : gpsActual.sentido === "regreso"
+                ? "Dejando estudiantes"
+                : "Recogiendo estudiantes";
+
+        marker.bindTooltip(
+            `
+                <div class="tooltip-parada-card">
+                    <strong>${parada.nombre}</strong>
+                    <span>${textoEstado}</span>
+                    <p>
+                        <i class="fa-regular fa-clock"></i>
+                        ${parada.hora}
+                    </p>
+                </div>
+            `,
+            {
+                direction: "top",
+                offset: [0, -18],
+                opacity: 1,
+                className: "tooltip-parada"
+            }
+        );
     });
 }
 
@@ -321,20 +381,49 @@ function iniciarMovimientoBuseta() {
     intervaloMovimiento = setInterval(function () {
         const recorrido = obtenerRecorridoActual();
 
-        if (gpsActual.estado === "En la escuela") {
-            const horaActual = obtenerMinutosActuales();
-            const horaRegreso = convertirHoraAMinutos(rutaActual.horaRegreso);
+        if (gpsActual.pausaHasta && Date.now() < gpsActual.pausaHasta) {
+            return;
+        }
 
-            if (horaActual >= horaRegreso) {
+        if (gpsActual.pausaHasta && Date.now() >= gpsActual.pausaHasta) {
+            gpsActual.pausaHasta = null;
+
+            if (gpsActual.sentido === "ida") {
+                gpsActual.estado = "En camino a la escuela";
+            } else {
+                gpsActual.estado = "Regresando a casa";
+            }
+
+            guardarEstadoGPS();
+            cargarInformacionRuta();
+        }
+
+        if (gpsActual.estado === "En la escuela") {
+            if (!gpsActual.horaLlegadaEscuela) {
+                gpsActual.horaLlegadaEscuela = Date.now();
+                guardarEstadoGPS();
+                return;
+            }
+
+            const tiempoEsperaEscuela = 10000;
+
+            if (Date.now() - gpsActual.horaLlegadaEscuela >= tiempoEsperaEscuela) {
                 gpsActual.sentido = "regreso";
                 gpsActual.indiceActual = 0;
                 gpsActual.estado = "Regresando a casa";
+                gpsActual.horaLlegadaEscuela = null;
+                gpsActual.paradasRealizadas = [];
                 indiceActual = 0;
+
+                actualizarUbicacionHijo("buseta", "En la buseta");
                 guardarEstadoGPS();
-            } else {
-                clearInterval(intervaloMovimiento);
+
+                cargarInformacionRuta();
+                crearMapa();
                 return;
             }
+
+            return;
         }
 
         if (gpsActual.estado === "Llegó a casa") {
@@ -346,6 +435,7 @@ function iniciarMovimientoBuseta() {
             if (gpsActual.sentido === "ida") {
                 gpsActual.estado = "En la escuela";
                 gpsActual.indiceActual = recorrido.length - 1;
+                gpsActual.horaLlegadaEscuela = Date.now();
 
                 actualizarUbicacionHijo("escuela", "En la escuela");
             } else {
@@ -357,12 +447,10 @@ function iniciarMovimientoBuseta() {
 
             guardarEstadoGPS();
             cargarInformacionRuta();
-            clearInterval(intervaloMovimiento);
             return;
         }
 
         indiceActual++;
-
         gpsActual.indiceActual = indiceActual;
 
         const nuevaPosicion = [
@@ -387,6 +475,8 @@ function iniciarMovimientoBuseta() {
             });
 
         lineaRecorrida.setLatLngs(recorridoActual);
+
+        revisarParadaSimulada();
 
         guardarEstadoGPS();
         actualizarPanelRuta();
@@ -488,3 +578,105 @@ function actualizarUbicacionHijo(nuevaUbicacion, nuevoEstadoEntrega) {
 
     guardarDatos(DB_KEYS.hijos, hijos);
 }
+
+function revisarParadaSimulada() {
+    if (!gpsActual.paradasRealizadas) {
+        gpsActual.paradasRealizadas = [];
+    }
+
+    const paradas = gpsActual.sentido === "regreso"
+        ? rutaActual.paradas.slice().reverse()
+        : rutaActual.paradas;
+
+    const recorrido = obtenerRecorridoActual();
+
+    paradas.forEach(function (parada, index) {
+        const esDestino = index === paradas.length - 1;
+
+        if (esDestino) {
+            return;
+        }
+
+        const puntoParada = buscarIndiceMasCercano(parada.lat, parada.lng, recorrido);
+
+        if (puntoParada !== indiceActual) {
+            return;
+        }
+
+        const claveParada = gpsActual.sentido + "-" + parada.id;
+
+        if (gpsActual.paradasRealizadas.includes(claveParada)) {
+            return;
+        }
+
+        gpsActual.paradasRealizadas.push(claveParada);
+
+        if (gpsActual.sentido === "ida") {
+            gpsActual.estado = "Recogiendo estudiantes";
+        } else {
+            gpsActual.estado = "Dejando estudiantes";
+        }
+
+        gpsActual.pausaHasta = Date.now() + 6000;
+
+        guardarEstadoGPS();
+        cargarInformacionRuta();
+    });
+}
+
+function buscarIndiceMasCercano(lat, lng, recorrido) {
+    let indiceCercano = 0;
+    let distanciaMenor = Infinity;
+
+    recorrido.forEach(function (punto, index) {
+        const distancia =
+            Math.abs(punto.lat - lat) +
+            Math.abs(punto.lng - lng);
+
+        if (distancia < distanciaMenor) {
+            distanciaMenor = distancia;
+            indiceCercano = index;
+        }
+    });
+
+    return indiceCercano;
+}
+
+async function generarRecorridoPorCalles() {
+    if (gpsActual.recorridoRealGenerado) {
+        return;
+    }
+
+    const puntos = rutaActual.paradas.map(function (parada) {
+        return parada.lng + "," + parada.lat;
+    }).join(";");
+
+    const url = `https://router.project-osrm.org/route/v1/driving/${puntos}?overview=full&geometries=geojson`;
+
+    try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+
+        if (!datos.routes || datos.routes.length === 0) {
+            return;
+        }
+
+        const coordenadas = datos.routes[0].geometry.coordinates;
+
+        gpsActual.recorrido = coordenadas.map(function (coord) {
+            return {
+                lng: coord[0],
+                lat: coord[1]
+            };
+        });
+
+        gpsActual.indiceActual = 0;
+        gpsActual.recorridoRealGenerado = true;
+
+        guardarEstadoGPS();
+
+    } catch (error) {
+        console.log("No se pudo generar la ruta por calles.");
+    }
+}
+
