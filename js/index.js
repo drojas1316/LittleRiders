@@ -4,10 +4,41 @@ if (formulario) {
     formulario.addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        const nombre = document.getElementById("nombre").value;
-        const correo = document.getElementById("correo").value;
-        const telefono = document.getElementById("telefono").value;
-        const mensaje = document.getElementById("mensaje").value;
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
+
+        limpiarErroresContacto();
+
+        let formularioValido = true;
+
+        if (nombre.length < 3) {
+            mostrarErrorContacto("nombre", "El nombre debe tener al menos 3 letras.");
+            formularioValido = false;
+        } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombre)) {
+            mostrarErrorContacto("nombre", "El nombre solo debe contener letras.");
+            formularioValido = false;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+            mostrarErrorContacto("correo", "Ingresa un correo válido.");
+            formularioValido = false;
+        }
+
+        if (!/^[0-9]{8}$/.test(telefono)) {
+            mostrarErrorContacto("telefono", "El teléfono debe tener 8 números.");
+            formularioValido = false;
+        }
+
+        if (mensaje.length < 10) {
+            mostrarErrorContacto("mensaje", "El mensaje debe tener al menos 10 caracteres.");
+            formularioValido = false;
+        }
+
+        if (!formularioValido) {
+            return;
+        }
 
         const numeroWhatsApp = "50684297000";
 
@@ -26,6 +57,30 @@ ${mensaje}`;
     });
 }
 
+function mostrarErrorContacto(idCampo, mensaje) {
+    const campo = document.getElementById(idCampo);
+
+    campo.classList.add("input-error");
+
+    const error = document.createElement("small");
+    error.classList.add("mensaje-error");
+    error.textContent = mensaje;
+
+    campo.parentElement.appendChild(error);
+}
+
+function limpiarErroresContacto() {
+    const errores = document.querySelectorAll(".mensaje-error");
+    const campos = document.querySelectorAll(".input-error");
+
+    errores.forEach(function (error) {
+        error.remove();
+    });
+
+    campos.forEach(function (campo) {
+        campo.classList.remove("input-error");
+    });
+}
 
 
 /* =======================================
@@ -40,7 +95,7 @@ let intervaloBusetas;
 
 /* Funciona con localStorage */
 if (vehiclesTrack) {
-    document.addEventListener("baseDatosLista", function() {
+    document.addEventListener("baseDatosLista", function () {
         cargarBusetas();
     });
 }
@@ -56,7 +111,7 @@ function cargarBusetas() {
 function mostrarBusetas(busetas) {
     vehiclesTrack.innerHTML = "";
 
-    busetas.forEach(function(buseta) {
+    busetas.forEach(function (buseta) {
 
         const estadoClase = buseta.estado.toLowerCase().includes("mantenimiento")
             ? "mantenimiento"
@@ -105,15 +160,15 @@ function activarCarruselBusetas() {
     }
 
     carruselBusetasActivo = true;
-    
+
     const desplazamiento = 360;
 
-    btnNext.addEventListener("click", function() {
+    btnNext.addEventListener("click", function () {
         vehiclesTrack.scrollLeft += desplazamiento;
         reiniciarAutoMovimiento();
     });
 
-    btnPrev.addEventListener("click", function() {
+    btnPrev.addEventListener("click", function () {
         vehiclesTrack.scrollLeft -= desplazamiento;
         reiniciarAutoMovimiento();
     });
@@ -122,7 +177,7 @@ function activarCarruselBusetas() {
 }
 
 function iniciarAutoMovimiento() {
-    intervaloBusetas = setInterval(function() {
+    intervaloBusetas = setInterval(function () {
 
         const llegoAlFinal =
             vehiclesTrack.scrollLeft + vehiclesTrack.clientWidth >= vehiclesTrack.scrollWidth - 5;
@@ -155,7 +210,7 @@ let intervaloConductores;
 
 /* Funciona con localStorage */
 if (driversTrack) {
-    document.addEventListener("baseDatosLista", function() {  /* consulta a localStorage */
+    document.addEventListener("baseDatosLista", function () {  /* consulta a localStorage */
         cargarConductores();
     });
 }
@@ -172,9 +227,9 @@ function cargarConductores() {
 function mostrarConductores(conductores, busetas) {
     driversTrack.innerHTML = "";
 
-    conductores.forEach(function(conductor) {
+    conductores.forEach(function (conductor) {
 
-        const buseta = busetas.find(function(item) {
+        const buseta = busetas.find(function (item) {
             return item.id === conductor.busetaId;
         });
 
@@ -236,18 +291,18 @@ function activarCarruselConductores() {
     }
 
     carruselConductoresActivo = true;
-    
+
     const desplazamiento = 370;
 
     if (btnDriverNext) {
-        btnDriverNext.addEventListener("click", function() {
+        btnDriverNext.addEventListener("click", function () {
             driversTrack.scrollLeft += desplazamiento;
             reiniciarAutoConductores();
         });
     }
 
     if (btnDriverPrev) {
-        btnDriverPrev.addEventListener("click", function() {
+        btnDriverPrev.addEventListener("click", function () {
             driversTrack.scrollLeft -= desplazamiento;
             reiniciarAutoConductores();
         });
@@ -257,7 +312,7 @@ function activarCarruselConductores() {
 }
 
 function iniciarAutoConductores() {
-    intervaloConductores = setInterval(function() {
+    intervaloConductores = setInterval(function () {
 
         const llegoAlFinal =
             driversTrack.scrollLeft + driversTrack.clientWidth >= driversTrack.scrollWidth - 5;
@@ -282,7 +337,7 @@ function reiniciarAutoConductores() {
 HEADER ANIMADO AL CARGAR Y AL HACER SCROLL
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const header = document.querySelector("header");
 
@@ -292,11 +347,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let ultimaPosicionScroll = window.scrollY;
 
-    setTimeout(function() {
+    setTimeout(function () {
         header.classList.add("header-visible");
     }, 200);
 
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", function () {
 
         const posicionActual = window.scrollY;
 
