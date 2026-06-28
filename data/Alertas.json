@@ -39,13 +39,13 @@
         "id": 4,
         "usuarioId": 3,
         "titulo": "Llegada",
-        "mensaje": "Mateo llegó a casa correctamente.",
+        "mensaje": "Valeria llegó a casa correctamente.",
         "tipo": "llegada",
         "prioridad": "normal",
         "fecha": "2026-06-18 15:10",
         "leida": false,
         "rutaId": 2,
-        "hijoId": 2
+        "hijoId": 3
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "fecha": "2026-06-18 06:55",
         "leida": false,
         "rutaId": 2,
-        "hijoId": 2
+        "hijoId": 3
     },
     {
         "id": 6,
