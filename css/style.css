@@ -13,7 +13,7 @@ html{
 }
 
 /* =======================================
-HEADER - PARTE SUPERIOR
+HEADER Y NAVEGACIÓN
 ========================================= */ 
 
 
@@ -99,18 +99,12 @@ nav a::after {
     color:#f2c230;
 }
 
-nav a:hover {
-    color: #f2c230;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
+nav a:hover,
 nav a.activo {
     color: #f2c230;
 }
 
+nav a:hover::after,
 nav a.activo::after {
     width: 100%;
 }

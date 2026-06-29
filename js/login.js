@@ -3,6 +3,7 @@ const register = document.getElementById("register");
 const indicator = document.getElementById("indicator");
 const tabs = document.querySelectorAll(".tab");
 
+/* Muestra el formulario de inicio de sesión y oculta el de registro. */
 function showLogin() {
     // 1. Desliza el indicador amarillo a la izquierda
     indicator.style.transform = "translateX(0%)";
@@ -20,6 +21,7 @@ function showLogin() {
     tabs[1].classList.remove("active");
 }
 
+/* Muestra el formulario de registro y oculta el de inicio de sesión. */
 function showRegister() {
     // 1. Desliza el indicador amarillo a la derecha
     indicator.style.transform = "translateX(100%)";
@@ -254,6 +256,11 @@ SOLO NUMEROS
 CONTRASEÑA
 ========================================= */
 
+/* Alterna la visibilidad del texto de una contraseña.
+   Parámetros:
+   - inputId: id del input relacionado.
+   - icon: elemento visual del ícono del ojo.
+*/
 function togglePassword(inputId, icon) {
 
     const input = document.getElementById(inputId);

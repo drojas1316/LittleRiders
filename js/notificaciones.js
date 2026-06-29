@@ -1,8 +1,14 @@
 /* =======================================
 NOTIFICACIONES - LITTLE RIDERS
-Se usa en hijos, busetas, conductores, etc.
+Muestra mensajes breves en la interfaz para
+informar al usuario sobre acciones completadas o errores.
 ========================================= */
 
+/* Muestra una notificación flotante en pantalla.
+   Parámetros:
+   - mensaje: texto visible para el usuario.
+   - tipo: estilo de la notificación (success, error, warning, info).
+*/
 function mostrarNotificacion(mensaje, tipo = "info") {
     let contenedor = document.getElementById("notificaciones");
 

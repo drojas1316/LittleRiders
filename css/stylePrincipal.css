@@ -270,6 +270,10 @@ body {
     margin-top: 4px;
 }
 
+/* ========================= */
+/* ANIMACIONES */
+/* ========================= */
+
 @keyframes busInicio {
     from { left: 0; }
     to { left: calc(100% - 58px); }
@@ -281,8 +285,13 @@ body {
 }
 
 @keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+
+    50% { 
+        transform: translateY(-12px); 
+    }
 }
 
 @keyframes pulso {
@@ -307,12 +316,421 @@ body {
     }
 }
 
-@media (max-width: 900px) {
-    .actividad-lista {
-        grid-template-columns: 1fr;
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    body {
+        background:
+            radial-gradient(circle at top right, rgba(242, 194, 48, .14), transparent 240px),
+            radial-gradient(circle at bottom left, rgba(242, 194, 48, .12), transparent 280px),
+            #F8FAFC;
+    }
+
+    .inicio-panel {
+        gap: 20px;
+    }
+
+    .inicio-hero,
+    .actividad-card {
+        padding: 28px;
+        border-radius: 24px;
+    }
+
+    .inicio-hero {
+        min-height: 400px;
     }
 
     .inicio-hero h1 {
-        font-size: 2.1rem;
+        font-size: 2.3rem;
+    }
+
+    .inicio-hero p {
+        font-size: 1rem;
+    }
+
+    .inicio-escena {
+        height: 240px;
+    }
+
+    .inicio-sol {
+        right: 80px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .nube-uno {
+        left: 80px;
+    }
+
+    .nube-dos {
+        right: 140px;
+    }
+
+    .inicio-ruta {
+        left: 25px;
+        right: 25px;
+        grid-template-columns: 62px 1fr 62px;
+    }
+
+    .inicio-casa,
+    .inicio-escuela {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    .inicio-bus {
+        width: 54px;
+        height: 54px;
+    }
+
+    @keyframes busInicio {
+        from { left: 0; }
+        to { left: calc(100% - 54px); }
+    }
+}
+
+/* Tablets pequeñas y celulares grandes */
+@media (max-width: 768px) {
+    .inicio-panel {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .inicio-hero,
+    .actividad-card {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .inicio-hero {
+        min-height: auto;
+    }
+
+    .inicio-badge {
+        display: inline-block;
+        font-size: .85rem;
+        padding: 7px 12px;
+    }
+
+    .inicio-hero h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-top: 16px;
+    }
+
+    .inicio-hero p {
+        font-size: .95rem;
+        line-height: 1.5;
+    }
+
+    .inicio-escena {
+        height: 230px;
+        margin-top: 20px;
+    }
+
+    .inicio-sol {
+        top: 8px;
+        right: 35px;
+        width: 62px;
+        height: 62px;
+    }
+
+    .inicio-nube {
+        width: 95px;
+        height: 34px;
+    }
+
+    .inicio-nube::before {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+        left: 14px;
+    }
+
+    .inicio-nube::after {
+        width: 48px;
+        height: 48px;
+        top: -28px;
+        right: 14px;
+    }
+
+    .nube-uno {
+        top: 78px;
+        left: 20px;
+    }
+
+    .nube-dos {
+        top: 125px;
+        right: 35px;
+        transform: scale(.7);
+    }
+
+    .inicio-ruta {
+        left: 10px;
+        right: 10px;
+        bottom: 20px;
+        grid-template-columns: 54px 1fr 54px;
+        gap: 12px;
+    }
+
+    .inicio-casa,
+    .inicio-escuela {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+    }
+
+    .inicio-camino {
+        height: 12px;
+        background: repeating-linear-gradient(
+            90deg,
+            #F59E0B 0 22px,
+            transparent 22px 34px
+        );
+    }
+
+    .inicio-bus {
+        width: 48px;
+        height: 48px;
+        border-width: 4px;
+    }
+
+    .inicio-bus i {
+        font-size: 1.25rem;
+    }
+
+    @keyframes busInicio {
+        from { left: 0; }
+        to { left: calc(100% - 48px); }
+    }
+
+    .actividad-card {
+        min-height: auto;
+    }
+
+    .actividad-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .actividad-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .actividad-header p {
+        font-size: .9rem;
+    }
+
+    .actividad-lista {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .actividad-item {
+        grid-template-columns: 42px 1fr;
+        padding: 13px;
+        border-radius: 16px;
+    }
+
+    .actividad-icono {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .inicio-hero,
+    .actividad-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .inicio-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .inicio-hero p {
+        font-size: .9rem;
+    }
+
+    .inicio-badge {
+        font-size: .78rem;
+    }
+
+    .inicio-escena {
+        height: 210px;
+        overflow: hidden;
+    }
+
+    .inicio-sol {
+        width: 52px;
+        height: 52px;
+        right: 20px;
+    }
+
+    .inicio-nube {
+        width: 82px;
+        height: 30px;
+    }
+
+    .inicio-nube::before {
+        width: 36px;
+        height: 36px;
+        top: -18px;
+        left: 12px;
+    }
+
+    .inicio-nube::after {
+        width: 42px;
+        height: 42px;
+        top: -24px;
+        right: 12px;
+    }
+
+    .nube-uno {
+        top: 74px;
+        left: 5px;
+    }
+
+    .nube-dos {
+        top: 116px;
+        right: 5px;
+        transform: scale(.62);
+    }
+
+    .inicio-ruta {
+        grid-template-columns: 46px 1fr 46px;
+        gap: 8px;
+        left: 0;
+        right: 0;
+        bottom: 18px;
+    }
+
+    .inicio-casa,
+    .inicio-escuela {
+        width: 44px;
+        height: 44px;
+        border-radius: 15px;
+        font-size: 1.05rem;
+    }
+
+    .inicio-camino {
+        height: 10px;
+    }
+
+    .inicio-bus {
+        width: 42px;
+        height: 42px;
+        border-width: 3px;
+    }
+
+    .inicio-bus i {
+        font-size: 1.05rem;
+    }
+
+    @keyframes busInicio {
+        from { left: 0; }
+        to { left: calc(100% - 42px); }
+    }
+
+    .actividad-header {
+        margin-bottom: 18px;
+    }
+
+    .actividad-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .actividad-header p {
+        font-size: .82rem;
+    }
+
+    .actividad-punto {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+        margin-top: 6px;
+    }
+
+    .actividad-item {
+        grid-template-columns: 38px 1fr;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .actividad-icono {
+        width: 38px;
+        height: 38px;
+        font-size: .9rem;
+    }
+
+    .actividad-item h3 {
+        font-size: .88rem;
+    }
+
+    .actividad-item p {
+        font-size: .76rem;
+    }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 360px) {
+    .inicio-hero,
+    .actividad-card {
+        padding: 16px;
+    }
+
+    .inicio-hero h1 {
+        font-size: 1.55rem;
+    }
+
+    .inicio-hero p {
+        font-size: .84rem;
+    }
+
+    .inicio-escena {
+        height: 190px;
+    }
+
+    .inicio-ruta {
+        grid-template-columns: 40px 1fr 40px;
+        gap: 6px;
+    }
+
+    .inicio-casa,
+    .inicio-escuela {
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+        font-size: .95rem;
+    }
+
+    .inicio-bus {
+        width: 38px;
+        height: 38px;
+    }
+
+    .inicio-bus i {
+        font-size: .95rem;
+    }
+
+    @keyframes busInicio {
+        from { left: 0; }
+        to { left: calc(100% - 38px); }
+    }
+
+    .actividad-header h2 {
+        font-size: 1.08rem;
+    }
+
+    .actividad-header p {
+        font-size: .76rem;
     }
 }

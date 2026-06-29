@@ -80,7 +80,7 @@ MIS HIJOS - LISTA
 
 .child-card {
     display: grid;
-    grid-template-columns: 1.4fr .7fr .65fr;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 25px;
 
@@ -141,38 +141,6 @@ MIS HIJOS - LISTA
 
 .child-info strong {
     color: #334155;
-}
-
-.child-status {
-    display: flex;
-    justify-content: center;
-}
-
-.status-badge {
-    min-width: 145px;
-    text-align: center;
-
-    padding: 11px 18px;
-
-    border-radius: 14px;
-
-    font-size: .92rem;
-    font-weight: 800;
-}
-
-.status-badge.buseta {
-    background: rgba(122, 168, 59, .16);
-    color: #5F8F28;
-}
-
-.status-badge.escuela {
-    background: rgba(52, 152, 219, .13);
-    color: #3498DB;
-}
-
-.status-badge.casa {
-    background: rgba(142, 68, 173, .13);
-    color: #8E44AD;
 }
 
 .child-actions {

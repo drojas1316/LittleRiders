@@ -1,3 +1,7 @@
+/* =======================================
+VARIABLES GLOBALES DEL MAPA
+========================================= */
+// Mantienen el estado del mapa, la ruta activa, el hijo seleccionado y el recorrido simulado.
 let mapa;
 let marcadorBuseta;
 let lineaRuta;
@@ -19,10 +23,17 @@ let conductorActual;
 let indiceActual = 0;
 let intervaloMovimiento;
 
+/* =======================================
+INICIALIZACIÓN DEL MÓDULO
+========================================= */
+// Se ejecuta cuando la página termina de cargar y dispara la carga inicial del mapa.
 document.addEventListener("DOMContentLoaded", function () {
     cargarDatosMapa();
 });
 
+/* Carga en memoria todas las colecciones necesarias para construir la vista del mapa.
+    No recibe parámetros y utiliza los datos guardados en localStorage.
+*/
 function cargarDatosMapa() {
     rutas = obtenerDatos(DB_KEYS.rutas);
     gps = obtenerDatos(DB_KEYS.gps);
@@ -34,6 +45,9 @@ function cargarDatosMapa() {
     cargarHijosDelUsuario();
 }
 
+/* Construye la lista desplegable de hijos del padre autenticado.
+    Recorre los hijos activos y genera un botón por cada uno para seleccionar la ruta asociada.
+*/
 function cargarHijosDelUsuario() {
     const usuario = obtenerUsuarioActual();
 
@@ -91,6 +105,11 @@ function cargarHijosDelUsuario() {
     });
 }
 
+/* Marca un hijo como seleccionado en el dropdown y dispara la carga de su ruta.
+    Parámetros:
+    - hijoId: identificador del hijo elegido.
+    - nombreHijo: texto que se mostrará en el selector visual.
+*/
 function seleccionarHijoDropdown(hijoId, nombreHijo) {
     const contenedorSelect = document.getElementById("customSelectHijo");
     const textoSeleccionado = document.getElementById("textoHijoSeleccionado");
@@ -111,6 +130,10 @@ function seleccionarHijoDropdown(hijoId, nombreHijo) {
     cargarRutaPorHijo(Number(hijoId));
 }
 
+/* Carga la ruta completa del hijo seleccionado, incluyendo su GPS, buseta y conductor.
+    Parámetros:
+    - hijoId: identificador del hijo cuyo recorrido se desea mostrar.
+*/
 async function cargarRutaPorHijo(hijoId) {
     hijoActual = hijos.find(function (hijo) {
         return hijo.id === Number(hijoId);
@@ -146,6 +169,9 @@ async function cargarRutaPorHijo(hijoId) {
     iniciarMovimientoBuseta();
 }
 
+/* Ajusta el estado de la simulación según la ubicación del hijo y la hora del día.
+    Evita inconsistencias al definir si la ruta va de ida o regreso.
+*/
 function prepararEstadoGPS() {
     if (!hijoActual.ubicacionActual) {
         hijoActual.ubicacionActual = "casa";
@@ -201,6 +227,9 @@ function prepararEstadoGPS() {
     guardarEstadoGPS();
 }
 
+/* Actualiza los detalles visibles del panel lateral con los datos de la ruta activa.
+    Incluye nombre de ruta, estado del recorrido, datos de la buseta y del conductor.
+*/
 function cargarInformacionRuta() {
     document.getElementById("nombreRuta").textContent = rutaActual.nombre;
 
@@ -225,6 +254,9 @@ function cargarInformacionRuta() {
     actualizarPanelRuta();
 }
 
+/* Devuelve el recorrido que se debe mostrar según el sentido actual de la ruta.
+    Si el viaje va de regreso, invierte el orden de los puntos del recorrido.
+*/
 function obtenerRecorridoActual() {
     if (gpsActual.sentido === "regreso") {
         return gpsActual.recorrido.slice().reverse();
@@ -233,6 +265,9 @@ function obtenerRecorridoActual() {
     return gpsActual.recorrido;
 }
 
+/* Genera y renderiza el mapa interactivo con la ruta, las paradas y la buseta animada.
+    Utiliza Leaflet para mostrar la trayectoria del recorrido.
+*/
 async function crearMapa() {
     if (mapa) {
         mapa.remove();
@@ -322,6 +357,9 @@ async function crearMapa() {
     };
 }
 
+/* Añade al mapa los marcadores visuales de cada parada de la ruta.
+    Cada uno muestra un icono distinto según si es una parada normal o el destino final.
+*/
 function crearMarcadoresParadas() {
     rutaActual.paradas.forEach(function (parada, index) {
         const esDestino = index === rutaActual.paradas.length - 1;
@@ -377,6 +415,9 @@ function crearMarcadoresParadas() {
     });
 }
 
+/* Inicia la simulación del recorrido de la buseta.
+    Cada intervalo avanza a la siguiente posición del recorrido y actualiza el estado del viaje.
+*/
 function iniciarMovimientoBuseta() {
     intervaloMovimiento = setInterval(function () {
         const recorrido = obtenerRecorridoActual();
@@ -517,6 +558,9 @@ function iniciarMovimientoBuseta() {
     }, 3500);
 }
 
+/* Actualiza el panel informativo con la próxima parada, la hora estimada y el tiempo restante.
+    Es la capa visual que acompaña la simulación del recorrido.
+*/
 function actualizarPanelRuta() {
     const datosParada = obtenerProximaParada();
 
@@ -528,6 +572,9 @@ function actualizarPanelRuta() {
         calcularTiempoEstimado() + " min";
 }
 
+/* Determina cuál es la parada más relevante según el punto actual del recorrido.
+    Devuelve el nombre de la parada y la hora estimada de llegada.
+*/
 function obtenerProximaParada() {
     if (gpsActual.estado === "En la escuela") {
         return {
@@ -570,6 +617,9 @@ function obtenerProximaParada() {
     };
 }
 
+/* Calcula el tiempo estimado restante del viaje en minutos.
+    Usa la longitud del recorrido que aún falta por completar.
+*/
 function calcularTiempoEstimado() {
     if (gpsActual.estado === "En la escuela" || gpsActual.estado === "Llegó a casa") {
         return 0;
@@ -581,6 +631,9 @@ function calcularTiempoEstimado() {
     return Math.max(1, Math.ceil(restante * 0.4));
 }
 
+/* Guarda en el almacenamiento local el estado actualizado del GPS actual.
+    Esto permite persistir la simulación entre recargas.
+*/
 function guardarEstadoGPS() {
     const gpsActualizado = gps.map(function (item) {
         if (item.id === gpsActual.id) {
@@ -595,6 +648,10 @@ function guardarEstadoGPS() {
     guardarDatos(DB_KEYS.gps, gps);
 }
 
+/* Convierte una hora en formato HH:MM a minutos totales para facilitar comparaciones.
+    Parámetros:
+    - hora: cadena textual con el formato de hora.
+*/
 function convertirHoraAMinutos(hora) {
     const partes = hora.split(":");
 
@@ -604,12 +661,20 @@ function convertirHoraAMinutos(hora) {
     return horas * 60 + minutos;
 }
 
+/* Devuelve la hora actual en minutos desde el inicio del día.
+    Se usa para comparar horarios de salida y regreso.
+*/
 function obtenerMinutosActuales() {
     const fecha = new Date();
 
     return fecha.getHours() * 60 + fecha.getMinutes();
 }
 
+/* Actualiza la ubicación y el estado de entrega del hijo en memoria y en localStorage.
+    Parámetros:
+    - nuevaUbicacion: valor de la ubicación nueva (casa, escuela o buseta).
+    - nuevoEstadoEntrega: texto visible del estado actual del estudiante.
+*/
 function actualizarUbicacionHijo(nuevaUbicacion, nuevoEstadoEntrega) {
     hijos = hijos.map(function (hijo) {
         if (hijo.id === hijoActual.id) {
@@ -626,6 +691,9 @@ function actualizarUbicacionHijo(nuevaUbicacion, nuevoEstadoEntrega) {
     guardarDatos(DB_KEYS.hijos, hijos);
 }
 
+/* Revisa si la buseta ha llegado a una parada del recorrido y, en ese caso,
+    actualiza el estado de la simulación para mostrar una pausa o un cambio de estado.
+*/
 function revisarParadaSimulada() {
     if (!gpsActual.paradasRealizadas) {
         gpsActual.paradasRealizadas = [];
@@ -671,6 +739,9 @@ function revisarParadaSimulada() {
     });
 }
 
+/* Busca, dentro de un recorrido, el índice del punto más cercano a unas coordenadas dadas.
+    Se usa para detectar si la buseta ha alcanzado una parada concreta.
+*/
 function buscarIndiceMasCercano(lat, lng, recorrido) {
     let indiceCercano = 0;
     let distanciaMenor = Infinity;
@@ -689,6 +760,9 @@ function buscarIndiceMasCercano(lat, lng, recorrido) {
     return indiceCercano;
 }
 
+/* Genera un recorrido más realista por calles utilizando la API de OSRM.
+    Si ya existe un recorrido generado, evita volver a consultarlo.
+*/
 async function generarRecorridoPorCalles() {
     if (gpsActual.recorridoRealGenerado) {
         return;
@@ -727,6 +801,11 @@ async function generarRecorridoPorCalles() {
     }
 }
 
+/* Devuelve la hora estimada de una parada según el sentido del recorrido.
+    Parámetros:
+    - parada: objeto con los datos de la parada.
+    - index: posición de la parada dentro del arreglo.
+*/
 function obtenerHoraParada(parada, index) {
     if (gpsActual.sentido === "ida") {
         return parada.hora;
@@ -746,6 +825,10 @@ function obtenerHoraParada(parada, index) {
     return convertirMinutosAHora(minutosCalculados);
 }
 
+/* Convierte un total de minutos a formato HH:MM para mostrarlo en pantalla.
+    Parámetros:
+    - totalMinutos: número de minutos a transformar.
+*/
 function convertirMinutosAHora(totalMinutos) {
     const horas = Math.floor(totalMinutos / 60) % 24;
     const minutos = totalMinutos % 60;
@@ -756,6 +839,13 @@ function convertirMinutosAHora(totalMinutos) {
     return horasTexto + ":" + minutosTexto;
 }
 
+/* Crea una alerta de seguimiento para el padre del hijo involucrado.
+    Parámetros:
+    - titulo: encabezado de la notificación.
+    - mensaje: texto descriptivo del evento.
+    - tipo: clasificación de la alerta.
+    - prioridad: prioridad visual o lógica de la alerta.
+*/
 function crearAlertaRuta(titulo, mensaje, tipo, prioridad) {
     const usuario = obtenerUsuarioActual();
 
@@ -782,6 +872,10 @@ function crearAlertaRuta(titulo, mensaje, tipo, prioridad) {
     guardarDatos(DB_KEYS.alertas, alertas);
 }
 
+/* Genera un nuevo identificador incremental para los registros de alerta.
+    Parámetros:
+    - lista: arreglo de elementos donde se buscará el siguiente id.
+*/
 function obtenerNuevoId(lista) {
     if (lista.length === 0) {
         return 1;
@@ -792,6 +886,9 @@ function obtenerNuevoId(lista) {
     })) + 1;
 }
 
+/* Devuelve la fecha y hora actual en el formato usado por las alertas del sistema.
+    Sirve para ordenar y mostrar los eventos en el tiempo.
+*/
 function obtenerFechaActualAlerta() {
     const fecha = new Date();
 
@@ -804,6 +901,11 @@ function obtenerFechaActualAlerta() {
     return `${anio}-${mes}-${dia} ${hora}:${minutos}`;
 }
 
+/* Evita duplicar alertas para un mismo evento de la simulación.
+    Parámetros:
+    - clave: identificador único del evento.
+    - titulo, mensaje, tipo, prioridad: datos de la alerta a registrar.
+*/
 function crearAlertaUnaVez(clave, titulo, mensaje, tipo, prioridad) {
     if (!gpsActual.alertasGeneradas) {
         gpsActual.alertasGeneradas = [];

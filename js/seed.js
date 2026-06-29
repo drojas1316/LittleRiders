@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
     inicializarBaseDatos();
 });
 
+/* Inicializa la base de datos simulada desde los JSON
+   locales y dispara el evento principal cuando termina.
+*/
 async function inicializarBaseDatos() {
     //solo para probar, en producción se debe cargar una sola vez y luego comentar esta función
-    const MODO_DESARROLLO = true; // Cambia a false para producción y evitar recargas innecesarias
+    const MODO_DESARROLLO = false; // Cambia a false para producción y evitar recargas innecesarias
 
     const yaInicializado = localStorage.getItem(DB_KEYS.inicializado);
 
@@ -43,6 +46,11 @@ async function inicializarBaseDatos() {
 }
 
 
+/* Carga un archivo JSON y lo guarda en localStorage.
+   Parámetros:
+   - rutaJson: ruta del JSON a leer.
+   - claveStorage: clave donde se almacenará la información.
+*/
 async function cargarJsonEnStorage(rutaJson, claveStorage) {
     const respuesta = await fetch(rutaJson);
 

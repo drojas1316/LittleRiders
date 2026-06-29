@@ -124,9 +124,6 @@ function cargarHijosPadre() {
             })
             : null;
 
-        const estadoEntrega = hijo.estadoEntrega || "En la buseta";
-        const claseEstado = obtenerClaseEstado(estadoEntrega);
-
         const fotoHijo = hijo.foto || "img/usuarios/fotoPerfil1.png";
         const nombreRuta = ruta ? ruta.nombre : "Sin ruta asignada";
         const nombreBuseta = buseta ? buseta.nombre : "Sin buseta";
@@ -150,12 +147,6 @@ function cargarHijosPadre() {
                             <p><strong>Institución:</strong> ${hijo.institucion}</p>
                         </div>
 
-                    </div>
-
-                    <div class="child-status">
-                        <span class="status-badge ${claseEstado}">
-                            ${estadoEntrega}
-                        </span>
                     </div>
 
                     <div class="child-actions">
@@ -192,30 +183,6 @@ function cargarHijosPadre() {
 
     activarBotonesEditarHijo();
 }
-
-
-/* 
-Devuelve la clase CSS que se usará para pintar el estado del hijo.
-Por ejemplo: buseta, escuela o casa.
-*/
-function obtenerClaseEstado(estado) {
-    const estadoMinuscula = estado.toLowerCase();
-
-    if (estadoMinuscula.includes("buseta")) {
-        return "buseta";
-    }
-
-    if (estadoMinuscula.includes("escuela")) {
-        return "escuela";
-    }
-
-    if (estadoMinuscula.includes("casa")) {
-        return "casa";
-    }
-
-    return "buseta";
-}
-
 
 /* 
 Variables globales del modal.
@@ -371,7 +338,6 @@ function abrirModalEditarHijo(hijoId) {
     document.getElementById("hijoInstitucion").value = hijo.institucion;
     document.getElementById("hijoContacto").value = hijo.contactoEmergencia || "";
     document.getElementById("hijoRuta").value = hijo.rutaId;
-    document.getElementById("hijoEstadoEntrega").value = hijo.estadoEntrega || "En la buseta";
     document.getElementById("previewFotoHijo").src = fotoHijoSeleccionada;
 
     const btnEliminarHijo = document.getElementById("btnEliminarHijo");
@@ -425,7 +391,6 @@ function guardarHijoDesdeFormulario() {
     const institucion = document.getElementById("hijoInstitucion").value.trim();
     const contactoEmergencia = document.getElementById("hijoContacto").value.trim();
     const rutaId = Number(document.getElementById("hijoRuta").value);
-    const estadoEntrega = document.getElementById("hijoEstadoEntrega").value;
     const ubicacionActual = obtenerUbicacionDesdeEstado(estadoEntrega);
 
     if (nombre.length < 3) {
@@ -476,7 +441,6 @@ function guardarHijoDesdeFormulario() {
         institucion: institucion,
         contactoEmergencia: contactoEmergencia,
         rutaId: rutaId,
-        estadoEntrega: estadoEntrega,
         ubicacionActual: ubicacionActual,
         estado: "activo",
         foto: fotoHijoSeleccionada || "img/usuarios/fotoPerfil1.png"

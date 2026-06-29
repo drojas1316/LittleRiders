@@ -21,9 +21,8 @@ menuItems.forEach(item => {
 
 });
 
-/*
-    Inicializa las funciones principales
-    cuando la página termina de cargar.
+/* Inicializa las funciones principales del dashboard
+   cuando la página termina de cargar.
 */
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -36,11 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/*
-    cargarPerfilUsuario()
-
-    Carga la información del usuario que inició sesión
-    y la muestra en el perfil y en el modal.
+/* Carga la información del usuario actual y la muestra
+   tanto en el header como en el modal de cuenta.
 */
 function cargarPerfilUsuario() {
 

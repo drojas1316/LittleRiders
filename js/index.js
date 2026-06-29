@@ -1,3 +1,6 @@
+/* Maneja el formulario de contacto de la landing page.
+   Valida campos, construye el mensaje y abre WhatsApp.
+*/
 const formulario = document.getElementById("contactForm");
 
 if (formulario) {
@@ -57,6 +60,11 @@ ${mensaje}`;
     });
 }
 
+/* Muestra un mensaje de error debajo del campo indicado.
+   Parámetros:
+   - idCampo: id del input que debe marcarse como inválido.
+   - mensaje: texto de error que verá el usuario.
+*/
 function mostrarErrorContacto(idCampo, mensaje) {
     const campo = document.getElementById(idCampo);
 
@@ -69,6 +77,7 @@ function mostrarErrorContacto(idCampo, mensaje) {
     campo.parentElement.appendChild(error);
 }
 
+/* Elimina los errores visuales previos del formulario. */
 function limpiarErroresContacto() {
     const errores = document.querySelectorAll(".mensaje-error");
     const campos = document.querySelectorAll(".input-error");

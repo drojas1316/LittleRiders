@@ -1,6 +1,7 @@
 /* =======================================
 LOCALSTORAGE - LITTLE RIDERS
-Base de datos simulada
+Centraliza la lectura y escritura de datos
+simulados en localStorage.
 ========================================= */
 
 const DB_KEYS = {
@@ -18,13 +19,19 @@ const DB_KEYS = {
     inicializado: "lr_inicializado"
 };
 
-/* Guardar una lista u objeto en localStorage */
+/* Guarda una lista u objeto en localStorage.
+   Parámetros:
+   - clave: nombre de la clave de almacenamiento.
+   - datos: valor serializable para persistir.
+*/
 function guardarDatos(clave, datos) {
     localStorage.setItem(clave, JSON.stringify(datos));
 }
 
 
-/* Obtener datos desde localStorage */
+/* Recupera datos desde localStorage.
+   Si la clave no existe, devuelve un arreglo vacío.
+*/
 function obtenerDatos(clave) {
     const datos = localStorage.getItem(clave);
 
@@ -35,7 +42,11 @@ function obtenerDatos(clave) {
     return JSON.parse(datos);
 }
 
-/* Obtener un registro por id */
+/* Obtiene un registro por su identificador.
+   Parámetros:
+   - clave: colección de datos.
+   - id: identificador del registro.
+*/
 function obtenerPorId(clave, id) {
     const datos = obtenerDatos(clave);
 
@@ -43,7 +54,9 @@ function obtenerPorId(clave, id) {
 }
 
 
-/* Agregar un nuevo registro */
+/* Agrega un nuevo registro a una colección.
+   El id se asigna automáticamente si no existe.
+*/
 function agregarDato(clave, nuevoDato) {
     const datos = obtenerDatos(clave);
 
@@ -61,7 +74,12 @@ function agregarDato(clave, nuevoDato) {
 }
 
 
-/* Actualizar un registro */
+/* Actualiza un registro existente por id.
+   Parámetros:
+   - clave: colección en la que se encuentra el registro.
+   - id: identificador a modificar.
+   - datosActualizados: campos nuevos para fusionar.
+*/
 function actualizarDato(clave, id, datosActualizados) {
     const datos = obtenerDatos(clave);
 
