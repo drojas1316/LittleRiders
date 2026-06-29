@@ -239,6 +239,127 @@ ALERTAS
 }
 
 /* =========================================
+MENÚ DE ALERTAS
+========================================= */
+
+.alerta-card {
+    position: relative;
+    overflow: visible;
+}
+
+.alerta-card.menu-abierto {
+    z-index: 100;
+}
+
+.alertas-list {
+    overflow: visible;
+}
+
+.alerta-extra {
+    position: relative;
+    z-index: 2;
+}
+
+.alerta-menu-wrapper {
+    position: relative;
+    z-index: 20;
+    margin-top: 4px;
+}
+
+.btn-menu-alerta {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    background: #F8FAFC;
+    color: #64748B;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .3s;
+}
+
+.btn-menu-alerta:hover {
+    background: #E2E8F0;
+    color: #111827;
+}
+
+.menu-alerta {
+    position: absolute;
+    top: 42px;
+    right: 0;
+
+    min-width: 210px;
+
+    background: white;
+
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+
+    padding: 8px;
+
+    box-shadow: 0 18px 35px rgba(15, 23, 42, .18);
+
+    display: none;
+
+    z-index: 999;
+}
+
+.menu-alerta.active {
+    display: grid;
+    gap: 4px;
+}
+
+.menu-alerta button {
+    width: 100%;
+
+    border: none;
+    cursor: pointer;
+
+    background: transparent;
+    color: #334155;
+
+    padding: 11px 12px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-weight: 800;
+    font-size: .86rem;
+
+    text-align: left;
+
+    transition: .3s;
+}
+
+.menu-alerta button:hover {
+    background: #F8FAFC;
+}
+
+.menu-alerta .opcion-marcar-leida i {
+    color: #27AE60;
+}
+
+.menu-alerta .opcion-eliminar-alerta {
+    color: #EF4444;
+}
+
+.menu-alerta .opcion-eliminar-alerta:hover {
+    background: rgba(239, 68, 68, .10);
+}
+
+
+
+/* =========================================
 ALERTAS RESPONSIVE
 ========================================= */
 

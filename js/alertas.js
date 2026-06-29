@@ -92,35 +92,51 @@ function cargarAlertas() {
                     <div class="alerta-title-row">
                         <h3>${alerta.titulo}</h3>
 
-                        ${
-                            alerta.leida
-                                ? `<span class="alerta-leida">Leída</span>`
-                                : `<span class="alerta-nueva">Nueva</span>`
-                        }
+                        ${alerta.leida
+                ? `<span class="alerta-leida">Leída</span>`
+                : `<span class="alerta-nueva">Nueva</span>`
+            }
                     </div>
 
                     <p>${alerta.mensaje}</p>
 
-                    ${
-                        nombreHijo
-                            ? `<small class="alerta-hijo">Estudiante: ${nombreHijo}</small>`
-                            : ""
-                    }
+                    ${nombreHijo
+                ? `<small class="alerta-hijo">Estudiante: ${nombreHijo}</small>`
+                : ""
+            }
                 </div>
 
                 <div class="alerta-extra">
                     <span class="alerta-hora">${fechaFormateada}</span>
                     <span class="alerta-ruta">${nombreRuta}</span>
                     <span class="alerta-prioridad ${alerta.prioridad}">
-                        ${textoPrioridad}
+                    ${textoPrioridad}
                     </span>
+
+                    <div class="alerta-menu-wrapper">
+                        <button class="btn-menu-alerta" type="button" data-id="${alerta.id}">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                        <div class="menu-alerta">
+                            <button type="button" class="opcion-marcar-leida" data-id="${alerta.id}">
+                                <i class="fa-solid fa-check"></i>
+                                Marcar como leída
+                            </button>
+
+                            <button type="button" class="opcion-eliminar-alerta" data-id="${alerta.id}">
+                                <i class="fa-solid fa-trash"></i>
+                                Eliminar notificación
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </article>
         `;
     });
 
-    activarClickAlertas();
+    activarMenusAlertas();
 }
 
 
@@ -142,17 +158,116 @@ function activarFiltrosAlertas() {
     });
 }
 
+/*
+Activa el menú de tres puntos de cada alerta.
+Desde aquí se puede marcar como leída o eliminar.
+*/
+function activarMenusAlertas() {
+    const botonesMenu = document.querySelectorAll(".btn-menu-alerta");
+    const botonesMarcar = document.querySelectorAll(".opcion-marcar-leida");
+    const botonesEliminar = document.querySelectorAll(".opcion-eliminar-alerta");
 
-function activarClickAlertas() {
-    const tarjetas = document.querySelectorAll(".alerta-card");
+    botonesMenu.forEach(function (boton) {
+        boton.addEventListener("click", function (e) {
+            e.stopPropagation();
 
-    tarjetas.forEach(function (tarjeta) {
-        tarjeta.addEventListener("click", function () {
-            const alertaId = Number(tarjeta.dataset.id);
+            const tarjeta = boton.closest(".alerta-card");
+            const wrapper = boton.closest(".alerta-menu-wrapper");
+            const menu = wrapper.querySelector(".menu-alerta");
+
+            cerrarMenusAlertas(menu);
+
+            menu.classList.toggle("active");
+
+            if (tarjeta) {
+                tarjeta.classList.toggle("menu-abierto", menu.classList.contains("active"));
+            }
+        });
+    });
+
+    botonesMarcar.forEach(function (boton) {
+        boton.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            const alertaId = Number(boton.dataset.id);
+
             marcarAlertaComoLeida(alertaId);
         });
     });
+
+    botonesEliminar.forEach(function (boton) {
+        boton.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            const alertaId = Number(boton.dataset.id);
+
+            eliminarAlerta(alertaId);
+        });
+    });
 }
+
+/*
+Cierra todos los menús de alerta, excepto uno opcional.
+*/
+function cerrarMenusAlertas(menuActual) {
+    const menus = document.querySelectorAll(".menu-alerta");
+    const tarjetas = document.querySelectorAll(".alerta-card");
+
+    menus.forEach(function (menu) {
+        if (menu !== menuActual) {
+            menu.classList.remove("active");
+        }
+    });
+
+    tarjetas.forEach(function (tarjeta) {
+        const menu = tarjeta.querySelector(".menu-alerta");
+
+        if (!menu || !menu.classList.contains("active")) {
+            tarjeta.classList.remove("menu-abierto");
+        }
+    });
+}
+
+/*
+Elimina definitivamente una alerta del localStorage.
+*/
+function eliminarAlerta(alertaId) {
+    const alertas = obtenerDatos(DB_KEYS.alertas);
+
+    const alertaExiste = alertas.some(function (alerta) {
+        return alerta.id === alertaId;
+    });
+
+    if (!alertaExiste) {
+        mostrarNotificacion("No se encontró la alerta.", "error");
+        return;
+    }
+
+    const alertasActualizadas = alertas.filter(function (alerta) {
+        return alerta.id !== alertaId;
+    });
+
+    localStorage.setItem(
+        DB_KEYS.alertas,
+        JSON.stringify(alertasActualizadas)
+    );
+
+    mostrarNotificacion("Notificación eliminada.", "success");
+
+    cargarAlertas();
+}
+
+
+/*
+Cierra los menús cuando se hace click fuera.
+*/
+document.addEventListener("click", function () {
+    cerrarMenusAlertas();
+});
+
+/*
+Marca una alerta como leída en localStorage.
+*/
 
 
 function marcarAlertaComoLeida(alertaId) {
@@ -162,7 +277,13 @@ function marcarAlertaComoLeida(alertaId) {
         return item.id === alertaId;
     });
 
-    if (!alerta || alerta.leida) {
+    if (!alerta) {
+        mostrarNotificacion("No se encontró la alerta.", "error");
+        return;
+    }
+
+    if (alerta.leida) {
+        mostrarNotificacion("Esta alerta ya estaba marcada como leída.", "info");
         return;
     }
 
