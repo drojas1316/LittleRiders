@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* =========================================
 RESET
 ========================================= */
@@ -552,9 +556,9 @@ TARJETA DE SEGURIDAD
 
 .security-card {
 
-    background: #ffffff;
+    background: #111;
 
-    color: #111827;
+    color: #ffffff;
 
     border-radius: 25px;
 
@@ -565,7 +569,7 @@ TARJETA DE SEGURIDAD
 
 .security-card h2 {
 
-    color: #F2C230;
+    color: #e1a729;
 
     margin-bottom: 30px;
 
@@ -588,15 +592,27 @@ TARJETA DE SEGURIDAD
     margin-bottom: 0;
 }
 
-.security-item i {
 
-    width: 28px;
 
-    color: #F2C230;
-
-    font-size: 1.3rem;
+/* GPS */
+.gps-icon {
+    color: #3B82F6;
 }
 
+/* Conductor */
+.conductor-icon {
+    color: #10B981;
+}
+
+/* Ruta */
+.ruta-icon {
+    color: #F59E0B;
+}
+
+/* Alertas */
+.alerta-icon {
+    color: #EF4444;
+}
 
 /* =======================================
 FOOTER
