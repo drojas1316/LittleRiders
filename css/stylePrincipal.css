@@ -1,204 +1,318 @@
-html{
+html {
     scroll-behavior: smooth;
 }
 
-/* =========================================
-BODY
-========================================= */
-
 body {
     min-height: 100vh;
-
     background:
-        radial-gradient(circle at top right,
-            rgba(242, 194, 48, .18),
-            transparent 300px),
-
-        radial-gradient(circle at bottom left,
-            rgba(242, 194, 48, .15),
-            transparent 350px),
-
+        radial-gradient(circle at top right, rgba(242, 194, 48, .18), transparent 300px),
+        radial-gradient(circle at bottom left, rgba(242, 194, 48, .15), transparent 350px),
         #F8FAFC;
 }
 
+.security-card h2 span {
+    background: linear-gradient(90deg, #F2C230, #D97706);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
 
-/* =========================================
-CONTENIDO
-========================================= */
+.security-item i {
+    width: 28px;
+    font-size: 1.3rem;
+}
 
-.dashboard-content {
+.gps-icon { color: #3B82F6; }
+.conductor-icon { color: #10B981; }
+.ruta-icon { color: #F59E0B; }
+.alerta-icon { color: #EF4444; }
+
+.inicio-panel {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 24px;
 }
 
-/* =========================================
-FILA SUPERIOR
-========================================= */
-
-.top-row {
-    display: grid;
-
-    grid-template-columns: 2.8fr 1fr;
-
-    gap: 25px;
-}
-
-
-/* =========================================
-MAPA
-========================================= */
-
-.map-card {
-    background: white;
-
-    border-radius: 25px;
-
-    padding: 25px;
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
-}
-
-.card-header h2 {
-    color: #0F172A;
-}
-
-.card-header p {
-    color: #64748B;
-
-    margin-top: 5px;
-}
-
-.gps-map {
-
-    margin-top: 20px;
-
-    height: 650px;
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    border: 4px solid #FFF8E8;
-}
-
-.gps-map iframe {
+.inicio-hero,
+.actividad-card {
     width: 100%;
-    height: 100%;
-
-    border: none;
-}
-
-/* =========================================
-PANEL DERECHO
-========================================= */
-
-.right-panel {
-    display: grid;
-
-    grid-template-rows: 1fr 1fr;
-
-    gap: 25px;
-}
-
-/* =========================================
-TARJETAS VACÍAS
-========================================= */
-
-.empty-card {
-
     background: white;
-
-    border-radius: 25px;
-
-    padding: 25px;
-
-    min-height: 250px;
-
-    border: 1px solid #EEF2F7;
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .04);
-
-    transition: .3s;
+    border-radius: 28px;
+    padding: 34px;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, .08);
 }
 
-.empty-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
+.inicio-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    background: linear-gradient(135deg, #FFF8E8, #FFFFFF);
 }
 
-.empty-card h3 {
+.inicio-badge {
+    color: #D97706;
+    background: #FFF4D6;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 900;
+}
+
+.inicio-hero h1 {
+    margin-top: 18px;
     color: #0F172A;
+    font-size: 2.7rem;
 }
 
-/* =========================================
-FILA INFERIOR
-========================================= */
+.inicio-hero h1 span {
+    color: #D97706;
+}
 
-.bottom-row {
+.inicio-hero p {
+    color: #64748B;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.inicio-escena {
+    position: relative;
+    height: 260px;
+    margin-top: 24px;
+}
+
+.inicio-sol {
+    position: absolute;
+    top: 5px;
+    right: 120px;
+    width: 80px;
+    height: 80px;
+    background: #F2C230;
+    border-radius: 50%;
+    box-shadow: 0 0 55px rgba(242,194,48,.55);
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.inicio-nube {
+    position: absolute;
+    width: 120px;
+    height: 42px;
+    background: white;
+    border-radius: 999px;
+    box-shadow: 0 10px 22px rgba(15,23,42,.08);
+    animation: nubeMover 7s ease-in-out infinite alternate;
+}
+
+.inicio-nube::before,
+.inicio-nube::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.inicio-nube::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 18px;
+}
+
+.inicio-nube::after {
+    width: 60px;
+    height: 60px;
+    top: -35px;
+    right: 18px;
+}
+
+.nube-uno {
+    top: 70px;
+    left: 120px;
+}
+
+.nube-dos {
+    top: 120px;
+    right: 220px;
+    transform: scale(.75);
+}
+
+.inicio-ruta {
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    bottom: 25px;
     display: grid;
-
-    grid-template-columns: 1.5fr 1fr;
-
-    gap: 25px;
+    grid-template-columns: 70px 1fr 70px;
+    align-items: center;
+    gap: 18px;
 }
 
-.large {
-    min-height: 300px;
+.inicio-casa,
+.inicio-escuela {
+    width: 66px;
+    height: 66px;
+    background: #F2C230;
+    color: #111827;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 12px 25px rgba(15,23,42,.18);
 }
 
-/* =========================================
-RESPONSIVE DASHBOARD PRINCIPAL
-========================================= */
+.inicio-escuela {
+    background: #7C3AED;
+    color: white;
+}
 
-@media (max-width: 1000px) {
+.inicio-camino {
+    position: relative;
+    height: 14px;
+    background: repeating-linear-gradient(
+        90deg,
+        #F59E0B 0 28px,
+        transparent 28px 42px
+    );
+    border-radius: 999px;
+}
 
-    .top-row {
+.inicio-bus {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 58px;
+    height: 58px;
+    transform: translateY(-50%);
+    background: #F2C230;
+    color: #111827;
+    border: 5px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 25px rgba(15,23,42,.25);
+    animation: busInicio 5.5s ease-in-out infinite alternate;
+}
+
+.inicio-bus i {
+    font-size: 1.5rem;
+}
+
+.actividad-card {
+    min-height: 260px;
+}
+
+.actividad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.actividad-header h2 {
+    color: #0F172A;
+    font-size: 1.6rem;
+}
+
+.actividad-header p {
+    color: #64748B;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.actividad-punto {
+    width: 14px;
+    height: 14px;
+    background: #22C55E;
+    border-radius: 50%;
+    animation: pulso 1.5s infinite;
+}
+
+.actividad-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.actividad-item {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+    align-items: center;
+    background: #F8FAFC;
+    border-radius: 18px;
+    padding: 14px;
+    animation: aparecerActividad .4s ease;
+}
+
+.actividad-icono {
+    width: 46px;
+    height: 46px;
+    background: #FFF4D6;
+    color: #D97706;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actividad-item h3 {
+    color: #0F172A;
+    font-size: .95rem;
+}
+
+.actividad-item p {
+    color: #64748B;
+    font-size: .82rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+@keyframes busInicio {
+    from { left: 0; }
+    to { left: calc(100% - 58px); }
+}
+
+@keyframes nubeMover {
+    from { margin-left: 0; }
+    to { margin-left: 35px; }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes pulso {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34,197,94,.35);
+    }
+
+    100% {
+        box-shadow: 0 0 0 12px rgba(34,197,94,0);
+    }
+}
+
+@keyframes aparecerActividad {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .actividad-lista {
         grid-template-columns: 1fr;
     }
 
-    .right-panel {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-    }
-
-    .bottom-row {
-        grid-template-columns: 1fr;
-    }
-
-    .gps-map {
-        height: 500px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .dashboard-content {
-        gap: 18px;
-    }
-
-    .map-card,
-    .empty-card {
-        padding: 20px;
-        border-radius: 20px;
-    }
-
-    .right-panel {
-        grid-template-columns: 1fr;
-    }
-
-    .gps-map {
-        height: 360px;
-        border-radius: 18px;
-    }
-
-    .empty-card {
-        min-height: 180px;
-    }
-
-    .large {
-        min-height: 220px;
+    .inicio-hero h1 {
+        font-size: 2.1rem;
     }
 }

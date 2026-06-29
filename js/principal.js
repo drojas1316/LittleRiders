@@ -306,3 +306,144 @@ function activarCambioFoto() {
 
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    cargarInicioPrincipal();
+});
+
+document.addEventListener("baseDatosLista", function () {
+    cargarInicioPrincipal();
+});
+
+function cargarInicioPrincipal() {
+    cargarNombreInicio();
+    cargarActividadInicio();
+}
+
+function cargarNombreInicio() {
+    const usuario = obtenerUsuarioActual();
+    const nombreTexto = document.getElementById("nombreInicioUsuario");
+
+    if (!usuario || !nombreTexto) {
+        return;
+    }
+
+    const primerNombre = usuario.nombre
+        ? usuario.nombre.split(" ")[0]
+        : "Usuario";
+
+    nombreTexto.textContent = primerNombre;
+}
+
+function cargarActividadInicio() {
+    const contenedor = document.getElementById("listaActividadInicio");
+
+    if (!contenedor) {
+        return;
+    }
+
+    const usuario = obtenerUsuarioActual();
+
+    if (!usuario) {
+        return;
+    }
+
+    const alertas = obtenerDatos(DB_KEYS.alertas);
+    const hijos = obtenerDatos(DB_KEYS.hijos);
+    const padres = obtenerDatos(DB_KEYS.padres);
+
+    const padre = padres.find(function (item) {
+        return item.usuarioId === usuario.id;
+    });
+
+    if (!padre) {
+        contenedor.innerHTML = `
+            <div class="actividad-item">
+                <div class="actividad-icono">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div>
+                    <h3>Sin actividad reciente</h3>
+                    <p>No hay hijos asociados a esta cuenta.</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    const hijosUsuario = hijos.filter(function (hijo) {
+        return hijo.padreId === padre.id;
+    });
+
+    const idsHijos = hijosUsuario.map(function (hijo) {
+        return hijo.id;
+    });
+
+    let alertasHijos = alertas.filter(function (alerta) {
+        return idsHijos.includes(alerta.hijoId);
+    });
+
+    alertasHijos.sort(function (a, b) {
+        return new Date(b.fecha.replace(" ", "T")) - new Date(a.fecha.replace(" ", "T"));
+    });
+
+    alertasHijos = alertasHijos.slice(0, 5);
+
+    if (alertasHijos.length === 0) {
+        contenedor.innerHTML = `
+            <div class="actividad-item">
+                <div class="actividad-icono">
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <div>
+                    <h3>Sin actividad reciente</h3>
+                    <p>Aquí aparecerán las salidas y llegadas de tus hijos.</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    contenedor.innerHTML = "";
+
+    alertasHijos.forEach(function (alerta) {
+        const hijo = hijos.find(function (item) {
+            return item.id === alerta.hijoId;
+        });
+
+        const nombreHijo = hijo ? hijo.nombre : "Estudiante";
+
+        contenedor.innerHTML += `
+            <div class="actividad-item">
+                <div class="actividad-icono">
+                    <i class="fa-solid ${obtenerIconoActividad(alerta.tipo)}"></i>
+                </div>
+
+                <div>
+                    <h3>${nombreHijo}</h3>
+                    <p>${alerta.mensaje}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function obtenerIconoActividad(tipo) {
+    if (tipo === "llegada") {
+        return "fa-circle-check";
+    }
+
+    if (tipo === "demora") {
+        return "fa-clock";
+    }
+
+    if (tipo === "incidente") {
+        return "fa-triangle-exclamation";
+    }
+
+    if (tipo === "comunicado") {
+        return "fa-bell";
+    }
+
+    return "fa-bell";
+}

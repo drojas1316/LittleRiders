@@ -32,7 +32,7 @@
 
         <div class="perfil">
 
-            <a href="#" class="notification-btn">
+            <a href="alertas.html" class="notification-btn">
                 <i class="fa-regular fa-bell"></i>
             </a>
 
@@ -145,68 +145,60 @@
 
         </aside>
 
-        <!-- CONTENIDO -->
-        <section class="dashboard-content">
+        <section class="inicio-panel">
 
-            <!-- FILA SUPERIOR -->
-
-            <div class="top-row">
-
-                <!-- MAPA -->
-
-                <div class="map-card">
-
-                    <div class="card-header">
-
-                        <h2>Mapa en vivo</h2>
-
-                        <p>
-                            Sigue la ubicación de la buseta en tiempo real
-                        </p>
-
-                    </div>
-
-                    <div class="gps-map">
-
-                        <iframe
-                            src="https://maps.google.com/maps?q=san%20jose%20costa%20rica&t=&z=13&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
-
-                    </div>
-
+            <div class="inicio-hero">
+                <div>
+                    <span class="inicio-badge">Panel principal</span>
+                    <h1>
+                        Hola, <span id="nombreInicioUsuario">Usuario</span> 👋
+                    </h1>
+                    <p>
+                        Cada viaje seguro comienza con una sonrisa.
+                    </p>
                 </div>
 
-                <!-- PANEL DERECHO -->
+                <div class="inicio-escena">
+                    <div class="inicio-sol"></div>
+                    <div class="inicio-nube nube-uno"></div>
+                    <div class="inicio-nube nube-dos"></div>
 
-                <div class="right-panel">
+                    <div class="inicio-ruta">
+                        <span class="inicio-casa">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
 
-                    <div class="empty-card">
-                        <h3>Mis Hijos</h3>
+                        <div class="inicio-camino">
+                            <div class="inicio-bus">
+                                <i class="fa-solid fa-bus"></i>
+                            </div>
+                        </div>
+
+                        <span class="inicio-escuela">
+                            <i class="fa-solid fa-school"></i>
+                        </span>
                     </div>
-
-                    <div class="empty-card">
-                        <h3>Alertas</h3>
-                    </div>
-
                 </div>
-
             </div>
 
-            <!-- FILA INFERIOR -->
+            <div class="actividad-card">
+                <div class="actividad-header">
+                    <div>
+                        <h2>Última actividad</h2>
+                        <p>Movimientos recientes de tus hijos.</p>
+                    </div>
 
-            <div class="bottom-row">
-
-                <div class="empty-card large">
-                    <h3>Busetas</h3>
+                    <span class="actividad-punto"></span>
                 </div>
 
-                <div class="empty-card">
-                    <h3>Conductores</h3>
+                <div id="listaActividadInicio" class="actividad-lista">
+                    <!-- Se carga con JS -->
                 </div>
-
             </div>
 
         </section>
+
+
 
     </main>
 
