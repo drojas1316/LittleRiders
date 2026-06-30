@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* Inicializa la base de datos simulada desde los JSON
-   locales y dispara el evento principal cuando termina.
+    locales y dispara el evento principal cuando termina.
 */
 async function inicializarBaseDatos() {
     //solo para probar, en producción se debe cargar una sola vez y luego comentar esta función
-    const MODO_DESARROLLO = false; // Cambia a false para producción y evitar recargas innecesarias
+    const MODO_DESARROLLO = true; // Cambia a false para producción y evitar recargas innecesarias
 
     const yaInicializado = localStorage.getItem(DB_KEYS.inicializado);
 
@@ -29,7 +29,6 @@ async function inicializarBaseDatos() {
         await cargarJsonEnStorage("data/conductores.json", DB_KEYS.conductores);
         await cargarJsonEnStorage("data/busetas.json", DB_KEYS.busetas);
         await cargarJsonEnStorage("data/rutas.json", DB_KEYS.rutas);
-        await cargarJsonEnStorage("data/pagos.json", DB_KEYS.pagos);
         await cargarJsonEnStorage("data/mensajes.json", DB_KEYS.mensajes);
         await cargarJsonEnStorage("data/alertas.json", DB_KEYS.alertas);
         await cargarJsonEnStorage("data/gps.json", DB_KEYS.gps);
@@ -47,9 +46,9 @@ async function inicializarBaseDatos() {
 
 
 /* Carga un archivo JSON y lo guarda en localStorage.
-   Parámetros:
-   - rutaJson: ruta del JSON a leer.
-   - claveStorage: clave donde se almacenará la información.
+    Parámetros:
+    - rutaJson: ruta del JSON a leer.
+    - claveStorage: clave donde se almacenará la información.
 */
 async function cargarJsonEnStorage(rutaJson, claveStorage) {
     const respuesta = await fetch(rutaJson);

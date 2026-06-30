@@ -185,7 +185,7 @@ ALERTAS
 }
 
 .alerta-card.leida {
-    opacity: .82;
+    background: #FCFCFD;
 }
 
 .alerta-title-row {

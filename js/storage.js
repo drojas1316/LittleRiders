@@ -11,7 +11,6 @@ const DB_KEYS = {
     conductores: "lr_conductores",
     busetas: "lr_busetas",
     rutas: "lr_rutas",
-    pagos: "lr_pagos",
     mensajes: "lr_mensajes",
     alertas: "lr_alertas",
     gps: "lr_gps",
