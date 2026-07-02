@@ -391,7 +391,6 @@ function guardarHijoDesdeFormulario() {
     const institucion = document.getElementById("hijoInstitucion").value.trim();
     const contactoEmergencia = document.getElementById("hijoContacto").value.trim();
     const rutaId = Number(document.getElementById("hijoRuta").value);
-    const ubicacionActual = obtenerUbicacionDesdeEstado(estadoEntrega);
 
     if (nombre.length < 3) {
         mostrarNotificacion("El nombre debe tener al menos 3 letras.", "warning");
@@ -441,7 +440,6 @@ function guardarHijoDesdeFormulario() {
         institucion: institucion,
         contactoEmergencia: contactoEmergencia,
         rutaId: rutaId,
-        ubicacionActual: ubicacionActual,
         estado: "activo",
         foto: fotoHijoSeleccionada || "img/usuarios/fotoPerfil1.png"
     };
@@ -543,16 +541,4 @@ function activarBotonesEditarHijo() {
             abrirModalEditarHijo(hijoId);
         });
     });
-}
-
-function obtenerUbicacionDesdeEstado(estadoEntrega) {
-    if (estadoEntrega === "En la escuela") {
-        return "escuela";
-    }
-
-    if (estadoEntrega === "En casa") {
-        return "casa";
-    }
-
-    return "buseta";
 }
